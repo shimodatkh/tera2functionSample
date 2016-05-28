@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="serverBlockageForm"
+               type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="serverBlockageState" type="java.lang.String" initial="open"/>
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- サーバ閉塞チェック画面表示 -->
+    <action path="/serverBlockageForward"
+            scope="request"
+            name="serverBlockageForm"
+            validate="false"
+            parameter="/sc0601.jsp" />
+    
+    <!-- サーバ閉塞・開放のディスパッチアクション -->
+    <action path="/serverBlockageDispatch"
+            name="serverBlockageForm"
+            scope="request"
+            validate="false">
+      <forward name="cancel" path="/cancelBlockage.do" />
+      <forward name="blockage" path="/serverBlockage.do" />
+    </action>
+        
+    <!-- サーバを閉塞するアクション -->
+    <action path="/serverBlockage" name="serverBlockageForm" scope="request" validate="false">
+     <forward name="success" path="/serverBlockageForward.do"/>
+    </action>
+    
+    <!-- サーバを閉塞するアクション -->
+    <action path="/cancelBlockage" name="serverBlockageForm" scope="request" validate="false">
+     <forward name="success" path="/serverBlockageForward.do"/>
+    </action>
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/serverblockage/serverblockageContext.xml"/>
+  </plug-in>
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/serverblockage/blogic-serverblockage-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+</struts-config>

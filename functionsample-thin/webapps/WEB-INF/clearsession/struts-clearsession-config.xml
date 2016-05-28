@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- セッションクリア画面遷移 -->
+    <action path="/clearsessionForward" parameter="/clearsession/sc1901.jsp" />
+  
+    <!-- セッションクリア用のセッション値を生成するアクション -->
+    <action path="/clearsessionInitialize" parameter="/clearsessionForward.do" />
+    
+    <!-- セッション値をクリアするアクション -->
+    <action path="/clearsessionClear" parameter="/clearsessionForward.do" />
+    
+    <!-- セッション値をクリアしてメニューに戻るアクション -->
+    <action path="/clearsessionMenu" parameter="/clearsessionMenuForward.do" />
+    
+    <action path="/clearsessionMenuForward">
+      <forward name="success" path="/../menuForward.do" redirect="true" />
+    </action>
+    
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/clearsession/clearsessionContext.xml"/>
+  </plug-in>
+
+</struts-config>

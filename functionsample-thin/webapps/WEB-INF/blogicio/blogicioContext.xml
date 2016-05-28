@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- ビジネスロジック入出力モジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/blogicio/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+      
+  <!-- ビジネスロジック入出力処理メニュー画面遷移 -->
+  <bean name="/blogicio/blogicioForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ビジネスロジック入出力画面「form」入力画面遷移 -->
+  <bean name="/blogicio/formBlogicioInputForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ビジネスロジック入出力画面「request」結果画面遷移 -->
+  <bean name="/blogicio/requestBlogicioForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ビジネスロジック入出力画面「session」結果画面遷移 -->
+  <bean name="/blogicio/sessionBlogicioForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ビジネスロジック入出力画面「session」結果画面遷移 -->
+  <bean name="/blogicio/applicationBlogicioForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+        
+  <!-- ビジネスロジック入出力画面「入出力null」結果画面遷移 -->
+  <bean name="/blogicio/nullBlogicioForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ビジネスロジック入出力画面「form」結果画面遷移 -->
+  <bean name="/blogicio/formBlogicioResultForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ビジネスロジック入出力画面「form」のサービス処理 -->
+  <bean name="/blogicio/formBlogicio" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blogicio.web.action.FormBlogicioAction">
+  </bean>
+  
+  <!-- ビジネスロジック入出力画面「request」のサービス処理 -->
+  <bean name="/blogicio/requestBlogicio" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blogicio.web.action.RequestBlogicioAction">
+  </bean>
+  
+  <!-- ビジネスロジック入出力画面「session」のサービス処理 -->
+  <bean name="/blogicio/sessionBlogicio" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blogicio.web.action.SessionBlogicioAction">
+  </bean>
+
+  <!-- ビジネスロジック入出力画面「session」のサービス処理 -->
+  <bean name="/blogicio/applicationBlogicio" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blogicio.web.action.ApplicationBlogicioAction">
+  </bean>
+
+
+  <!-- ビジネスロジック入出力画面「入出力null」のサービス処理 -->
+  <bean name="/blogicio/nullBlogicio" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blogicio.web.action.NullBlogicioAction">
+  </bean>
+</beans>

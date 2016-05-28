@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+  </form-beans>
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- フォワード画面 -->
+    <action path="/forwardForward"
+            parameter="/sc1801.jsp" />
+
+    <!-- フォワード結果画面 -->
+    <action path="/forwardResultForward"
+            parameter="/sc1802.jsp" />
+
+    <!-- フォワード結果画面 -->
+    <action path="/forwardRedirectForward">
+      <forward name="success" redirect="true" path="/forwardRedirect.do" />
+    </action>
+    
+    <!-- フォワード結果アクション -->
+    <action path="/forwardRedirect">
+      <forward name="success" redirect="true" module="/forward"
+               path="/forwardResultForward.do" />
+    </action>
+
+    <!-- フォワード：parameterなし→404エラー画面遷移 -->
+    <action path="/forwardError" />
+    
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/forward/forwardContext.xml"/>
+  </plug-in>
+
+</struts-config>

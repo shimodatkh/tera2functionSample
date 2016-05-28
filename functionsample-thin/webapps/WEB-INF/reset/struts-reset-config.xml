@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="_resetForm"
+        type="jp.terasoluna.thin.functionsample.reset.web.form.ResetForm" >
+    </form-bean>
+    
+    <form-bean name="_resetDynaForm"
+      type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="testItem1" type="java.lang.Boolean" initial="true" />
+      <form-property name="testItem2" type="java.lang.Boolean" initial="true" />
+      <form-property name="testItem3" type="java.lang.Boolean" initial="true" />
+      <form-property name="testItem4" type="java.lang.Boolean" initial="true" />
+      <form-property name="testItem5" type="java.lang.Boolean" initial="true" />
+      
+      <form-property name="mapItems" type="java.util.HashMap" />
+      
+      <form-property name="rows1" type="jp.terasoluna.thin.functionsample.reset.bean.NestedParam[]" size="5" />
+      <form-property name="rows2" type="jp.terasoluna.thin.functionsample.reset.bean.NestedParam[]" size="5" />
+    </form-bean>
+  </form-beans>
+
+<!-- ======================================== Global Exception Definitions -->
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+
+    <!-- フォームプロパティリセット選択画面表示 -->
+    <action path="/resetMenuForward"
+            parameter="/reset/sc1201.jsp" />
+            
+    <!-- フォームプロパティリセット画面表示 -->
+    <action path="/resetForward"
+            scope="session" name="_resetForm"
+            validate="false"
+            parameter="/reset/sc1202.jsp" />
+          
+    <!-- フォームプロパティリセット処理 -->  
+    <action path="/reset"
+            scope="session" name="_resetForm"
+            validate="false"
+            parameter="/reset/resetForward.do" />
+
+    <!-- フォームプロパティリセット（DynaValidatorActionFormEx）画面表示 -->
+    <action path="/resetDynaForm"
+            scope="session" name="_resetDynaForm"
+            validate="false"
+            parameter="/sc1203.jsp" />
+          
+    <!-- フォームプロパティリセット（DynaValidatorActionFormEx）処理 -->  
+    <action path="/resetDynaFormResult"
+            scope="session" name="_resetDynaForm"
+            validate="false"
+            parameter="/reset/sc1203.jsp" />
+    
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/reset/resetContext.xml"/>
+  </plug-in>
+ 
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.ResetterPlugIn">
+    <set-property
+      property="resetter"
+      value="jp.terasoluna.fw.web.struts.reset.ResetterImpl"/>
+    <set-property
+      property="resources"
+      value="/WEB-INF/reset/reset-reset.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/reset-rules.xml"/>    
+  </plug-in>
+  
+</struts-config>

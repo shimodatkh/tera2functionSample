@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- アクションフォーム切り替えモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/formtrans/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+  <!-- アクションフォーム切り替えメニューフォワード -->
+  <bean name="/formtrans/formtransForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- アクションフォーム切り替なし：clearForm="false" -->
+  <bean name="/formtrans/formtrans" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- アクションフォーム切り替なし：clearForm="true" -->
+  <bean name="/formtrans/formtransClearForm" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- アクションフォーム切り替：フォーム変更 -->
+  <bean name="/formtrans/formtransForm" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+          
+
+  <!-- アクションフォーム切り替えなし：clearForm="false"結果画面表示 -->          
+  <bean name="/formtrans/formtransResultForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- アクションフォーム切り替えなし：clearForm="true"結果画面表示 -->          
+  <bean name="/formtrans/formtransClearFormResultForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- アクションフォーム切り替え：フォーム結果画面表示 -->          
+  <bean name="/formtrans/formtransFormResultForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+</beans>

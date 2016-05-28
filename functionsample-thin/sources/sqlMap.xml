@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="default">
+    <select id="selectUserAuthenticated"
+            parameterClass="jp.terasoluna.thin.functionsample.common.bean.LogonParam"
+            resultClass="jp.terasoluna.thin.functionsample.common.FunctionUVO">
+        SELECT USER_CODE AS userID, USER_NAME AS userName, USER_DIVISION AS auth FROM TUSER WHERE USER_CODE = #userID# AND USER_PASSWORD = #password#
+    </select>
+</sqlMap>

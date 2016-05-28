@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+  <form-beans>
+      <!-- ログオン：モジュール定義するとメニュー画面でパス問題が発生するため、デフォルトモジュールにて定義する -->
+      <form-bean name="logonForm"
+      type="jp.terasoluna.thin.functionsample.common.web.form.LogonForm" />
+  </form-beans>
+  
+
+
+<!-- ======================================== Global Exception Definitions -->
+<!-- サブモジュールの例外ハンドリングは各自で設定する必要がある。 -->
+  <global-exceptions>
+    <exception key="error.common.00004"
+               path="/sc0005.jsp"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.fw.exception.SystemException">
+      <set-property property="logLevel" value="error"/>
+    </exception>
+    <exception key="error.common.00004"
+               path="/sc0005.jsp"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="java.lang.Exception">
+      <set-property property="logLevel" value="error"/>
+    </exception>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+    <!-- Welcome -->
+    <forward name="welcome"
+             path="/initialDB.do" redirect="true"/>
+    <!-- メニュー -->
+    <forward name="menu"
+             path="/menuForward.do" redirect="true" />
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- データベース初期化アクション --> 
+    <action path="/initialDB" validate="false">
+      <forward name="success" path="/reloadCodelistAction.do"/>
+    </action>
+    <!-- データベース初期化後、コードリスト再読込みアクション -->
+    <action path="/reloadCodelistAction" parameter="/logonForward.do"/>
+    
+    <!-- メニュー画面表示 -->
+    <action path="/menuForward"
+            parameter="/sc0001.jsp" />
+    
+    <!-- ログオン：モジュール定義するとメニュー画面でパス問題が発生するため、デフォルトモジュールにて定義する -->
+    <!-- ログオン画面表示 -->
+    <action path="/logonForward"
+            parameter="/sc0007.jsp" />
+
+    <action path="/authErrorForward">
+      <forward name="success" path="/sc0006.jsp" redirect="true" />
+    </action>
+
+    <!-- ログオン処理 -->
+    <action path="/logon"
+            name="logonForm"
+            scope="request"
+            validate="false">
+      <forward name="failure"
+               path="/logonForward.do" />
+      <forward name="success"
+               path="/menuForward.do" />
+    </action>
+    
+    <!-- ログオフ処理 -->
+    <action path="/logoff"
+            parameter="/logonForward.do" />
+    
+    <!-- サーバ閉塞解除画面表示 -->
+    <action path="/cancelServerBlockageForward"
+            parameter="/serverblockage/sc0602.jsp" />
+    <!-- サーバ閉塞解除アクション --> 
+	<action path="/cancelServerBlockage" name="logonForm" scope="request" validate="false">
+     <forward name="success" path="/logonForward.do"/>
+     <forward name="failure" path="/cancelServerBlockageForward.do"/>
+    </action>
+    
+    <!-- 例外ハンドリング確認画面表示 -->
+    <action path="/resultSystemExceptionForward"
+            parameter="/exception/sc1402.jsp" />
+    <!-- 例外ハンドリング例外確認画面表示 -->
+    <action path="/resultExceptionForward"
+            parameter="/exception/sc1403.jsp" />
+	
+  </action-mappings>
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+<!-- GlobalMessageResourcesが、メッセージが必要になったとき読み込む。 -->
+<!-- サブモジュールでも共有可能。 -->
+
+  <message-resources
+    factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"
+    parameter="application-message" />
+
+
+<!-- ======================================== PlugIn Definitions -->
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/moduleContext.xml"/>
+  </plug-in>
+
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/blogic-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+
+</struts-config>

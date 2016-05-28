@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- JNDIアクセスモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/jndi/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+  <!-- 　JNDIアクセスのフォワード -->
+  <bean name="/jndi/listJndiForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- 　JNDIリソース変更のフォワード -->
+  <bean name="/jndi/editJndiForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- JNDIアクセスのアクション -->      
+  <bean name="/jndi/listJndi" scope="prototype"
+      class="jp.terasoluna.thin.functionsample.jndi.web.action.ListJndiAction">
+    <property name="listJndiInitializeService" ref="listJndiInitializeService" />
+  </bean>
+  
+  <!-- JNDIアクセスのサービス -->
+  <bean id="listJndiInitializeService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.jndi.service.ListJndiInitializeServiceImpl" >
+    <property name="jndiSupport" ref="jndiSupport" />
+    <property name="listJndiService" ref="listJndiService" />
+  </bean>
+  
+  <!-- JNDIアクセスのサービス -->
+  <bean id="listJndiService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.jndi.service.ListJndiServiceImpl" >
+    <property name="jndiSupport" ref="jndiSupport" />
+  </bean>
+  
+  <bean id="jndiRebindService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.jndi.service.JndiRebindServiceImpl" >
+    <property name="jndiSupport" ref="jndiSupport" />
+  </bean>
+  
+  <bean id="jndiUnbindService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.jndi.service.JndiUnbindServiceImpl" >
+    <property name="jndiSupport" ref="jndiSupport" />
+    <property name="listJndiService" ref="listJndiService" />
+  </bean>
+  
+  <bean id="resultJndiRebindService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.jndi.service.ResultJndiRebindServiceImpl" >
+    <property name="jndiSupport" ref="jndiSupport" />
+    <property name="listJndiService" ref="listJndiService" />
+  </bean>
+  
+  <bean id="jndiSupport" scope="prototype"
+        class="jp.terasoluna.fw.web.jndi.DefaultJndiSupport" >
+    <!-- プロパティjndiPrefixの設定（デフォルト値はfalse） -->
+    <property name="jndiPrefix"><value>false</value></property>
+  </bean>
+
+  <bean name="/jndi/listJndiDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+  
+  <!-- JNDIアクセスのアクション -->      
+  <bean name="/jndi/resultJndiRebind" scope="prototype"
+      class="jp.terasoluna.thin.functionsample.jndi.web.action.ResultJndiRebindAction">
+    <property name="resultJndiRebindService" ref="resultJndiRebindService" />
+  </bean>
+  
+  <bean name="/jndi/jndiRebind" scope="prototype"
+      class="jp.terasoluna.thin.functionsample.jndi.web.action.JndiRebindAction">
+    <property name="jndiRebindService" ref="jndiRebindService" />
+  </bean>
+  
+  <bean name="/jndi/jndiUnbind" scope="prototype"
+      class="jp.terasoluna.thin.functionsample.jndi.web.action.JndiUnbindAction">
+    <property name="jndiUnbindService" ref="jndiUnbindService" />
+  </bean>
+</beans>

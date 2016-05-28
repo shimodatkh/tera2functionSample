@@ -1,0 +1,136 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC32_07</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC32_07</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WK-06 メッセージポップアップ機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メッセージポップアップタグ選択(画面ID: SC3201)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=messagePopupタグ 属性:popup,title,param,windowId</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>param設定のメッセージポップアップタグ選択(画面ID: SC3204)</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@type='text' and @name='data']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='サブミット']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>2000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>popupId3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTitle</td>
+	<td>TERASOLUNA messagesPopup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='paramMessage']//li</td>
+	<td>taglibMessageBundleResources_en.properties's messagesTagSample2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='paramErrorMessage']//ul/li</td>
+	<td>入力値を入力して下さい。(taglibMessageBundleResources.propertiesに設定したerrors.required)</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='paramMessage']//li@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='paramErrorMessage']//ul@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='button' and @value='閉じる']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

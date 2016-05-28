@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+  <!-- listener setting -->
+  <!--
+    コンテキストパラメータ"log4jConfigLocation"で指定されたロケーションの
+    Log4j設定ファイルを読み込むリスナ。
+    Log4jConfigListenerの初期化が完了した時点で上記設定ファイルが有効となる。
+  -->
+  <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
+  <!-- Log4j設定ファイルのロケーション -->
+  <context-param>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:log4j.properties</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>log4jExposeWebAppRoot</param-name>
+    <param-value>false</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
+  </context-param>
+
+  <!-- セッションリスナ -->
+  <listener>
+    <listener-class>
+      jp.terasoluna.fw.web.HttpSessionListenerImpl
+    </listener-class>
+  </listener>
+
+  <!-- filter setting -->
+  <!-- Content-Typeサイズ制限(commons-fileupload脆弱性回避用) -->
+  <filter>
+   <filter-name>contentTypeLengthLimitFilter</filter-name>
+   <filter-class>jp.terasoluna.fw.web.common.filter.ContentTypeLengthLimitFilter</filter-class>
+   <!--
+   <init-param>
+     <param-name>limitBytes</param-name>
+     <param-value>2048</param-value>
+   </init-param>
+   -->
+  </filter>
+ 
+ <filter-mapping>
+   <filter-name>contentTypeLengthLimitFilter</filter-name>
+   <url-pattern>*.do</url-pattern>
+ </filter-mapping>
+
+  <!-- Encodingフィルタ -->
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.thin.functionsample.common.web.SetCharacterEncodingFilter
+    </filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>Windows-31J</param-value>
+    </init-param>
+    <init-param>
+      <param-name>more</param-name>
+      <param-value>false</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- セッション同期化 -->
+  <filter>
+    <filter-name>sessionLockControlFilter</filter-name>
+    <filter-class>jp.terasoluna.fw.web.thin.SessionLockControlFilter</filter-class>
+    <!-- 
+    <init-param>
+      <param-name>interruptResponseCode</param-name>
+      <param-value>503</param-value>
+    </init-param>
+    <init-param>
+      <param-name>threshold</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    -->
+  </filter>
+
+  <filter-mapping>
+    <filter-name>sessionLockControlFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+
+  <!-- ログオン済みチェック：デフォルトコントローラ使用 -->
+  <!-- デフォルトコントローラを利用する場合はコメントを解除し、-->
+  <!-- 下のログオン済みチェック（controller使用）をコメントアウトする。 -->
+  <!--
+  <filter>
+    <filter-name>authenticationControlFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.fw.web.thin.AuthenticationControlFilter
+    </filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>authenticationControlFilter</filter-name>
+    <url-pattern>/authentication/*</url-pattern>
+  </filter-mapping>
+  -->
+
+  <!-- ログオン済みチェック（controller指定） -->
+  <filter>
+    <filter-name>authenticationControlFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.fw.web.thin.AuthenticationControlFilter
+    </filter-class>
+      <init-param>
+    <param-name>controller</param-name>
+    <param-value>
+      authenticationController
+    </param-value>
+  </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>authenticationControlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- アクセス権限チェック（controller指定） -->
+  <filter>
+    <filter-name>authorizationControlFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.fw.web.thin.AuthorizationControlFilter
+    </filter-class>
+    <init-param>
+      <param-name>controller</param-name>
+      <param-value>
+        authorizationController
+      </param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>authorizationControlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- サーバ閉塞チェック（controller指定） -->
+  <filter>
+    <filter-name>serverBlockageControlFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.fw.web.thin.ServerBlockageControlFilter
+    </filter-class>
+    <init-param>
+      <param-name>controller</param-name>
+      <param-value>
+        serverBlockageController
+      </param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>serverBlockageControlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- 業務閉塞チェック（controller指定） -->
+
+  <filter>
+    <filter-name>blockageControlFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.fw.web.thin.BlockageControlFilter
+    </filter-class>
+      <init-param>
+    <param-name>controller</param-name>
+    <param-value>
+      blockageController
+    </param-value>
+  </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>blockageControlFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- 拡張子直接アクセス禁止  -->
+  <filter>
+    <filter-name>extensionFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.fw.web.thin.ExtensionFilter
+    </filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>extensionFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- evidenceログフィルタ -->
+  <filter>
+    <filter-name>evidenceLogFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.fw.web.thin.EvidenceLogFilter
+    </filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>evidenceLogFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!-- ビジネスロジック入出力処理データ用フィルタ -->
+  <filter>
+    <filter-name>blogicioFilter</filter-name>
+    <filter-class>
+      jp.terasoluna.thin.functionsample.blogicio.web.BlogicioFilter
+    </filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>blogicioFilter</filter-name>
+    <url-pattern>/blogicio/*</url-pattern>
+  </filter-mapping>
+
+  <!-- servlet setting -->
+  <servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>config/authentication</param-name>
+      <param-value>/WEB-INF/authentication/struts-authentication-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/authorization</param-name>
+      <param-value>/WEB-INF/authorization/struts-authorization-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/database</param-name>
+      <param-value>/WEB-INF/database/struts-database-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/validation</param-name>
+      <param-value>/WEB-INF/validation/struts-validation-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/pagelink</param-name>
+      <param-value>/WEB-INF/pagelink/struts-pagelink-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/calendar</param-name>
+      <param-value>/WEB-INF/calendar/struts-calendar-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/write</param-name>
+      <param-value>/WEB-INF/write/struts-write-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/date</param-name>
+      <param-value>/WEB-INF/date/struts-date-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/wareki</param-name>
+      <param-value>/WEB-INF/wareki/struts-wareki-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/decimal</param-name>
+      <param-value>/WEB-INF/decimal/struts-decimal-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/trim</param-name>
+      <param-value>/WEB-INF/trim/struts-trim-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/left</param-name>
+      <param-value>/WEB-INF/left/struts-left-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/styleclass</param-name>
+      <param-value>/WEB-INF/styleclass/struts-styleclass-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/nocache</param-name>
+      <param-value>/WEB-INF/nocache/struts-nocache-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/clientvalidation</param-name>
+      <param-value>/WEB-INF/clientvalidation/struts-clientvalidation-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/formex</param-name>
+      <param-value>/WEB-INF/formex/struts-formex-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/transaction</param-name>
+      <param-value>/WEB-INF/transaction/struts-transaction-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/formtrans</param-name>
+      <param-value>/WEB-INF/formtrans/struts-formtrans-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/actionex</param-name>
+      <param-value>/WEB-INF/actionex/struts-actionex-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/jndi</param-name>
+      <param-value>/WEB-INF/jndi/struts-jndi-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/forward</param-name>
+      <param-value>/WEB-INF/forward/struts-forward-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex</param-name>
+      <param-value>/WEB-INF/messageex/struts-messageex-config.xml</param-value>
+    </init-param>
+
+    <!-- プロパティメッセージを表示 -->
+    <init-param>
+      <param-name>config/messageex2</param-name>
+      <param-value>/WEB-INF/messageex2/struts-messageex2-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex3</param-name>
+      <param-value>/WEB-INF/messageex3/struts-messageex3-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex4</param-name>
+      <param-value>/WEB-INF/messageex4/struts-messageex4-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex5</param-name>
+      <param-value>/WEB-INF/messageex5/struts-messageex5-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex6</param-name>
+      <param-value>/WEB-INF/messageex6/struts-messageex6-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex7</param-name>
+      <param-value>/WEB-INF/messageex7/struts-messageex7-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex8</param-name>
+      <param-value>/WEB-INF/messageex8/struts-messageex8-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/messageex9</param-name>
+      <param-value>/WEB-INF/messageex9/struts-messageex9-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/serverblockage</param-name>
+      <param-value>/WEB-INF/serverblockage/struts-serverblockage-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/blockage</param-name>
+      <param-value>/WEB-INF/blockage/struts-blockage-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/extension</param-name>
+      <param-value>/WEB-INF/extension/struts-extension-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/uvo</param-name>
+      <param-value>/WEB-INF/uvo/struts-uvo-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/dispatch</param-name>
+      <param-value>/WEB-INF/dispatch/struts-dispatch-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/blogic</param-name>
+      <param-value>/WEB-INF/blogic/struts-blogic-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/message</param-name>
+      <param-value>/WEB-INF/message/struts-message-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/codelist</param-name>
+      <param-value>/WEB-INF/codelist/struts-codelist-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/upload</param-name>
+      <param-value>/WEB-INF/upload/struts-upload-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/download</param-name>
+      <param-value>/WEB-INF/download/struts-download-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/downloadblogic</param-name>
+      <param-value>/WEB-INF/downloadblogic/struts-downloadblogic-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/blogicio</param-name>
+      <param-value>/WEB-INF/blogicio/struts-blogicio-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/exception</param-name>
+      <param-value>/WEB-INF/exception/struts-exception-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/sessiondir</param-name>
+      <param-value>/WEB-INF/sessiondir/struts-sessiondir-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/popup</param-name>
+      <param-value>/WEB-INF/popup/struts-popup-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/reset</param-name>
+      <param-value>/WEB-INF/reset/struts-reset-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>config/clearsession</param-name>
+      <param-value>/WEB-INF/clearsession/struts-clearsession-config.xml</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <!-- Standard Action Servlet Mapping -->
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/sc0008.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>503</error-code>
+    <location>/error.jsp</location>
+  </error-page>
+
+  <!-- Content-Typeサイズ制限のエラーページ -->
+  <error-page>
+    <exception-type>javax.servlet.ServletException</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+
+  <!-- ログオン済みチェックのエラーページ -->
+  <error-page>
+    <exception-type>
+      jp.terasoluna.fw.web.thin.UnauthenticatedException
+    </exception-type>
+    <location>/authErrorForward.do</location>
+  </error-page>
+
+  <!-- アクセス権限チェックのエラーページ -->
+  <error-page>
+    <exception-type>
+      jp.terasoluna.fw.web.thin.UnauthorizedException
+    </exception-type>
+    <location>/authorization/sc0502.jsp</location>
+  </error-page>
+
+  <!-- サーバ閉塞チェックのエラーページ -->
+  <error-page>
+    <exception-type>
+      jp.terasoluna.fw.web.thin.ServerBlockageException
+    </exception-type>
+    <location>/serverblockage/sc0602.jsp</location>
+  </error-page>
+
+  <!-- 業務閉塞チェックのエラーページ -->
+  <error-page>
+    <exception-type>
+      jp.terasoluna.fw.web.thin.BlockageException
+    </exception-type>
+    <location>/blockage/sc0702.jsp</location>
+  </error-page>
+
+  <!-- JSTL -->
+  <jsp-config>
+    <taglib>
+      <taglib-uri>/c</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/c.tld</taglib-location>
+    </taglib>
+
+    <taglib>
+      <taglib-uri>/fmt</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/fmt.tld</taglib-location>
+    </taglib>
+
+    <!-- Strutsタグ -->
+    <taglib>
+      <taglib-uri>/struts-bean</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-bean.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>/struts-html</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-html.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>/struts-logic</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-logic.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>/struts-nested</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/struts-nested.tld</taglib-location>
+    </taglib>
+
+    <!-- TERASOLUNAカスタムタグ -->
+    <taglib>
+      <taglib-uri>/terasoluna</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/terasoluna.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>/terasoluna-struts</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/terasoluna-struts.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>/terasoluna-library</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/terasoluna-library.tld</taglib-location>
+    </taglib>
+
+    <!-- 業務共通処理カスタムタグ -->
+    <taglib>
+      <taglib-uri>/common</taglib-uri>
+      <taglib-location>/WEB-INF/tlds/common.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+</web-app>

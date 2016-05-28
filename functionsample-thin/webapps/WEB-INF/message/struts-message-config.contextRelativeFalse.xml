@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="ifErrorsForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <!-- 入力値 -->
+      <form-property name="ifErrors" type="java.lang.String" initial=" "/>
+    </form-bean>
+
+    <form-bean name="messageForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <!-- 入力値 -->
+      <form-property name="data" type="java.lang.String" />
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- メッセージタグ選択画面 -->
+    <action path="/messageForward"
+            parameter="/sc3401.jsp"/>
+            
+    <!-- メッセージタグ表示画面 -->
+    <action path="/messagetagForward"
+            scope="request" name="messageForm"
+            validate="false"
+            parameter="/sc3402.jsp"/>
+            
+    <!-- メッセージタグのエラーチェック画面 -->
+    <action path="/messagetagErrorForward"
+            scope="request" name="messageForm"
+            input="/messagetagForward.do"
+            parameter="/sc3402.jsp"/>
+            
+    <!-- ifErrorタグ表示画面 -->
+    <action path="/ifErrorstagForward"
+            scope="request" name="ifErrorsForm" 
+            validate="false"
+            parameter="/sc3403.jsp"/>
+            
+    <!-- ifErrorタグ表示画面 -->
+    <action path="/ifErrorstagErrorForward"
+            scope="request" name="ifErrorsForm"
+            input="/ifErrorstagForward.do"
+            parameter="/sc3403.jsp"/>
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+<message-resources parameter="taglibMessageResources"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"/>
+<message-resources parameter="taglibMessageBundleResources" key="taglib"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"/>
+                       
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/message/messageContext.xml"/>
+  </plug-in>
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+      property="pathnames"
+      value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-ex.xml,/WEB-INF/message/validation-message.xml"/>
+    <set-property
+      property="stopOnFirstError"
+      value="false"/>
+  </plug-in>
+  
+</struts-config>

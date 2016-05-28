@@ -1,0 +1,138 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC29_01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC29_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/logonForward.do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WJ-07 Decimal表示機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>Decimal表示(画面ID: SC2901)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalName']</td>
+	<td>｢1,981.04｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalId']</td>
+	<td>｢1,981.04｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalValue']</td>
+	<td>｢2,005.02｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalProperty']</td>
+	<td>｢1,956.05｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalFilter']</td>
+	<td>｢&lt;1,981.04&gt;&"｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalIgnore']</td>
+	<td>｢｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalScale1']</td>
+	<td>｢2.35｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalScale2']</td>
+	<td>｢2.36｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalROUND_HALF_UP1']</td>
+	<td>｢2.35｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalROUND_HALF_UP2']</td>
+	<td>｢2.36｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalROUND_FLOOR1']</td>
+	<td>｢2.35｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalROUND_FLOOR2']</td>
+	<td>｢2.35｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalROUND_CEILING1']</td>
+	<td>｢2.36｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='decimalROUND_CEILING2']</td>
+	<td>｢2.36｣</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

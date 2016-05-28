@@ -1,0 +1,1473 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC24_02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC24_02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WI-01 一覧表示機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>一覧表示メニュー(画面ID: SC2401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=一覧表示(サブミット使用)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>一覧表示（サブミット使用）(画面ID: SC2403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 1 2 3 4 5 6 7 8 9 10 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000001 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME1 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>26  </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1979/11/24</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.0</td>
+	<td>00000002</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.1</td>
+	<td>NAME2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.2</td>
+	<td>23 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.3</td>
+	<td>1982/05/15</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.0</td>
+	<td>00000003</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.1</td>
+	<td>NAME3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.2</td>
+	<td>28</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.3</td>
+	<td>1977/03/01</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.0</td>
+	<td>00000004</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.1</td>
+	<td>NAME4</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.2</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.3</td>
+	<td>1984/04/08</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.0</td>
+	<td>00000005</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.1</td>
+	<td>NAME5</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.2</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.3</td>
+	<td>1986/01/11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 1 2 3 4 5 6 7 8 9 10 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000006</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME6</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>22</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1983/09/16 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.0</td>
+	<td>00000007</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.1</td>
+	<td>NAME7</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.2</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.3</td>
+	<td>1987/10/21 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.0</td>
+	<td>00000008</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.1</td>
+	<td>NAME8</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.2</td>
+	<td>25</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.3</td>
+	<td>1980/12/27 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.0</td>
+	<td>00000009</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.1</td>
+	<td>NAME9</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.2</td>
+	<td>26</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.3</td>
+	<td>1979/07/29 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.0</td>
+	<td>00000010</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.1</td>
+	<td>NAME10</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.2</td>
+	<td>24</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.3</td>
+	<td>1981/06/03</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 2 3 4 5 6 7 8 9 10 11 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000046</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME46</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1987/09/30</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.0</td>
+	<td>00000047</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.1</td>
+	<td>NAME47</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.2</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.3</td>
+	<td>1987/09/30</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.0</td>
+	<td>00000048</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.1</td>
+	<td>NAME48</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.2</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.3</td>
+	<td>1987/09/30</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.0</td>
+	<td>00000049</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.1</td>
+	<td>NAME49</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.2</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.3</td>
+	<td>1987/09/30</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.0</td>
+	<td>00000050</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.1</td>
+	<td>NAME50</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.2</td>
+	<td>18</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.3</td>
+	<td>1987/09/30</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 2 3 4 5 6 7 8 9 10 11 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000051</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME51</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1906/02/30</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 2 3 4 5 6 7 8 9 10 11 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000051</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME51</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1906/02/30</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 1 2 3 4 5 6 7 8 9 10 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000001 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME1 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>26  </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1979/11/24</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.0</td>
+	<td>00000002</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.1</td>
+	<td>NAME2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.2</td>
+	<td>23 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.3</td>
+	<td>1982/05/15</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.0</td>
+	<td>00000003</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.1</td>
+	<td>NAME3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.2</td>
+	<td>28</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.3</td>
+	<td>1977/03/01</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.0</td>
+	<td>00000004</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.1</td>
+	<td>NAME4</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.2</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.3</td>
+	<td>1984/04/08</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.0</td>
+	<td>00000005</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.1</td>
+	<td>NAME5</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.2</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.3</td>
+	<td>1986/01/11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 1 2 3 4 5 6 7 8 9 10 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000001 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME1 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>26  </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1979/11/24</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.0</td>
+	<td>00000002</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.1</td>
+	<td>NAME2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.2</td>
+	<td>23 </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.2.3</td>
+	<td>1982/05/15</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.0</td>
+	<td>00000003</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.1</td>
+	<td>NAME3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.2</td>
+	<td>28</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.3.3</td>
+	<td>1977/03/01</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.0</td>
+	<td>00000004</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.1</td>
+	<td>NAME4</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.2</td>
+	<td>21</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.4.3</td>
+	<td>1984/04/08</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.0</td>
+	<td>00000005</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.1</td>
+	<td>NAME5</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.2</td>
+	<td>19</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.5.3</td>
+	<td>1986/01/11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>6</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='pageLinkID']</td>
+	<td>5ﾍﾟｰｼﾞ戻る 前 2 3 4 5 6 7 8 9 10 11 次 5ﾍﾟｰｼﾞ進む</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ戻る</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=前</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=6</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=7</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=8</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=9</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=10</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=11</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=次</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementNotPresent</td>
+	<td>link=5ﾍﾟｰｼﾞ進む</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.0</td>
+	<td>00000051</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.1</td>
+	<td>NAME51</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.2</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>pageLinkTable.1.3</td>
+	<td>1906/02/30</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='nowPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalPageID']</td>
+	<td>11</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='totalCountID']</td>
+	<td>51</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

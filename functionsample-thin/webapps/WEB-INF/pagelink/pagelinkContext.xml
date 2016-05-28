@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- 一覧表示モジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/pagelink/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+    
+  <!-- フォワード -->
+   <bean name="/pagelink/pagelinkForward" scope="prototype"
+         class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+     
+  <!-- 一覧表示にリンクを使用する場合、二つのテーブルから情報を取得する -->     
+  <bean name="/pagelink/listLink" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.pagelink.web.action.ListAction">
+    <property name="listService" ref="listService" />
+  </bean>
+    
+  <!-- 一覧表示にリンクを使用する場合のJSP画面にフォワード -->
+  <bean name="/pagelink/listLinkForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+    
+  <!-- 一覧表示にリンクを使用する場合、一覧１のリンクを押す時 -->
+  <bean name="/pagelink/listLink1" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.pagelink.web.action.ListAction">
+    <property name="listService" ref="listService" />
+  </bean>
+    
+  <!-- 一覧表示にリンクを使用する場合、一覧２のリンクを押す時 -->
+  <bean name="/pagelink/listLink2" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.pagelink.web.action.ListAction">
+    <property name="listService" ref="listService" />
+  </bean>
+    
+  <!-- 一覧表示にサブミットを使用する場合、テーブルから情報を取得する -->
+  <bean name="/pagelink/listSubmit" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.pagelink.web.action.ListSubmitAction">
+    <property name="listSubmitService" ref="listSubmitService" />
+  </bean>
+    
+  <!-- 一覧表示にサブミットを使用する場合のJSP画面にフォワード -->
+  <bean name="/pagelink/listSubmitForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <bean name="/pagelink/listDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+    <property name="event">
+      <value>next</value>
+    </property>
+  </bean>
+    
+          
+  <!-- ビジネスロジック定義 -->
+  <!-- 一覧表示にリンクを使用する場合、二つのテーブルから情報を取得する -->
+  <bean id="listService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.pagelink.service.ListServiceImpl" >
+    <property name="dao" ref="queryDAO" />
+  </bean>
+  
+  <!-- 一覧表示にサブミットを使用する場合、テーブルから情報を取得する -->  
+  <bean id="listSubmitService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.pagelink.service.ListSubmitServiceImpl" >
+    <property name="dao" ref="queryDAO" />
+  </bean>
+</beans>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="dynaForm"
+      type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" />
+  </form-beans>
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- アクション拡張画面表示 -->
+    <action path="/actionexForward"
+            parameter="/actionex/sc1601.jsp" />
+    
+    <!-- アクション拡張結果画面：saveToken="true" -->
+    <action path="/actionexResultSTTrue"
+            scope="request"
+            name="dynaForm"
+            validate="false"
+            parameter="/sc1602.jsp">
+      <forward name="txtoken-error" path="/sc1603.jsp" />
+    </action>
+    
+    <!-- アクション拡張結果画面：saveToken=false -->
+    <action path="/actionexResultSTFalse"
+            scope="request"
+            name="dynaForm"
+            validate="false"
+            parameter="/sc1602.jsp">
+      <forward name="txtoken-error" path="/sc1603.jsp" />
+    </action>
+    
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <message-resources
+    factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"
+    parameter="application-message" />
+    
+    
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/actionex/actionexContext.xml"/>
+  </plug-in>
+  
+</struts-config>

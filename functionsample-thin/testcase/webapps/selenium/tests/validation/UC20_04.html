@@ -1,0 +1,773 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC20_04</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC20_04</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WF-01 入力チェック拡張機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールドフォーマットチェック(画面ID: SC2005)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[1]</td>
+	<td>123ab</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[2]</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[3]</td>
+	<td>123.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[4]</td>
+	<td>123.123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の数値チェック（整数部3桁、小数部2桁以内）には整数部3桁、小数部2桁までの数値を入力してください.2行目の数値チェック（整数部3桁、小数部2桁以内）には整数部3桁、小数部2桁までの数値を入力してください.5行目の数値チェック（整数部3桁、小数部2桁以内）には整数部3桁、小数部2桁までの数値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[0]</td>
+	<td>123.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[1]</td>
+	<td>123.123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[2]</td>
+	<td>123.123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[3]</td>
+	<td>123.123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の数値チェック（整数部3桁、小数部2桁以内）には整数部3桁、小数部2桁までの数値を入力してください.3行目の数値チェック（整数部3桁、小数部2桁以内）には整数部3桁、小数部2桁までの数値を入力してください.4行目の数値チェック（整数部3桁、小数部2桁以内）には整数部3桁、小数部2桁までの数値を入力してください.5行目の数値チェック（整数部3桁、小数部2桁以内）には整数部3桁、小数部2桁までの数値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[0]</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[1]</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[2]</td>
+	<td>123.1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[3]</td>
+	<td>123.12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[4]</td>
+	<td>12.12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numberList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[0]</td>
+	<td>2000/1/1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[1]</td>
+	<td>2000-12-31</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[2]</td>
+	<td>2000/1/32</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[3]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[4]</td>
+	<td>2000/01/01</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.2行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.3行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.4行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[0]</td>
+	<td>2000/01/01</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[1]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[2]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[3]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[4]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.3行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.4行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.5行目の日付型チェック（フォーマット形式：yyyy/MM/dd）には正しい日付を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[1]</td>
+	<td>1999/01/01</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[2]</td>
+	<td>2100/01/01</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[3]</td>
+	<td>2100/12/31</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[4]</td>
+	<td>1999/12/31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[0]</td>
+	<td>１２３４５６７８９０</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[2]</td>
+	<td>1234567890</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[3]</td>
+	<td>123-456-789-0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[4]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のクレジットカードフォーマットチェックには正しいクレジットカード番号を入力してください.2行目のクレジットカードフォーマットチェックには正しいクレジットカード番号を入力してください.3行目のクレジットカードフォーマットチェックには正しいクレジットカード番号を入力してください.4行目のクレジットカードフォーマットチェックには正しいクレジットカード番号を入力してください.5行目のクレジットカードフォーマットチェックには正しいクレジットカード番号を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>creditCardList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[3]</td>
+	<td>abc@d.net</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[4]</td>
+	<td>ｱｲｳｴｵｧｨｩｪｫ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.2行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.3行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.5行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[0]</td>
+	<td>abc@d.net</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[3]</td>
+	<td>@d.net</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[4]</td>
+	<td>ｱｲｳｴｵｧｨｩｪｫ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.3行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.4行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.5行目のeメールアドレスフォーマットチェックにはｅメールアドレスの形式で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[1]</td>
+	<td>abc@d.net</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[2]</td>
+	<td>abc@d.net</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[3]</td>
+	<td>abc@d.net</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[3]</td>
+	<td>abc@d.net</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[4]</td>
+	<td>abc@d.net</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>mailList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[2]</td>
+	<td>http://www.nttdata.ne.jp</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[3]</td>
+	<td>http://www.nttdata.ne.jp/index.html</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[4]</td>
+	<td>www.nttdata.ne.jp</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のURLフォーマットチェックにはURLの形式で入力してください.2行目のURLフォーマットチェックにはURLの形式で入力してください.5行目のURLフォーマットチェックにはURLの形式で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[0]</td>
+	<td>http://www.nttdata.ne.jp</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[2]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[3]</td>
+	<td>abcde</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のURLフォーマットチェックにはURLの形式で入力してください.3行目のURLフォーマットチェックにはURLの形式で入力してください.4行目のURLフォーマットチェックにはURLの形式で入力してください.5行目のURLフォーマットチェックにはURLの形式で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[1]</td>
+	<td>http://www.nttdata.ne.jp</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[2]</td>
+	<td>http://www.nttdata.ne.jp</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[3]</td>
+	<td>http://www.nttdata.ne.jp</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[4]</td>
+	<td>http://www.nttdata.ne.jp</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>urlList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[2]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[3]</td>
+	<td>12abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[4]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の正規表現の入力形式が間違っています.2行目の正規表現の入力形式が間違っています.3行目の正規表現の入力形式が間違っています.4行目の正規表現の入力形式が間違っています.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[0]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[4]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の正規表現の入力形式が間違っています.3行目の正規表現の入力形式が間違っています.4行目の正規表現の入力形式が間違っています.5行目の正規表現の入力形式が間違っています.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[1]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[3]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[4]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maskList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value=' 入力チェック拡張選択画面に戻る ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays03']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールドフォーマットチェック(画面ID: SC2005)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

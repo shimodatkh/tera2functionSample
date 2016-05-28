@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="dispatch">
+
+  <select id="selectListUser"
+          resultClass="jp.terasoluna.thin.functionsample.dispatch.bean.UserVO">
+    SELECT USER_CODE AS userCode,
+           USER_NAME AS userName,
+           USER_DIVISION AS userDivision
+        FROM 
+           TUSER 
+        ORDER BY
+           USER_CODE
+  </select>
+  
+  <update id="updateUserDivision"
+          parameterClass="jp.terasoluna.thin.functionsample.dispatch.bean.UserDivisionVO">
+    UPDATE TUSER
+        SET
+           USER_DIVISION = #userDivision#
+        WHERE
+           USER_CODE = #userCode#
+  </update>
+  
+</sqlMap>

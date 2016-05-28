@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="dynaFormBean"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="date1"      type="java.lang.String"/>
+      <form-property name="date2"      type="java.lang.String"/>
+      <form-property name="date3"      type="java.lang.String"/>
+      <form-property name="date4"      type="java.lang.String"/>
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- カレンダー入力画面 -->
+    <action path="/calendarForward"
+            name="dynaFormBean" scope="request"
+            parameter="/calendar/sc2501.jsp"
+            validate="false"/>
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/calendar/calendarContext.xml"/>
+  </plug-in>
+
+</struts-config>

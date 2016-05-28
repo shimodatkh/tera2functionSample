@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="databaseForm"
+               type="jp.terasoluna.thin.functionsample.database.web.form.DatabaseForm" >
+    </form-bean>
+               
+    <form-bean name="insertForm"
+               type="jp.terasoluna.thin.functionsample.database.web.form.InsertForm" >
+    </form-bean>
+    
+    <form-bean name="updateForm"
+               type="jp.terasoluna.thin.functionsample.database.web.form.UpdateForm" />
+
+    <form-bean name="batchForm"
+               type="jp.terasoluna.thin.functionsample.database.web.form.BatchForm" />
+    <!-- 新規(ver 2.0.3.1) -->
+    <form-bean name="searchForm"
+               type="jp.terasoluna.thin.functionsample.database.web.form.SearchForm" />
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+
+  <global-exceptions>
+  <!-- 予期せぬデータベース例外処理 -->
+    <exception key="error.UC01.00001"
+               path="/../sc0005.jsp"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="org.springframework.dao.DataAccessException"/>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+  
+    <!--=====================================================================-->
+    <!-- 画面遷移 -->
+    <!--=====================================================================-->
+    <!-- 住所録リスト表示画面 -->
+    <action path="/listAddressForward" parameter="/database/sc0101.jsp" />
+
+    <!-- 住所録リスト表示画面（ArrayList版） -->
+    <action path="/arrayListAddressForward" parameter="/database/sc0101.jsp" />
+    
+    <!-- 登録画面 -->
+    <action path="/insertAddressForward" parameter="/database/sc0102.jsp" />
+    
+    <!-- 変更画面 -->
+    <action path="/updateAddressForward" parameter="/database/sc0103.jsp" />
+    
+    <!-- バッチ画面 -->
+    <action path="/batchAddressForward" parameter="/database/sc0104.jsp" />
+
+    <!-- CSVダウンロード画面 -->
+    <action path="/csvDlAddressForward" parameter="/database/sc0105.jsp" />
+    
+    <!--=====================================================================-->
+    <!-- 住所録一覧取得アクション -->
+    <!--=====================================================================-->
+    <action path="/listAddress" scope="request">
+      <forward name="success" path="/listAddressForward.do"/>
+    </action>
+    
+    <!--=====================================================================-->
+    <!-- 住所録一覧取得アクション（ArrayList版） -->
+    <!--=====================================================================-->
+    <action path="/arrayListAddress" scope="request">
+      <forward name="success" path="/arrayListAddressForward.do"/>
+    </action>
+    
+    <!--=====================================================================-->
+    <!-- 住所録一覧画面から繋がるアクション設定 -->
+    <!--=====================================================================-->
+    <!-- 住所録一覧画面から出るときのディスパッチアクション -->
+    <action path="/listAddressDispatch"
+            name="databaseForm"
+            validate="false">
+      <forward name="insert" path="/insertAddressForward.do" />
+      <forward name="update" path="/updateAddress.do" />
+      <forward name="delete" path="/deleteAddress.do" />
+      <forward name="procedure" path="/procedureAddress.do" />
+      <forward name="batch" path="/batchAddressForward.do" />
+      <forward name="csvdownload" path="/csvDlAddressForward.do"></forward>
+      <!-- 新規(ver 2.0.3.1) -->
+      <forward name="search" path="/searchAddressForward.do" />
+    </action>
+    
+    <!-- 変更画面に遷移 -->
+    <action path="/updateAddress" name="databaseForm" scope="request" 
+            validate="false">
+      <forward name="success" path="/updateAddressForward.do"/>
+    </action>
+    
+    <!-- 削除処理を行う -->
+    <action path="/deleteAddress" name="databaseForm" scope="request"
+            validate="false">
+      <forward name="success" path="/listAddressForward.do"/>
+    </action>
+    
+    <!-- プロシージャを起動 -->
+    <action path="/procedureAddress" name="databaseForm" scope="request"
+            validate="false">
+      <forward name="success" path="/listAddressForward.do"/>
+    </action>
+    
+    <!--=====================================================================-->
+    <!-- 新規登録画面から繋がるアクション設定 -->
+    <!--=====================================================================-->
+    <!-- 新規登録画面から出るときのディスパッチアクション -->
+    <action path="/resultInsertAddressDispatch"
+            name="databaseForm"
+            validate="false">
+      <forward name="insert" path="/resultInsertAddress.do" />
+      <forward name="returnList" path="/listAddress.do" />
+    </action>
+    
+    <!-- 新規データを登録した後、住所録一覧画面に遷移 -->
+    <action path="/resultInsertAddress" name="insertForm" scope="request"
+            validate="false">
+      <forward name="success" path="/listAddressForward.do"/>
+    </action>
+    
+    <!--=====================================================================-->
+    <!-- 住所情報変更画面から繋がるアクション設定 -->
+    <!--=====================================================================-->
+    <!-- 住所情報変更画面から出るときのディスパッチアクション -->
+    <action path="/resultUpdateAddressDispatch"
+            name="databaseForm"
+            validate="false">
+      <forward name="update" path="/resultUpdateAddress.do" />
+      <forward name="returnList" path="/listAddress.do" />
+    </action>
+    
+    <!-- 住所情報を更新した後、住所録一覧画面に遷移 -->
+    <action path="/resultUpdateAddress" name="updateForm" scope="request"
+            validate="false">
+      <forward name="success" path="/listAddressForward.do"/>
+    </action>
+    
+    
+    
+    <!--=====================================================================-->
+    <!-- バッチ処理画面から繋がるアクション設定 -->
+    <!--=====================================================================-->
+    <!-- バッチ処理画面から出るときのディスパッチアクション -->
+    <action path="/resultBatchAddressDispatch"
+            name="databaseForm"
+            validate="false">
+      <forward name="batch" path="/resultBatchAddress.do" />
+      <forward name="returnList" path="/listAddress.do" />
+    </action>
+    
+    <!-- 住所情報を更新した後、住所録一覧画面に遷移 -->
+    <action path="/resultBatchAddress" name="batchForm" scope="request"
+            validate="false">
+      <forward name="success" path="/listAddressForward.do"/>
+    </action>
+    
+
+
+    <!--=====================================================================-->
+    <!-- CSVダウンロード画面から繋がるアクション設定 -->
+    <!--=====================================================================-->
+    <!-- CSVダウンロード画面から出るときのディスパッチアクション -->
+    <action path="/resultCsvDlAddressDispatch"
+            name="databaseForm"
+            validate="false">
+      <forward name="csvdownload" path="/resultCsvDlAddress.do" />
+      <forward name="returnList" path="/listAddress.do" />
+    </action>
+
+    <!-- 住所情報CSVをダウンロード -->
+    <action path="/resultCsvDlAddress" name="batchForm" scope="request"
+            validate="false">
+    </action>
+    
+    <!-- 新規(ver 2.0.3.1) -->
+    <!--===================================================================== -->
+    <!-- 住所検索アクション -->
+    <!--===================================================================== -->
+    <action path="/searchAddress" name="searchForm" scope="request" validate="false">
+        <forward name="success" path="/arrayListAddressForward.do" />
+    </action>
+    
+    <action path="/searchAddressForward" parameter="/database/sc0106.jsp" />
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/database/databaseContext.xml"/>
+  </plug-in>
+
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/database/blogic-database-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+
+</struts-config>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+<action path="/priorityOrder">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.messageex.bean.MessageExPriorityOrderParam" >
+      <set-property property="check1" blogic-property="check1" source="form" />
+      <set-property property="check2" blogic-property="check2" source="form" />
+      <set-property property="check3" blogic-property="check3" source="form" />
+      <set-property property="check4" blogic-property="check4" source="form" />
+    </blogic-params>
+    <blogic-result>
+    </blogic-result>
+  </action>  
+</blogic-io>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- 標準ディスパッチャモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/dispatch/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+
+      
+  <!-- 標準ディスパッチャ処理メニュー画面に遷移 -->
+  <bean name="/dispatch/dispatchForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- サブミットボタンを利用するユーザ権限管理画面に遷移 -->
+  <bean name="/dispatch/submitButtonDispatchForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ラジオボタンを利用するユーザ権限管理画面に遷移 -->
+  <bean name="/dispatch/radioButtonDispatchForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+
+  <!-- ユーザ数エラー画面に遷移 -->
+  <bean name="/dispatch/updateUserDivisionErrorForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction"/>
+    
+    
+  <!-- サブミットボタンを利用した処理の現在ユーザ権限取得アクション -->
+  <bean name="/dispatch/submitButtonUserList" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.dispatch.action.ListUserAction">
+    <property name="listUserService" ref="listUserService" />
+  </bean>
+  
+  <!-- ラジオボタンを利用した処理の現在ユーザ権限取得アクション -->
+  <bean name="/dispatch/radioButtonUserList" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.dispatch.action.ListUserAction">
+    <property name="listUserService" ref="listUserService" />
+  </bean>
+  
+  <!-- ユーザ権限取得サービス -->
+  <bean id="listUserService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.dispatch.service.ListUserServiceImpl">
+    <property name="queryDAO" ref="queryDAO"/>
+  </bean>
+  
+  <!-- サブミットボタンを利用した処理のディスパッチャアクション -->
+  <bean name="/dispatch/submitButtonDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+
+  <!-- ラジオボタンを利用した処理のディスパッチャアクション -->
+  <bean name="/dispatch/radioButtonDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+    <property name="event">
+      <value>radio</value>
+    </property>
+  </bean>
+
+  <!-- サブミットボタンを利用した処理のユーザ権限更新アクション -->
+  <bean name="/dispatch/submitButtonUpdateUserDivision" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.dispatch.action.UpdateUserDivisionAction">
+    <property name="updateUserDivisionService" ref="updateUserDivisionService" />
+  </bean>
+
+  <!-- ラジオボタンを利用した処理のユーザ権限更新アクション -->
+  <bean name="/dispatch/radioButtonUpdateUserDivision" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.dispatch.action.UpdateUserDivisionAction">
+    <property name="updateUserDivisionService" ref="updateUserDivisionService" />
+  </bean>
+
+  <!-- ユーザ権限更新サービス -->
+  <bean id="updateUserDivisionService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.dispatch.service.UpdateUserDivisionServiceImpl">
+    <property name="updateDAO" ref="updateDAO"/>
+  </bean>
+  
+</beans>

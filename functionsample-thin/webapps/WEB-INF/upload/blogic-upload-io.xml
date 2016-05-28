@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+	<action path="/upLoad">
+		<blogic-params bean-name="java.lang.Object"></blogic-params>
+
+		<blogic-result>
+			<set-property property="upLoadTable" dest="request" />
+		</blogic-result>
+	</action>
+
+	<action path="/registDBUpLoad">
+		<blogic-params
+			bean-name="jp.terasoluna.thin.functionsample.upload.bean.TupdownloadVO">
+			<set-property property="fileName"
+				blogic-property="fileName" source="form" />
+			<set-property property="filePath"
+				blogic-property="filePath" source="form" />
+			<set-property property="fileSize"
+				blogic-property="fileSize" source="form" />
+			<set-property property="listFileName"
+				blogic-property="listFileName" source="form" />
+			<set-property property="listFileSize"
+				blogic-property="listFileSize" source="form" />
+			<set-property property="listFilePath"
+				blogic-property="listFilePath" source="form" />
+    		<set-property property="listFile" 
+    		    blogic-property="listFile" source="form" />
+    		<set-property property="fileup" 
+    		    blogic-property="fileup" source="form" />
+    		<set-property property="fileId"
+    		    blogic-property="fileId" source="form" />
+		</blogic-params>
+
+		<blogic-result>
+			<set-property property="fileName"
+				blogic-property="fileName" dest="form" />
+			<set-property property="filePath"
+				blogic-property="filePath" dest="form" />
+			<set-property property="fileSize"
+				blogic-property="fileSize" dest="form" />
+			<set-property property="listFileName"
+				blogic-property="listFileName" dest="form" />
+			<set-property property="listFilePath"
+				blogic-property="listFilePath" dest="form" />
+			<set-property property="listFileSize"
+				blogic-property="listFileSize" dest="form" />
+    		<set-property property="listFile" 
+    		    blogic-property="listFile" dest="form" />
+    		<set-property property="fileup" 
+    		    blogic-property="fileup" dest="form" />
+    		<set-property property="fileId"
+    		    blogic-property="fileId" dest="form" />
+		</blogic-result>
+	</action>
+</blogic-io>

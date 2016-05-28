@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- トランザクション処理モジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/transaction/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+  <!-- トランザクション処理メニュー画面への遷移 -->
+  <bean name="/transaction/transactionForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction">
+  </bean>
+
+  <!-- 一般DBアクセスのトランザクション処理の入力画面への遷移 -->
+  <bean name="/transaction/generalTransactionForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction">
+  </bean>
+
+  <!-- バッチを使用したDBアクセスのトランザクション処理の入力画面への遷移 -->
+  <bean name="/transaction/batchTransactionForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction">
+  </bean>
+
+  <!-- バッチと一般DBアクセス両方使用したトランザクション処理の入力画面への遷移 -->
+  <bean name="/transaction/generalWithBatchTransactionForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction">
+  </bean>
+      
+  <!-- トランザクション処理結果表示画面への遷移 -->
+  <bean name="/transaction/insertAddressResultForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction">
+  </bean>
+  
+  <!-- トランザクション処理エラー表示画面への遷移 -->
+  <bean name="/transaction/insertAddressErrorForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction">
+  </bean>
+  
+  <!-- 一般機能を使用した住所情報登録処理 -->
+  <bean name="/transaction/generalInsertAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.web.action.GeneralInsertAddressAction">
+    <property name="generalInsertAddressService" ref="generalInsertAddressService" />
+  </bean>
+
+  <!-- バッチ機能を使用した住所情報登録処理 -->
+  <bean name="/transaction/batchInsertAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.web.action.BatchInsertAddressAction">
+    <property name="batchInsertAddressService" ref="batchInsertAddressService" />
+  </bean>
+
+  <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理 -->
+  <bean name="/transaction/insertedAddressDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+  
+  <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理【一般機能処理後、バッチ機能処理】-->
+  <bean name="/transaction/generalWithBatchInsertAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.web.action.GeneralWithBatchInsertAddressAction">
+    <property name="generalWithBatchInsertAddressService" ref="generalWithBatchInsertAddressService" />
+  </bean>
+
+  <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理【バッチ機能処理後、一般機能処理】-->
+  <bean name="/transaction/batchWithGeneralInsertAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.web.action.BatchWithGeneralInsertAddressAction">
+    <property name="batchWithGeneralInsertAddressService" ref="batchWithGeneralInsertAddressService" />
+  </bean>
+  
+  <!-- 登録した住所情報取得処理【一般機能、バッチ機能の処理結果】 -->
+  <bean name="/transaction/searchInsertedAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.web.action.SearchInsertedAddressAction">
+    <property name="selectAddressService" ref="selectAddressService" />
+  </bean>
+  
+  <!-- 登録した住所情報取得処理【一般機能とバッチ機能を一緒に使用した機能の処理結果】 -->
+  <bean name="/transaction/generalWithBatchSearchInsertedAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.web.action.GeneralWithBatchSInsertedAddressAction">
+    <property name="selectAddressService" ref="selectAddressService" />
+  </bean>
+
+  <!-- 一般機能を利用して住所情報登録を行うサービス -->
+  <bean id="generalInsertAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.service.GeneralInsertAddressServiceImpl" >
+    <property name="updateDAO" ref="updateDAO"/>
+  </bean>
+  
+  <!-- バッチ機能を利用して住所情報登録を行うサービス -->
+  <bean id="batchInsertAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.service.BatchInsertAddressServiceImpl" >
+    <property name="updateDAO" ref="updateDAO"/>
+  </bean>  
+  
+  <!-- バッチ機能と一般機能を両方利用して住所情報登録を行うサービス【一般機能処理後、バッチ機能処理】 -->
+  <bean id="generalWithBatchInsertAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.service.GeneralWithBatchInsertAddressServiceImpl" >
+    <property name="updateDAO" ref="updateDAO"/>
+  </bean>  
+  
+  <!-- バッチ機能と一般機能を両方利用して住所情報登録を行うサービス【バッチ機能処理後、一般機能処理】 -->
+  <bean id="batchWithGeneralInsertAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.service.BatchWithGeneralInsertAddressServiceImpl" >
+    <property name="updateDAO" ref="updateDAO"/>
+  </bean>  
+  
+  <!-- 住所情報取得を行うサービス -->
+  <bean id="selectAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.transaction.service.SelectAddressServiceImpl" >
+    <property name="queryDAO" ref="queryDAO"/>
+  </bean>
+  
+</beans>

@@ -1,0 +1,1028 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC20_02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC20_02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WF-01 入力チェック拡張機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays01']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールド文字チェック(画面ID: SC2003)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[0]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[1]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[2]</td>
+	<td>ｱｲｳｴｵ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[3]</td>
+	<td>１２３４５６</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[4]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の数値文字列チェックには数字を入力してください.2行目の数値文字列チェックには数字を入力してください.3行目の数値文字列チェックには数字を入力してください.4行目の数値文字列チェックには数字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の数値文字列チェックには数字を入力してください.3行目の数値文字列チェックには数字を入力してください.4行目の数値文字列チェックには数字を入力してください.5行目の数値文字列チェックには数字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[0]</td>
+	<td>00000</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[1]</td>
+	<td>11111</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[2]</td>
+	<td>22222</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[3]</td>
+	<td>33333</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[4]</td>
+	<td>44444</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>numericList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[3]</td>
+	<td>ｱｲｳｴｵｧｨｩｪｫ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[4]</td>
+	<td>あいう１２３</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の全角文字チェックには全角文字を入力してください.3行目の全角文字チェックには全角文字を入力してください.4行目の全角文字チェックには全角文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[0]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[1]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[4]</td>
+	<td>abcd</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の全角文字チェックには全角文字を入力してください.3行目の全角文字チェックには全角文字を入力してください.4行目の全角文字チェックには全角文字を入力してください.5行目の全角文字チェックには全角文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[0]</td>
+	<td>１２３</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[2]</td>
+	<td>カキクケコ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[3]</td>
+	<td>ャュョラリルレロワヮ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[4]</td>
+	<td>あいう１２３</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[0]</td>
+	<td>アイウ12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[3]</td>
+	<td>１２３４５</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[4]</td>
+	<td>ｱｲｳｴｵｧｨｩｪｫ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の全角カナチェックには全角カナ文字を入力してください.2行目の全角カナチェックには全角カナ文字を入力してください.3行目の全角カナチェックには全角カナ文字を入力してください.4行目の全角カナチェックには全角カナ文字を入力してください.5行目の全角カナチェックには全角カナ文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[0]</td>
+	<td>アイウエオ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の全角カナチェックには全角カナ文字を入力してください.3行目の全角カナチェックには全角カナ文字を入力してください.4行目の全角カナチェックには全角カナ文字を入力してください.5行目の全角カナチェックには全角カナ文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[1]</td>
+	<td>ァィゥェ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[2]</td>
+	<td>カキクケコヵヶガギグ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[3]</td>
+	<td>ャュョラリルレロワヮ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[4]</td>
+	<td>ヰヱヲッンー</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>zenkakuKanaList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[3]</td>
+	<td>１２３４５</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[4]</td>
+	<td>ｱｲｳｴｵｧｨｩｪｫ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の半角カナチェックには半角カナ文字を入力してください.2行目の半角カナチェックには半角カナ文字を入力してください.3行目の半角カナチェックには半角カナ文字を入力してください.4行目の半角カナチェックには半角カナ文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[0]</td>
+	<td>ｱｲｳｴｵｧｨｩｪｫ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[4]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の半角カナチェックには半角カナ文字を入力してください.3行目の半角カナチェックには半角カナ文字を入力してください.4行目の半角カナチェックには半角カナ文字を入力してください.5行目の半角カナチェックには半角カナ文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[0]</td>
+	<td>ｱｲｳｴｵ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[1]</td>
+	<td>ｧｨｩｪｫ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[2]</td>
+	<td>ﾚﾛﾜｦﾝﾟﾞｰ･､</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[3]</td>
+	<td>｡｢｣</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[4]</td>
+	<td>ﾀﾁﾂｯﾃﾄﾅﾆﾇﾈ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuKanaList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[0]</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[1]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[2]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[3]</td>
+	<td>１</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[4]</td>
+	<td>ABC12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の大文字英数字チェックには英大文字または数字を入力してください.3行目の大文字英数字チェックには英大文字または数字を入力してください.4行目の大文字英数字チェックには英大文字または数字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[4]</td>
+	<td>あいうえお12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の大文字英数字チェックには英大文字または数字を入力してください.3行目の大文字英数字チェックには英大文字または数字を入力してください.4行目の大文字英数字チェックには英大文字または数字を入力してください.5行目の大文字英数字チェックには英大文字または数字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[0]</td>
+	<td>ABC</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[1]</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[2]</td>
+	<td>ABC123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[3]</td>
+	<td>123ABC</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[4]</td>
+	<td>ABC123DEF</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>capAlphaNumbericList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[0]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[1]</td>
+	<td>あいうえおabc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[2]</td>
+	<td>ｱｲｳｴｵ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[3]</td>
+	<td>１</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[4]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の半角文字列チェックには半角文字を入力してください.2行目の半角文字列チェックには半角文字を入力してください.4行目の半角文字列チェックには半角文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[0]</td>
+	<td>ｱｲｳｴｵ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[4]</td>
+	<td>！”＃</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の半角文字列チェックには半角文字を入力してください.3行目の半角文字列チェックには半角文字を入力してください.4行目の半角文字列チェックには半角文字を入力してください.5行目の半角文字列チェックには半角文字を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[0]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[1]</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[2]</td>
+	<td>ｱｲｳｴｵ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[3]</td>
+	<td>abcｱｲｳｴｵ12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[4]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>hankakuList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[0]</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[1]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[2]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[3]</td>
+	<td>１</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[4]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>4行目の英数字チェック（最大長5桁）には半角英数字で入力してください.1行目の英数字チェック（最大長5桁）には5文字以下にしてください.2行目の英数字チェック（最大長5桁）には5文字以下にしてください.3行目の英数字チェック（最大長5桁）には5文字以下にしてください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[1]</td>
+	<td>１</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[2]</td>
+	<td>あいうえおか</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[3]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[4]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の英数字チェック（最大長5桁）には半角英数字で入力してください.3行目の英数字チェック（最大長5桁）には半角英数字で入力してください.3行目の英数字チェック（最大長5桁）には5文字以下にしてください.4行目の英数字チェック（最大長5桁）には5文字以下にしてください.5行目の英数字チェック（最大長5桁）には5文字以下にしてください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[1]</td>
+	<td>abcde</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[3]</td>
+	<td>12ab</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[4]</td>
+	<td>a1b</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>alphanumericList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[0]</td>
+	<td>abc!"</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[1]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[2]</td>
+	<td>!"#</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[3]</td>
+	<td>$</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[4]</td>
+	<td>%'()</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.3行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.4行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.5行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[0]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[1]</td>
+	<td>abc12#</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.3行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.4行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.5行目の禁止文字列チェックに入力禁止文字"!"#$%'()"が含まれています.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[1]</td>
+	<td>123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[3]</td>
+	<td>&</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>prohibitedList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value=' 入力チェック拡張選択画面に戻る ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays01']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールド文字チェック(画面ID: SC2003)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

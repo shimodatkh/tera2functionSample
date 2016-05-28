@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+  <action path="/codeList">
+    <blogic-params bean-name="java.util.HashMap">
+        <set-property property="org.apache.struts.action.LOCALE"  blogic-property="locale" source="session"/>
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="codeListTable" dest="request" />
+      <set-property property="mlCodeListTable" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <action path="/registDBCodeList">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.codelist.bean.InsertDBCodeListParam">
+      <set-property property="dbKey" blogic-property="dbKey" source="form" />
+      <set-property property="dbValue" blogic-property="dbValue" source="form" />
+      <set-property property="org.apache.struts.action.LOCALE"  blogic-property="locale" source="session"/>
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="codeListTable" dest="request" />
+      <set-property property="mlCodeListTable" dest="request" />
+    </blogic-result>
+  </action>
+</blogic-io>

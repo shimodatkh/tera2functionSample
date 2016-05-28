@@ -1,0 +1,413 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC17_02</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC17_02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WE-02 標準ディスパッチャ機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>標準ディスパッチャ処理メニュー(画面ID: SC1701)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ラジオボタンを利用するディスパッチャ処理</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ラジオボタンを利用するユーザ権限管理(画面ID: SC1703)</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.1.0</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.2.0</td>
+	<td>00000002</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.3.0</td>
+	<td>00000003</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.4.0</td>
+	<td>00000004</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.1.1</td>
+	<td>terasoluna </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.2.1</td>
+	<td>admin </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.3.1</td>
+	<td>maeda </td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>radioButtonDispatchTable.4.1</td>
+	<td>kimura </td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[0]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[1]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[2]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[3]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>userDivision[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>userDivision[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='radio' and @value='forward_update']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='sumbit' and @value='実行']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[0]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[1]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[2]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[3]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000004</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WJ-01 アクセス権限チェック機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>アクセス権限チェック(画面ID: SC0501)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000002</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WJ-01 アクセス権限チェック機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>アクセス権限チェックエラー(画面ID: SC0502)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>menuButton</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WE-02 標準ディスパッチャ機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>標準ディスパッチャ処理メニュー(画面ID: SC1701)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=ラジオボタンを利用するディスパッチャ処理</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ラジオボタンを利用するユーザ権限管理(画面ID: SC1703)</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[0]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[1]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[2]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[3]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>userDivision[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>userDivision[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[0]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[1]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[2]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[3]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='radio' and @value='forward_search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='sumbit' and @value='実行']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[0]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[1]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[2]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[3]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>userDivision[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>userDivision[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[0]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[1]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[2]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[3]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='radio' and @value='XXX']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='sumbit' and @value='実行']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[0]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[1]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[2]']</td>
+	<td>off</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='userDivision[3]']</td>
+	<td>on</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>menuForward</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

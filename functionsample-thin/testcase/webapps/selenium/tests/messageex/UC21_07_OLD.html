@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC21_07</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC21_07</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WG-01 拡張メッセージリソース機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>拡張メッセージリソース選択(画面ID: SC2101)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=格納順序セッションスコープ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>セッションスコープ選択(画面ID: SC2106)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code1</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code2</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code3</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code4</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='処理']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>セッションスコープ結果(画面ID: SC2107)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageByPriority']//span[1]</td>
+	<td>4番エラーメッセージ</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageByPriority']//span[2]</td>
+	<td>3番エラーメッセージ</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageByPriority']//span[3]</td>
+	<td>2番エラーメッセージ</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageByPriority']//span[4]</td>
+	<td>1番エラーメッセージ</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageByPriority']//span[1]</td>
+	<td>4番メッセージ</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageByPriority']//span[2]</td>
+	<td>3番メッセージ</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageByPriority']//span[3]</td>
+	<td>2番メッセージ</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageByPriority']//span[4]</td>
+	<td>1番メッセージ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

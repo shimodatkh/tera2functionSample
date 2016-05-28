@@ -1,0 +1,623 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC35_04</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC35_04</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WK-04 キャッシュ避けリンク機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>拡張form・リンク・submit選択(画面ID: SC3501)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2. linkタグ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Link Tag</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//a[@tabindex='2']@title</td>
+	<td>TITLE</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=linkタグサンプル 属性 page(tabindex2)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=linkタグサンプル 属性 forward(tabindex1)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=linkタグサンプル 属性 action(tabindex3)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=linkタグサンプル（ログオン画面）属性 href(tabindex4)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WK-04 キャッシュ避けリンク機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=2. linkタグ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=フォーカス喪失でダイアログ表示(tabindex6)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>onblur</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=クリックでダイアログ表示 </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>onclick</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>//a[@onfocus]</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>onfocus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//a[@class]@class</td>
+	<td>Class_01</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CSSによるバックグラウンドカラー設定(styleClass)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//a[@style]@style</td>
+	<td>background-color: rgb(207, 219, 226);</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CSSによるバックグラウンドカラー設定2(style)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//a[@id]@id</td>
+	<td>Class_02</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CSSによるバックグラウンドカラー設定3(styleId)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=linkタグサンプル 属性 param</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("name=")+5,storedVars['url'].indexOf("name=")+5+10)}</td>
+	<td>nameValue</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['nameValue'] == "dynamicURI"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=linkタグサンプル 属性 name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("sample2=")+8,storedVars['url'].indexOf("sample2=")+8+6)}</td>
+	<td>sample2Value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['sample2Value'] == "goodby"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("sample=")+7,storedVars['url'].indexOf("sample=")+7+5)}</td>
+	<td>sampleValue</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['sampleValue'] == "hello"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Tokyo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("number=")+7,storedVars['url'].indexOf("number=")+7+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "0"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Osaka</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("number=")+7,storedVars['url'].indexOf("number=")+7+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "1"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Chiba</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("number=")+7,storedVars['url'].indexOf("number=")+7+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "2"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Saitama</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("number=")+7,storedVars['url'].indexOf("number=")+7+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "3"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Japan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("index=")+6,storedVars['url'].indexOf("index=")+6+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "0"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=USA</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("index=")+6,storedVars['url'].indexOf("index=")+6+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "1"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Chaina</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("index=")+6,storedVars['url'].indexOf("index=")+6+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "2"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=France</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("index=")+6,storedVars['url'].indexOf("index=")+6+1)}</td>
+	<td>value</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['value'] == "3"){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=属性target(新規フレーム)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//a[@title and not(@accesskey) and not(@tabindex)]@title</td>
+	<td>taglibMessageResources_en.properties's link.title.</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=トランザクションをURIに追加</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>linkタグ(画面ID: SC3503)</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{ myiframe.location }</td>
+	<td>url</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{storedVars['url'].substring(storedVars['url'].indexOf("TOKEN=")+6,storedVars['url'].indexOf("TOKEN=")+6+32)}</td>
+	<td>tokenValue</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{if(storedVars['tokenValue'].length == 32){check='TOKEN';}else{check='ERROR';} }</td>
+	<td>check</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${check}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//a[@title and @accesskey and not(@tabindex)]@title</td>
+	<td>1. linkタグにジャンプします。</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=このページの"1. linkタグ"へジャンプ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

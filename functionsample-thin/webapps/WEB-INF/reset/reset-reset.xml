@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE reset PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring reset 1.0//JA"
+                       "../dtd/reset.dtd">
+
+<reset>
+  <!-- Dynaでないフォーム -->
+  <action path="/reset">
+    <!-- 一般タイプのリセット設定 -->
+    <property-reset name="testItem2" />
+    <property-reset name="testItem4" />
+    
+    <!-- mapタイプのリセット設定 -->
+    <property-reset name="mapItems(mapItem3)" />
+    <property-reset name="mapItems(mapItem5)" />
+    
+    <!-- ネストされたビーンリストのリセット(select設定ない)設定 -->
+    <property-reset name="rows1.value" />
+    
+    <!-- ネストされたビーンリストのリセット(select設定あり)設定 -->
+    <property-reset name="rows2.value" select="true" />
+  </action>
+  
+  <!-- Dynaフォーム -->
+  <action path="/resetDynaFormResult">
+    <!-- 一般タイプのリセット設定 -->
+    <property-reset name="testItem2" />
+    <property-reset name="testItem4" />
+    
+    <!-- mapタイプのリセット設定 -->
+    <property-reset name="mapItems(mapItem3)" />
+    <property-reset name="mapItems(mapItem5)" />
+    
+    <!-- ネストされたビーンリストのリセット(select設定ない)設定 -->
+    <property-reset name="rows1.value" />
+    
+    <!-- ネストされたビーンリストのリセット(select設定あり)設定 -->
+    <property-reset name="rows2.value" select="true" />
+  </action>
+</reset>

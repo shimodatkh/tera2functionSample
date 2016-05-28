@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- セッションクリアモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/clearsession/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+  <!-- セッションクリア画面遷移 -->
+  <bean name="/clearsession/clearsessionForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+ 
+  <!-- セッションクリア用のセッション値を生成するアクション -->
+  <bean name="/clearsession/clearsessionInitialize" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.clearsession.web.action.ClearSessionInitializeAction" />
+    
+  <!-- セッション値をクリアするアクション -->
+  <bean name="/clearsession/clearsessionClear" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ClearSessionAction">
+    <property name="clearSessionKeys">
+      <list>
+        <value>sessionValue1</value>
+        <value>sessionValue2</value>
+      </list>
+    </property>
+  </bean>
+    
+  <!-- セッション値をクリアしてメニューに戻るアクション -->
+  <bean name="/clearsession/clearsessionMenu" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ClearSessionAction">
+    <property name="clearSessionKeys">
+      <list>
+        <value>sessionValue1</value>
+        <value>sessionValue2</value>
+        <value>sessionValue3</value>
+      </list>
+    </property>
+  </bean>
+  
+  <!-- メニュー画面遷移 -->
+  <bean name="/clearsession/clearsessionMenuForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+</beans>

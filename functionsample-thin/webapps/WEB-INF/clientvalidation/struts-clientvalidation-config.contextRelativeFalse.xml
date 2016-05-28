@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="validationForm" 
+            type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+      <form-property name="alphaNumericMax" type="java.lang.String"/>
+      <form-property name="alphaNumericMin" type="java.lang.String"/>
+      <form-property name="capAlphaNumericMax" type="java.lang.String"/>
+      <form-property name="capAlphaNumericMin" type="java.lang.String"/>
+      <form-property name="date" type="java.lang.String"/>
+      <form-property name="hankaku" type="java.lang.String"/>
+      <form-property name="hankakuKana" type="java.lang.String"/>
+      <form-property name="length" type="java.lang.String"/>
+      <form-property name="number" type="java.lang.String"/>
+      <form-property name="numericString" type="java.lang.String"/>
+      <form-property name="prohibit" type="java.lang.String"/>
+      <form-property name="regExp" type="java.lang.String"/>
+      <form-property name="required" type="java.lang.String"/>
+      <form-property name="stringMax" type="java.lang.String"/>
+      <form-property name="stringMin" type="java.lang.String"/>
+      <form-property name="zenkaku" type="java.lang.String"/>
+      <form-property name="zenkakuKana" type="java.lang.String"/>
+      <form-property name="dateRange" type="java.lang.String"/>
+      <form-property name="numberLength" type="java.lang.String"/>            
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- クライアントチェック画面 -->
+    <action path="/clientvalidationForward"
+            scope="request"
+            name="validationForm"
+            parameter="/sc3601.jsp">
+        <set-property property="clearForm" value="true" />
+    </action>
+
+    <!-- 入力チェック処理 -->
+    <action path="/validationAction"
+            scope="request"
+            name="validationForm"
+            validate="true"
+            input="/clientvalidationForward.do"
+            parameter="/clientvalidationForward.do"/>
+
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+  <message-resources parameter="validationMessageResources"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"
+  />
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/clientvalidation/clientvalidationContext.xml"/>
+  </plug-in>
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+      property="pathnames"
+      value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-ex.xml,/WEB-INF/validation.xml,/WEB-INF/clientvalidation/validation.xml"/>
+    <set-property
+      property="stopOnFirstError"
+      value="false"/>
+  </plug-in>
+ 
+</struts-config>

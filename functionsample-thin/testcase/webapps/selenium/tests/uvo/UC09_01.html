@@ -1,0 +1,81 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<head><title>UC09_01</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC09_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WB-01 ユーザ情報表示機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>ユーザ情報表示(画面ID: SC0901)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>uvoUserID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>uvoUserName</td>
+	<td>terasoluna</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>uvoCodeList</td>
+	<td>管理者</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

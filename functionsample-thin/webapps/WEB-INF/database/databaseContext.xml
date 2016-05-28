@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- データベースアクセスモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/database/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+
+  <!-- 住所録取得 -->
+  <bean name="/database/listAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.ListAddressAction">
+    <property name="listAddressService" ref="listAddressService" />
+  </bean>
+  
+  <!-- 住所録取得サービス -->
+  <bean id="listAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ListAddressServiceImpl" >
+    <property name="queryDAO" ref="queryDAO" />
+  </bean>
+
+  <!-- 住所録取得(ArrayList版) -->
+  <bean name="/database/arrayListAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.ArrayListAddressAction">
+    <property name="arrayListAddressService" ref="arrayListAddressService" />
+  </bean>
+  
+  <!-- 住所録取得サービス(ArrayList版) -->
+  <bean id="arrayListAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ArrayListAddressServiceImpl" >
+    <property name="queryDAO" ref="queryDAO" />
+  </bean>
+
+  <!-- 住所録一覧画面へのForwardAction -->
+  <bean name="/database/listAddressForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- 住所録一覧画面（ArrayList）へのForwardAction -->
+  <bean name="/database/arrayListAddressForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- 住所録一覧画面のDispatchAction -->
+  <bean name="/database/listAddressDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+
+  <!-- 住所録一覧画面（ArrayList）のDispatchAction -->
+  <bean name="/database/arrayListAddressDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+  
+  
+  <!-- 住所情報更新 -->
+  <bean name="/database/updateAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.UpdateAddressAction">
+    <property name="updateAddressService" ref="updateAddressService" />
+  </bean>
+  
+  <!-- 住所録更新サービス -->
+  <bean id="updateAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.UpdateAddressServiceImpl" >
+    <property name="queryDAO" ref="queryDAO" />
+  </bean>
+  
+  
+  <!-- 住所削除 -->
+  <bean name="/database/deleteAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.DeleteAddressAction">
+    <property name="deleteAddressService" ref="deleteAddressService" />
+  </bean>
+  
+  <!-- 住所削除サービス -->
+  <bean id="deleteAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.DeleteAddressServiceImpl" >
+    <property name="updateDAO" ref="updateDAO" />
+    <property name="listAddressService" ref="listAddressService" />
+  </bean>
+  
+  
+  <!-- プロシージャ起動 -->
+  <bean name="/database/procedureAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.ProcedureAddressAction">
+    <property name="procedureAddressService" ref="procedureAddressService" />
+  </bean>
+  
+  <!-- プロシージャサービス -->
+  <bean id="procedureAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ProcedureAddressServiceImpl" >
+    <property name="spDAO" ref="spDAO" />
+    <property name="listAddressService" ref="listAddressService" />
+  </bean>
+  
+  <!-- プロシージャサービス（PostgreSQL用） -->
+  <bean id="procedurePostgreSQLAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ProcedurePostgreSQLAddressServiceImpl" >
+    <property name="queryDAO" ref="queryDAO" />
+    <property name="listAddressService" ref="listAddressService" />
+  </bean>
+        
+  <!-- 新規登録画面へのForwardAction -->
+  <bean name="/database/insertAddressForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- 新規登録画面のDispatchAction -->
+  <bean name="/database/resultInsertAddressDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+  
+  <!-- 新規登録 -->
+  <bean name="/database/resultInsertAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.ResultInsertAddressAction">
+    <property name="resultInsertAddressService" ref="resultInsertAddressService" />
+  </bean>
+  
+  <bean id="resultInsertAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ResultInsertAddressServiceImpl" >
+    <property name="listAddressService" ref="listAddressService" />
+    <property name="updateDAO" ref="updateDAO" />
+  </bean>
+  
+  
+  
+  <!-- 住所変更画面へのForwardAction -->
+  <bean name="/database/updateAddressForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+        
+  <!-- 住所変更画面のDispatchAction -->
+  <bean name="/database/resultUpdateAddressDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+  
+  <!-- 変更 -->
+  <bean name="/database/resultUpdateAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.ResultUpdateAddressAction">
+    <property name="resultUpdateAddressService" ref="resultUpdateAddressService" />
+  </bean>
+  
+  <bean id="resultUpdateAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ResultUpdateAddressServiceImpl" >
+    <property name="updateDAO" ref="updateDAO" />
+    <property name="listAddressService" ref="listAddressService" />
+  </bean>
+
+  <!-- バッチ処理画面へのForwardAction -->
+  <bean name="/database/batchAddressForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+        
+  <!-- バッチ処理画面のDispatchAction -->
+  <bean name="/database/resultBatchAddressDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+
+  <!-- バッチ処理 -->
+  <bean name="/database/resultBatchAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.ResultBatchAddressAction">
+    <property name="resultBatchAddressService" ref="resultBatchAddressService" />
+  </bean>
+  
+  <!-- バッチ処理サービス -->
+  <bean id="resultBatchAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ResultBatchAddressServiceImpl" >
+    <property name="updateDAO" ref="updateDAO" />
+    <property name="listAddressService" ref="listAddressService" />
+  </bean>
+
+  <!-- CSVダウンロード画面へのForwardAction -->
+  <bean name="/database/csvDlAddressForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+        
+  <!-- CSVダウンロード画面のDispatchAction -->
+  <bean name="/database/resultCsvDlAddressDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+
+  <!-- CSVダウンロード -->
+  <bean name="/database/resultCsvDlAddress" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.web.action.ResultCsvDlAddressAction">
+    <property name="resultCsvDlAddressService" ref="resultCsvDlAddressService"/>
+  </bean>
+
+  <!-- CSVダウンロードサービス -->
+  <bean id="resultCsvDlAddressService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.database.service.ResultCsvDlAddressServiceImpl" >
+    <property name="queryRowHandleDAO" ref="queryRowHandleDAO"/>
+    <property name="csvDownloadDataRowHandler" ref="csvDownloadDataRowHandler"/>
+  </bean>
+
+  <!-- CSVダウンロードを1行ずつ処理するハンドラ -->
+  <bean id="csvDownloadDataRowHandler"
+        class="jp.terasoluna.thin.functionsample.database.service.CsvDownloadDataRowHandlerImpl">
+  </bean>
+  
+    <!-- 追加(ver 2.0.3.1) -->
+    <!-- 住所検索アクション -->
+    <bean name="/database/searchAddress"
+        class="jp.terasoluna.thin.functionsample.database.web.action.SearchAddressAction">
+        <property name="arrayListAddressService" ref="arrayListAddressService" />
+    </bean>
+    
+    <bean name="/database/searchAddressForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction">
+    </bean>
+</beans>

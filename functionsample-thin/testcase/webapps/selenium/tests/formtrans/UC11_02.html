@@ -1,0 +1,171 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<head><title>UC11_02</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC11_02</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WB-03 アクションフォーム切り替え</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>アクションフォーム切り替え選択(画面ID: SC1101)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=切り替えなし（clearForm="true"）</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>フォーム切り替えなし（clearForm=true）(画面ID: SC1103)</td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>FormID</td>
+	<td>formId1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue1</td>
+	<td>param1 : param1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue2</td>
+	<td>param2 : param2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue3</td>
+	<td>param3 : param3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=フォーム切り替えなし（clearForm="true"）</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>フォーム切り替え結果(画面ID: SC1105)</td>
+</tr>
+<tr>
+	<td>verifyTextNotPresent</td>
+	<td>${formId1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>FormID1</td>
+	<td>formId2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue1</td>
+	<td>param1：param1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue2</td>
+	<td>param2：param2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue3</td>
+	<td>param3：param3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WB-03 アクションフォーム切り替え</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=切り替えなし（clearForm="true"）</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>FormID</td>
+	<td>${formId2}</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue1</td>
+	<td>param1 : param1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue2</td>
+	<td>param2 : param2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>ParamValue3</td>
+	<td>param3 : param3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=フォーム切り替えなし（clearForm="true"）</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>screenNameID</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

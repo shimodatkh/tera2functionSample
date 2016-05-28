@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    
+    <form-bean name="styleclassForm"
+      type="jp.terasoluna.thin.functionsample.styleclass.web.form.StyleclassForm" />
+      
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- スタイルクラス切り替え画面 -->
+           
+    <action path="/styleclassForward"
+            name="styleclassForm" scope="request"
+            parameter="/sc3301.jsp"
+            validate="false"/>
+
+    <action path="/styleclassCheckForward"
+            name="styleclassForm" scope="request"
+            input="/styleclassForward.do"
+            parameter="/sc3301.jsp">
+    </action>
+            
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+  <message-resources parameter="taglibMessageResources"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"
+  />
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/styleclass/styleclassContext.xml"/>
+  </plug-in>
+  
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+      property="pathnames"
+      value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-ex.xml,/WEB-INF/styleclass/validation-styleclass.xml"/>
+    <set-property
+      property="stopOnFirstError"
+      value="false"/>
+  </plug-in>
+
+</struts-config>

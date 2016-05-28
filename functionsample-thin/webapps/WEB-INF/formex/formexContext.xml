@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- モジュール固有のBean定義 -->
+    <!-- アクションフォーム拡張モジュールのBean定義 -->
+
+    <!-- AOPの設定 -->
+    <aop:config>
+        <aop:pointcut id="actionBeans" expression="bean(/formex/*)" />
+        <aop:pointcut id="serviceBeans" expression="bean(*Service)" />
+        <aop:pointcut id="blogicBeans" expression="bean(*BLogic)" />
+        <aop:advisor pointcut-ref="actionBeans" advice-ref="debugInterceptor" />
+        <aop:advisor pointcut-ref="serviceBeans" advice-ref="debugInterceptor" />
+        <aop:advisor pointcut-ref="blogicBeans" advice-ref="debugInterceptor" />
+    </aop:config>
+
+
+    <!-- アクションフォーム拡張フォワード -->
+    <bean name="/formex/formexForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <bean name="/formex/validatorFormExForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <bean name="/formex/dynaFormExForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <bean name="/formex/dynaFormExCancelForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <bean name="/formex/dynaFormExModifiedForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <bean name="/formex/formExResultForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <bean name="/formex/validatorFormEx" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.ValidatorFormExAction">
+    </bean>
+
+    <bean name="/formex/dynaValidatorFormEx" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.DynaValidatorFormExAction">
+    </bean>
+
+    <bean name="/formex/cancelPopulateFormEx" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.CancelPopulateFormExAction">
+    </bean>
+
+    <bean name="/formex/modifiedFormEx" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.ModifiedFormExAction">
+        <property name="modifiedService" ref="modifiedService" />
+    </bean>
+
+    <bean name="/formex/securityForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+    <bean name="/formex/securityResultForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- ActionForm版 + prefixなし + 1回populate -->
+    <bean name="/formex/securityAction" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.SecurityAction" />
+
+    <!-- DynaActionForm版 + prefixなし + 1回populate -->
+    <bean name="/formex/securityDynaAction" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.SecurityDynaAction" />
+
+    <!-- ActionForm版 + prefixあり + 1回populate -->
+    <bean name="/formex/securityActionWithPrefix" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.SecurityAction" />
+
+    <!-- ActionForm版 + prefixなし + 複数回populate -->
+    <bean name="/formex/securityActionWithActionChain" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.web.action.SecurityAction" />
+
+    <!-- ビジネスロジック -->
+    <bean id="modifiedService" scope="prototype" class="jp.terasoluna.thin.functionsample.formex.service.ModifiedServiceImpl">
+    </bean>
+
+</beans>

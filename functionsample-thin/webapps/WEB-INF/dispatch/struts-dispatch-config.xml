@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <!-- ユーザ権限更新データを持つフォーム -->
+    <form-bean name="checkListForm"
+               type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+        <form-property name="userCode" type="java.lang.String[]" size="10"/>               
+        <form-property name="userDivision" type="java.lang.String[]" size="10"/>
+        <form-property name="radio" type="java.lang.String"/>
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+
+  <global-exceptions>
+  <!-- 予期せぬデータベース例外処理 -->
+    <exception key="error.UC17.00001"
+               path="/updateUserDivisionErrorForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="java.lang.ArrayIndexOutOfBoundsException"/>  
+  
+  <!-- 予期せぬデータベース例外処理 -->
+    <exception key="error.UC01.00001"
+               path="/../sc0005.jsp"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="org.springframework.dao.DataAccessException"/>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+  
+    <!-- 標準ディスパッチャ処理メニュー画面に遷移 -->
+    <action path="/dispatchForward" parameter="/dispatch/sc1701.jsp" />
+    
+    <!-- サブミットボタンを利用するユーザ権限管理画面に遷移 -->
+    <action path="/submitButtonDispatchForward" parameter="/dispatch/sc1702.jsp" />
+    
+    <!-- ラジオボタンを利用するユーザ権限管理画面に遷移 -->
+    <action path="/radioButtonDispatchForward" parameter="/dispatch/sc1703.jsp" />
+
+    <!-- ユーザ数エラー画面に遷移 -->
+    <action path="/updateUserDivisionErrorForward" parameter="/dispatch/sc1704.jsp" />
+        
+    <!-- サブミットボタンを利用した処理の現在ユーザ権限取得アクション -->
+    <action path="/submitButtonUserList" scope="request">
+      <forward name="success" path="/submitButtonDispatchForward.do"/>
+    </action>
+    
+    <!-- ラジオボタンを利用した処理の現在ユーザ権限取得アクション -->
+    <action path="/radioButtonUserList" scope="request">
+      <forward name="success" path="/radioButtonDispatchForward.do"/>
+    </action>
+
+    <!-- サブミットボタンを利用した処理のディスパッチャアクション -->
+    <action path="/submitButtonDispatch" name="checkListForm" scope="request"
+            validate="false">
+      <forward name="update" path="/submitButtonUpdateUserDivision.do"/>
+      <forward name="search" path="/submitButtonUserList.do"/>
+      <forward name="default" path="/submitButtonUserList.do"/>
+    </action>
+
+    <!-- ラジオボタンを利用した処理のディスパッチャアクション -->
+    <action path="/radioButtonDispatch" name="checkListForm" scope="request"
+            validate="false">
+      <forward name="update" path="/radioButtonUpdateUserDivision.do"/>
+      <forward name="search" path="/radioButtonUserList.do"/>
+      <forward name="default" path="/radioButtonUserList.do"/>
+    </action>
+
+    <!-- サブミットボタンを利用した処理のユーザ権限更新アクション -->
+    <action path="/submitButtonUpdateUserDivision" name="checkListForm" scope="request"
+            validate="false">
+      <forward name="success" path="/submitButtonUserList.do" redirect="true"/>
+    </action>    
+
+    <!-- ラジオボタンを利用した処理のユーザ権限更新アクション -->
+    <action path="/radioButtonUpdateUserDivision" name="checkListForm" scope="request"
+            validate="false">
+      <forward name="success" path="/radioButtonUserList.do" redirect="true"/>
+    </action>    
+
+  </action-mappings>
+  
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/dispatch/dispatchContext.xml"/>
+  </plug-in>
+
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/dispatch/blogic-dispatch-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+
+</struts-config>

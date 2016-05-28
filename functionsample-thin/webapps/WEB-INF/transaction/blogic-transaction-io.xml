@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+  <!-- 一般機能を使用した住所情報登録処理 -->
+  <action path="/generalInsertAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.transaction.bean.InsertAddressParam" >
+      <set-property property="customerCode1" 	blogic-property="customerCode1" source="form" />
+      <set-property property="customerName1" 	blogic-property="customerName1" source="form" />
+      <set-property property="postCode1" 		blogic-property="postCode1" source="form" />
+      <set-property property="customerAddress1" blogic-property="customerAddress1" source="form" />
+      <set-property property="customerTel1" 	blogic-property="customerTel1" source="form" />
+      
+      <set-property property="customerCode2" 	blogic-property="customerCode2" source="form" />
+      <set-property property="customerName2" 	blogic-property="customerName2" source="form" />
+      <set-property property="postCode2" 		blogic-property="postCode2" source="form" />
+      <set-property property="customerAddress2" blogic-property="customerAddress2" source="form" />
+      <set-property property="customerTel2" 	blogic-property="customerTel2" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+    </blogic-result>
+  </action>
+  
+  <!-- バッチ機能を使用した住所情報登録処理 -->
+  <action path="/batchInsertAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.transaction.bean.InsertAddressParam" >
+      <set-property property="customerCode1" 	blogic-property="customerCode1" source="form" />
+      <set-property property="customerName1" 	blogic-property="customerName1" source="form" />
+      <set-property property="postCode1" 		blogic-property="postCode1" source="form" />
+      <set-property property="customerAddress1" blogic-property="customerAddress1" source="form" />
+      <set-property property="customerTel1" 	blogic-property="customerTel1" source="form" />
+      
+      <set-property property="customerCode2" 	blogic-property="customerCode2" source="form" />
+      <set-property property="customerName2" 	blogic-property="customerName2" source="form" />
+      <set-property property="postCode2" 		blogic-property="postCode2" source="form" />
+      <set-property property="customerAddress2" blogic-property="customerAddress2" source="form" />
+      <set-property property="customerTel2" 	blogic-property="customerTel2" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+    </blogic-result>
+  </action>
+  
+  <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理【一般機能処理後、バッチ機能処理】-->
+  <action path="/generalWithBatchInsertAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.transaction.bean.GeneralWithBatchInsertAddressParam" >
+      <set-property property="customerCode1" 	blogic-property="customerCode1" source="form" />
+      <set-property property="customerName1" 	blogic-property="customerName1" source="form" />
+      <set-property property="postCode1" 		blogic-property="postCode1" source="form" />
+      <set-property property="customerAddress1" blogic-property="customerAddress1" source="form" />
+      <set-property property="customerTel1" 	blogic-property="customerTel1" source="form" />
+      
+      <set-property property="customerCode2" 	blogic-property="customerCode2" source="form" />
+      <set-property property="customerName2" 	blogic-property="customerName2" source="form" />
+      <set-property property="postCode2" 		blogic-property="postCode2" source="form" />
+      <set-property property="customerAddress2" blogic-property="customerAddress2" source="form" />
+      <set-property property="customerTel2" 	blogic-property="customerTel2" source="form" />
+
+      <set-property property="customerCode3" 	blogic-property="customerCode3" source="form" />
+      <set-property property="customerName3" 	blogic-property="customerName3" source="form" />
+      <set-property property="postCode3" 		blogic-property="postCode3" source="form" />
+      <set-property property="customerAddress3" blogic-property="customerAddress3" source="form" />
+      <set-property property="customerTel3" 	blogic-property="customerTel3" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+    </blogic-result>
+  </action>
+
+  <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理【バッチ機能処理後、一般機能処理】-->
+  <action path="/batchWithGeneralInsertAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.transaction.bean.GeneralWithBatchInsertAddressParam" >
+      <set-property property="customerCode1" 	blogic-property="customerCode1" source="form" />
+      <set-property property="customerName1" 	blogic-property="customerName1" source="form" />
+      <set-property property="postCode1" 		blogic-property="postCode1" source="form" />
+      <set-property property="customerAddress1" blogic-property="customerAddress1" source="form" />
+      <set-property property="customerTel1" 	blogic-property="customerTel1" source="form" />
+      
+      <set-property property="customerCode2" 	blogic-property="customerCode2" source="form" />
+      <set-property property="customerName2" 	blogic-property="customerName2" source="form" />
+      <set-property property="postCode2" 		blogic-property="postCode2" source="form" />
+      <set-property property="customerAddress2" blogic-property="customerAddress2" source="form" />
+      <set-property property="customerTel2" 	blogic-property="customerTel2" source="form" />
+
+      <set-property property="customerCode3" 	blogic-property="customerCode3" source="form" />
+      <set-property property="customerName3" 	blogic-property="customerName3" source="form" />
+      <set-property property="postCode3" 		blogic-property="postCode3" source="form" />
+      <set-property property="customerAddress3" blogic-property="customerAddress3" source="form" />
+      <set-property property="customerTel3" 	blogic-property="customerTel3" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+    </blogic-result>
+  </action>
+  
+  <!-- 登録した住所情報取得処理【一般機能、バッチ機能の処理結果】 -->
+  <action path="/searchInsertedAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.transaction.bean.InsertAddressParam">
+      <set-property property="customerCode1" 	blogic-property="customerCode1" source="form" />
+      <set-property property="customerCode2" 	blogic-property="customerCode2" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="searchResult" dest="request" />
+    </blogic-result>
+  </action>
+
+  <!-- 登録した住所情報取得処理【一般機能とバッチ機能を一緒に使用した機能の処理結果】 -->
+  <action path="/generalWithBatchSearchInsertedAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.transaction.bean.GeneralWithBatchInsertAddressParam" >
+      <set-property property="customerCode1" 	blogic-property="customerCode1" source="form" />
+      <set-property property="customerCode2" 	blogic-property="customerCode2" source="form" />
+      <set-property property="customerCode3" 	blogic-property="customerCode3" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="searchResult" dest="request" />
+    </blogic-result>
+  </action>
+
+</blogic-io>

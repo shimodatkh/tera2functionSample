@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC10_04</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC10_04</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WB-02 アクションフォーム拡張機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>アクションフォーム選択(画面ID: SC1001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=サービスロジックでアクションフォーム値変更（cancelPouplate = "false"）</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>サービスロジックでアクションフォーム値変更（cancelPouplate=false）(画面ID: SC1005)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code1</td>
+	<td>param9</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code2</td>
+	<td>param10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>code3</td>
+	<td>param11</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='submit' and @value='処理']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>処理結果(画面ID: SC1006)</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='code1']</td>
+	<td>サービスで変更されたコード１</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='code2']</td>
+	<td>サービスで変更されたコード２</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='code3']</td>
+	<td>サービスで変更されたコード３</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>menuForward</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

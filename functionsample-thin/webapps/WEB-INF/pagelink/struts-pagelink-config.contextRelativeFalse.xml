@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="_listLinkForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <!-- 一覧表示用 -->
+      <form-property name="row1"        type="java.lang.String" initial="10"/>
+      <form-property name="startIndex1" type="java.lang.String" initial="0"/>
+      <form-property name="totalCount1" type="java.lang.String"/>
+      <form-property name="row2"        type="java.lang.String" initial="7"/>
+      <form-property name="startIndex2" type="java.lang.String" initial="0"/>
+      <form-property name="totalCount2" type="java.lang.String"/>
+    </form-bean>
+
+    <form-bean name="listSubmitForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <!-- 一覧表示用 -->
+      <form-property name="row"        type="java.lang.String" initial="5"/>
+      <form-property name="startIndex" type="java.lang.String" initial="0"/>
+      <form-property name="totalCount" type="java.lang.String"/>
+    </form-bean>
+        
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+    <exception key="info.UC24.00001"
+               path="/../sc0005.jsp"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="org.springframework.dao.DataAccessException"/>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- 一覧表示画面 -->
+    <action path="/pagelinkForward"
+            parameter="/sc2401.jsp"/>
+
+    <!-- 一覧表示にリンクを使用する場合、二つのテーブルから情報を取得する --> 
+    <action path="/listLink"
+            name="_listLinkForm" scope="session" validate="false">
+        <forward name="success" path="/listLinkForward.do"/>
+    </action>
+    
+    <!-- 一覧表示にリンクを使用する場合のJSP画面にフォワード -->
+    <action path="/listLinkForward"
+            name="_listLinkForm" scope="session" validate="false"
+            parameter="/sc2402.jsp" />
+
+    <!-- 一覧表示にリンクを使用する場合、一覧１のリンクを押す時 -->
+    <action path="/listLink1"
+            name="_listLinkForm" scope="session" validate="false">
+        <forward name="success" path="/listLinkForward.do"/>
+    </action>
+    
+    <!-- 一覧表示にリンクを使用する場合、一覧２のリンクを押す時 -->
+    <action path="/listLink2"
+            name="_listLinkForm" scope="session" validate="false">
+        <forward name="success" path="/listLinkForward.do"/>
+    </action>
+
+    <!-- 一覧表示にサブミットを使用する場合、テーブルから情報を取得する -->
+    <action path="/listSubmit"
+            name="listSubmitForm" scope="request" validate="false">
+        <forward name="success" path="/listSubmitForward.do"/>
+    </action>
+    
+    <!-- 一覧表示にサブミットを使用する場合のJSP画面にフォワード -->
+    <action path="/listSubmitForward"
+            name="listSubmitForm" scope="request" validate="false"
+            parameter="/sc2403.jsp" />
+
+    <!-- 一覧表示にサブミットを使用する場合、Dispatch -->
+    <action path="/listDispatch"
+            name="listSubmitForm" scope="request" validate="false">
+        <forward name="pageLinks" path="/listSubmit.do"/>
+        <forward name="default" path="/listLinkForward.do"/>
+    </action>
+            
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/pagelink/pagelinkContext.xml"/>
+  </plug-in>
+
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/pagelink/blogic-pagelink-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+
+</struts-config>

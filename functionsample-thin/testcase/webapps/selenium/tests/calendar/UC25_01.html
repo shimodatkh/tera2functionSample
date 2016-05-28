@@ -1,0 +1,158 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC25_01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC25_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WJ-03 カレンダー入力機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>カレンダー入力(画面ID: SC2501)</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date4</td>
+	<td></td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{(new Date()).getYear() + 1900;}</td>
+	<td>yyyy</td>
+</tr>
+<tr>
+	<td>store</td>
+	<td>javascript{var month=(new Date()).getMonth() + 1;if(("" + month).length == 1) {month= "0" + month;}else{month= "" + month;}}</td>
+	<td>month</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='button' and @value='カレンダー']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href="javascript:jscalendarDateSelected=11;jscalendarCloseCalendar();"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date1</td>
+	<td>${yyyy}/${month}/11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value="カレンダー" and @onclick="jscalendarPopUpCalendar(this,this.form.elements['date2'],'yyyy.MM.dd');"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href="javascript:jscalendarDateSelected=11;jscalendarCloseCalendar();"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date2</td>
+	<td>${yyyy}.${month}.11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value="カレンダー" and @onclick="jscalendarPopUpCalendar(this,this.form.elements['date3'],'yyyy MM dd');"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href="javascript:jscalendarDateSelected=11;jscalendarCloseCalendar();"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date3</td>
+	<td>${yyyy} ${month} 11</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value="カレンダー" and @onclick="jscalendarPopUpCalendar(this,this.form.elements['date4'],'yyyy-MM-dd');"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//a[@href="javascript:jscalendarDateSelected=11;jscalendarCloseCalendar();"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>dom=document.forms['dynaFormBean'].date4</td>
+	<td>${yyyy}-${month}-11</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

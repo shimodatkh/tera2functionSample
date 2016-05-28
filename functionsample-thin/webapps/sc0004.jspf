@@ -1,0 +1,36 @@
+<%--
+  - $Id: sc0004.jspf,v 1.12 2006/02/08 02:39:12 jeon Exp $
+  -
+  - Copyright 2006 NTT DATA Corporation.
+  -
+  --%>
+<%@ page contentType="text/html; charset=Windows-31J" language="java" %>
+<%@ taglib uri="/struts-html" prefix="html"%>
+<%@ taglib uri="/struts-bean" prefix="bean"%>
+<%@ taglib uri="/struts-logic" prefix="logic"%>
+<%@ taglib uri="/terasoluna" prefix="t"%>
+<%@ taglib uri="/terasoluna-struts" prefix="ts"%>
+
+<%-- 誤クリックで外部にリクエストを送信しないよう、SC1007,SC1008ではリンクをはらない --%>
+<logic:equal value="SC1007" name="screenID" scope="page">
+    <bean:define id="nolink" value="true" scope="page" />
+</logic:equal>
+<logic:equal value="SC1008" name="screenID" scope="page">
+    <bean:define id="nolink" value="true" scope="page" />
+</logic:equal>
+
+<!-- begin footer-->
+      <div class="com-footer-panel">
+        <span class="com-footer-logo-text">Copyright (C) 2007-2009</span>
+        <logic:notPresent name="nolink" scope="page">
+            <a href="http://www.nttdata.co.jp/" title="NTT&nbsp;DATA&nbsp;CORPORATION" target="newpage">
+              <span class="com-footer-logo-text">NTT DATA CORPORATION</span>
+            </a>
+        </logic:notPresent>
+        <logic:present  name="nolink" scope="page">
+            <span class="com-footer-logo-text">NTT DATA CORPORATION</span>
+        </logic:present>
+      </div>
+<!-- end footer -->
+    </div>
+  </body>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- アプリケーション全体のBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:advisor
+         pointcut-ref="serviceBeans"
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor
+         pointcut-ref="blogicBeans"
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor
+         pointcut-ref="actionBeans"
+         advice-ref="debugInterceptor"/>
+    <aop:advisor
+         pointcut-ref="serviceBeans"
+         advice-ref="debugInterceptor"/>
+    <aop:advisor
+         pointcut-ref="blogicBeans"
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+
+  <!-- Welcomeフォワード -->
+  <bean name="/welcome" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- メニューフォワード -->
+  <bean name="/menuForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- ログオン画面へのフォワードアクション -->
+  <bean name="/logonForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- 認証エラー -->
+  <bean name="/authErrorForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- ログオン認証を行なうアクション -->
+  <bean name="/logon" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.common.web.action.LogonAction">
+    <property name="logonService" ref="logonService" />
+  </bean>
+
+  <!-- ログオン認証を行なうサービス -->
+  <bean id="logonService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.common.service.LogonServiceImpl">
+    <property name="queryDAO" ref="queryDAO" />
+  </bean>
+
+  <!-- ログオフ処理 -->
+  <bean name="/logoff" scope="prototype"
+    class="jp.terasoluna.fw.web.struts.actions.LogoffAction" />
+
+  <!-- JNDIサポート -->
+  <!-- Tomcat -->
+  <bean id="jndiSupport" scope="prototype"
+        class="jp.terasoluna.fw.web.jndi.DefaultJndiSupport">
+        <property name="jndiPrefix"><value>true</value></property>
+  </bean>
+
+  <!-- WebSphere -->
+  <!--
+  <bean id="jndiSupport" scope="prototype"
+        class="jp.terasoluna.fw.web.jndi.DefaultJndiSupport"
+        init-method="initialize">
+    <property name="jndiEnvironmentMap">
+      <map>
+        <entry key="factory">
+          <value>com.ibm.websphere.naming.WsnInitialContextFactory</value>
+        </entry>
+        <entry key="url">
+          <value>iiop://localhost:2811</value>
+        </entry>
+        <entry key="username">
+          <value></value>
+        </entry>
+        <entry key="password">
+          <value></value>
+        </entry>
+      </map>
+    </property>
+    <property name="jndiPrefix"><value>false</value></property>
+ </bean>
+ -->
+
+
+  <!-- サーバ閉塞処理 -->
+  <bean name="/cancelServerBlockage" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.common.web.action.CancelServerBlockageAction">
+    <property name="logonService" ref="logonService" />
+  </bean>
+
+  <!-- サーバ閉塞解除画面 -->
+  <bean name="/cancelServerBlockageForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- Action実行時システム例外確認画面フォワード -->
+  <bean name="/resultExceptionForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  <bean name="/resultSystemExceptionForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+</beans>

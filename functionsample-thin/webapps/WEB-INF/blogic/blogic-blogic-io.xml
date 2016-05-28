@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+
+  <!-- BLogicインタフェース実装アクション -->
+  <action path="/blogicBLogic">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.blogic.bean.BlogicParam" >
+      <set-property property="value1" blogic-property="value1" source="form" />
+      <set-property property="value2" blogic-property="value2" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="result" dest="request" />
+    </blogic-result>
+  </action>
+  
+  
+  <!-- POJO実装アクション -->
+  <action path="/blogicPOJO">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.blogic.bean.BlogicParam" >
+      <set-property property="value1" blogic-property="value1" source="form" />
+      <set-property property="value2" blogic-property="value2" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="result" dest="request" />
+    </blogic-result>
+  </action>
+  
+</blogic-io>

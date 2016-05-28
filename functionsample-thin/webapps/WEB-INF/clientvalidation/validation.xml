@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+    <formset>
+
+        <!-- /validationAction -->
+        <form name="/validationAction">
+            <field property="numericString"
+                   depends="numericString">
+                <arg key="数値文字列チェック" resource="false" position="0"/>
+            </field>
+            <field property="alphaNumericMax"
+                   depends="alphaNumericString">
+                <arg key="半角英数字チェック（最大長指定）" resource="false" position="0"/>
+            </field>
+            <field property="alphaNumericMax"
+                   depends="maxlength">
+                <arg key="半角英数字チェック（最大長指定）" resource="false" position="0"/>
+                <arg key="${var:maxlength}" resource="false" position="1"/>
+                <var>
+                  <var-name>maxlength</var-name>
+                  <var-value>5</var-value>
+                </var>
+            </field>            
+            <field property="alphaNumericMin"
+                   depends="alphaNumericString">
+                <arg key="半角英数字チェック（最小長指定）" resource="false" position="0"/>
+            </field>
+            <field property="alphaNumericMin"
+                   depends="minlength">
+                <arg key="半角英数字チェック（最小長指定）" resource="false" position="0"/>
+                <arg key="${var:minlength}" resource="false" position="1"/>
+                <var>
+                  <var-name>minlength</var-name>
+                  <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="capAlphaNumericMax"
+                   depends="capAlphaNumericString">
+                <arg key="半角英（大文字）数字チェック（最大長指定）" resource="false" position="0"/>
+            </field>
+            <field property="capAlphaNumericMax"
+                   depends="maxlength">
+                <arg key="半角英（大文字）数字チェック（最大長指定）" resource="false" position="0"/>
+                <arg key="${var:maxlength}" resource="false" position="1"/>
+                <var>
+                  <var-name>maxlength</var-name>
+                  <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="capAlphaNumericMin"
+                   depends="capAlphaNumericString">
+                <arg key="半角英（大文字）数字チェック（最小長指定）" resource="false" position="0"/>
+            </field>
+            <field property="capAlphaNumericMin"
+                   depends="minlength">
+                <arg key="半角英（大文字）数字チェック（最小長指定）" resource="false" position="0"/>
+                <arg key="${var:minlength}" resource="false" position="1"/>
+                <var>
+                  <var-name>minlength</var-name>
+                  <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="date"
+                   depends="date">
+                <arg key="日付チェック" resource="false" position="0"/>
+                <arg key="${var:datePatternStrict}" resource="false" position="1"/>
+                <var>
+                  <var-name>datePatternStrict</var-name>
+                  <var-value>yyyy/MM/dd</var-value>
+                </var>
+            </field>
+            <field property="hankakuKana"
+                   depends="hankakuKanaString">
+                <arg key="半角カナチェック" resource="false" position="0"/>
+            </field>
+            <field property="hankaku"
+                   depends="hankakuString">
+                <arg key="半角文字チェック" resource="false" position="0"/>
+            </field>
+            <field property="number"
+                   depends="number">
+                <arg key="数値チェック" resource="false" position="0"/>
+                <arg key="${var:integerLength}" resource="false" position="1"/>
+                <arg key="${var:scale}" resource="false" position="2"/>
+                <var>
+                  <var-name>integerLength</var-name>
+                  <var-value>3</var-value>
+                </var>
+                <var>
+                  <var-name>scale</var-name>
+                  <var-value>3</var-value>
+                </var>
+                <var>
+                  <var-name>isAccordedInteger</var-name>
+                  <var-value>false</var-value>
+                </var>
+                <var>
+                  <var-name>isAccordedScale</var-name>
+                  <var-value>false</var-value>
+                </var>
+            </field>
+            <field property="prohibit"
+                   depends="prohibited">
+                <arg key="入力禁止文字チェック" resource="false" position="0"/>
+                <arg key="${var:chars}" resource="false" position="1"/>
+                <var>
+                  <var-name>chars</var-name>
+                  <var-value>!"#$%'()</var-value>
+                </var>
+            </field>
+            <field property="regExp"
+                   depends="mask">
+                <arg key="正規表現チェック" resource="false" position="0"/>
+                <arg key="${var:mask}" resource="false" position="1"/>
+                <var>
+                  <var-name>mask</var-name>
+                  <var-value>^[a-z].*[^a-z]$</var-value>
+                </var>
+            </field>
+            <field property="required"
+                   depends="required">
+                <arg key="必須入力チェック" resource="false" position="0"/>
+            </field>
+            <field property="stringMax"
+                   depends="maxlength">
+                <arg key="入力文字列長チェック（最大長指定）" resource="false" position="0"/>
+                <arg key="${var:maxlength}" resource="false" position="1"/>
+                <var>
+                  <var-name>maxlength</var-name>
+                  <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="stringMin"
+                   depends="minlength">
+                <arg key="入力文字列長チェック（最小長指定）" resource="false" position="0"/>
+                <arg key="${var:minlength}" resource="false" position="1"/>
+                <var>
+                  <var-name>minlength</var-name>
+                  <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="zenkaku"
+                   depends="zenkakuString">
+                <arg key="全角文字チェック" resource="false" position="0"/>
+            </field>
+            <field property="length"
+                   depends="stringLength">
+                <arg key="同一文字列長チェック" resource="false" position="0"/>
+                <arg key="${var:stringLength}" resource="false" position="1"/>
+                <var>
+                  <var-name>stringLength</var-name>
+                  <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="zenkakuKana"
+                   depends="zenkakuKanaString">
+                <arg key="全角カナチェック" resource="false" position="0"/>
+            </field>
+            <field property="dateRange" depends="dateRange">
+                <arg key="日付範囲チェック" resource="false" position="0" />
+                <arg key="${var:startDate}" resource="false" position="1"/>
+                <arg key="${var:endDate}" resource="false" position="2"/>
+                <var>
+                  <var-name>startDate</var-name>
+                  <var-value>2000/1/1</var-value>
+                </var>
+                <var>
+                  <var-name>endDate</var-name>
+                  <var-value>2000/12/31</var-value>
+                </var>
+                <var>
+                  <var-name>datePattern</var-name>
+                  <var-value>yyyy/MM/dd</var-value>
+                </var>
+            </field>            
+            <field property="numberLength"
+                   depends="number">
+                <arg key="数値の桁一致チェック" resource="false" position="0"/>
+                <arg key="${var:integerLength}" resource="false" position="1"/>
+                <arg key="${var:scale}" resource="false" position="2"/>
+                <var>
+                  <var-name>integerLength</var-name>
+                  <var-value>3</var-value>
+                </var>
+                <var>
+                  <var-name>scale</var-name>
+                  <var-value>3</var-value>
+                </var>
+                <var>
+                  <var-name>isAccordedInteger</var-name>
+                  <var-value>true</var-value>
+                </var>
+                <var>
+                  <var-name>isAccordedScale</var-name>
+                  <var-value>true</var-value>
+                </var>
+            </field>
+        </form>
+        
+    </formset>
+
+</form-validation>

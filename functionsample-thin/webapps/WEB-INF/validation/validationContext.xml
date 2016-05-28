@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <!-- モジュール固有のBean定義 -->
+    <!-- 入力チェック拡張モジュールのBean定義 -->
+
+    <!-- AOPの設定 -->
+    <aop:config>
+        <aop:pointcut id="actionBeans" expression="bean(/validation/*)" />
+        <aop:pointcut id="serviceBeans" expression="bean(*Service)" />
+        <aop:pointcut id="blogicBeans" expression="bean(*BLogic)" />
+        <aop:advisor pointcut-ref="actionBeans" advice-ref="debugInterceptor" />
+        <aop:advisor pointcut-ref="serviceBeans" advice-ref="debugInterceptor" />
+        <aop:advisor pointcut-ref="blogicBeans" advice-ref="debugInterceptor" />
+    </aop:config>
+
+
+    <!-- フォワード -->
+    <bean name="/validation/validationForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 入力チェックの画面振分け処理 -->
+    <bean name="/validation/validationTaskDispatch" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.DispatchAction" />
+
+    <!-- 入力チェック（処理の選択）表示 -->
+    <bean name="/validation/validationTaskForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 入力チェックの画面振分け処理 -->
+    <bean name="/validation/validationDispatch" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.DispatchAction" />
+
+    <!-- 入力チェック処理 -->
+    <bean name="/validation/validationAction" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールド文字チェック処理 -->
+    <bean name="/validation/validationArrays01Action" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールド桁数チェック処理 -->
+    <bean name="/validation/validationArrays02Action" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールドフォーマットチェック処理 -->
+    <bean name="/validation/validationArrays03Action" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールドプリミティブ型チェック処理 -->
+    <bean name="/validation/validationArrays04Action" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールドその他チェック処理 -->
+    <bean name="/validation/validationArrays05Action" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 入力チェックの画面振分け処理 -->
+    <bean name="/validation/validationBeanArrayDispatch" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.DispatchAction" />
+
+    <!-- ネストしたビーンチェック処理 -->
+    <bean name="/validation/validationBeanArrayAction" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 入力チェック画面フォワード -->
+    <bean name="/validation/validationOneFieldForward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールド文字チェック画面フォワード -->
+    <bean name="/validation/validationArrays01Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールド桁数チェック画面フォワード -->
+    <bean name="/validation/validationArrays02Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールドフォーマットチェック画面フォワード -->
+    <bean name="/validation/validationArrays03Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールドプリミティブ型チェック画面フォワード -->
+    <bean name="/validation/validationArrays04Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 複数フィールドその他チェック画面フォワード -->
+    <bean name="/validation/validationArrays05Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- ネストしたビーンチェック画面フォワード -->
+    <bean name="/validation/validationArrays06Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- ページ別のチェック画面フォワード -->
+    <bean name="/validation/validationArrays07Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する フォワード -->
+    <bean name="/validation/sc2010Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+    <bean name="/validation/sc2011Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+    <bean name="/validation/sc2012Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 動的アクションフォームでpageをMPV機能として利用する フォワード -->
+    <bean name="/validation/sc2013Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+    <bean name="/validation/sc2014Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+    <bean name="/validation/sc2015Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 静的アクションフォームでpageを業務パラメータとして利用する フォワード-->
+    <bean name="/validation/sc2016Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 動的アクションフォームでpageを業務パラメータとして利用する フォワード -->
+    <bean name="/validation/sc2018Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 静的アクションフォームでpageを利用しない フォワード -->
+    <bean name="/validation/sc2020Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 動的アクションフォームでpageを利用しない フォワード -->
+    <bean name="/validation/sc2022Forward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- リクエストパラメータ「page」を利用するチェック 処理の振分け -->
+    <bean name="/validation/multiPageValidationTaskDispatch" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.DispatchAction" />
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する チェック処理 -->
+    <bean name="/validation/mpvActionAcceptPage0" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.BLogicAction">
+        <property name="businessLogic" ref="mpvForwardPageBLogic" />
+    </bean>
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する 「前へ」処理 -->
+    <bean name="/validation/mpvActionAcceptPage0Backward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.BLogicAction">
+        <property name="businessLogic" ref="mpvBackwardPageBLogic" />
+    </bean>
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する 処理の振り分け -->
+    <bean name="/validation/mpvActionAcceptPage0Dispatch" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.DispatchAction" />
+
+    <!-- 動的アクションフォームでpageをMPV機能として利用する チェック処理 -->
+    <bean name="/validation/mpvDynaActionAcceptPage0WithPageImpl" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.BLogicAction">
+        <property name="businessLogic" ref="mpvForwardPageBLogic" />
+    </bean>
+
+    <!-- 動的アクションフォームでpageをMPV機能として利用する 「前へ」処理 -->
+    <bean name="/validation/mpvDynaActionAcceptPage0WithPageImplBackward" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.BLogicAction">
+        <property name="businessLogic" ref="mpvBackwardPageBLogic" />
+    </bean>
+
+    <!-- 動的アクションフォームでpageをMPV機能として利用する 処理の振り分け -->
+    <bean name="/validation/mpvDynaActionAcceptPage0WithPageImplDispatch" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.DispatchAction" />
+
+    <!-- pageの値に従い、次画面にフォワードさせるロジック -->
+    <bean id="mpvForwardPageBLogic" class="jp.terasoluna.thin.functionsample.validation.blogic.MpvForwardPageBLogic" />
+
+    <!-- pageの値を1引くロジック -->
+    <bean id="mpvBackwardPageBLogic" class="jp.terasoluna.thin.functionsample.validation.blogic.MpvBackwardPageBLogic" />
+
+    <!-- 静的アクションフォームでpageを業務パラメータとして利用する チェック処理-->
+    <bean name="/validation/mpvActionAcceptPageNoneWithPageImpl" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 動的アクションフォームでpageを業務パラメータとして利用する チェック処理-->
+    <bean name="/validation/mpvDynaActionAcceptPageNoneWithPageImpl" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 静的アクションフォームでpageを利用しない -->
+    <bean name="/validation/mpvActionAcceptPageNone" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+    <!-- 動的アクションフォームでpageを利用しない -->
+    <bean name="/validation/mpvDynaActionAcceptPageNone" scope="prototype" class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+</beans>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <!-- ２つの住所情報を持つフォーム -->
+    <form-bean name="transactionForm"
+               type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="customerCode1" type="java.lang.String"/>
+      <form-property name="customerName1" type="java.lang.String"/>
+      <form-property name="postCode1" type="java.lang.String"/>
+      <form-property name="customerAddress1" type="java.lang.String"/>
+      <form-property name="customerTel1" type="java.lang.String"/>
+    
+      <form-property name="customerCode2" type="java.lang.String"/>
+      <form-property name="customerName2" type="java.lang.String"/>
+      <form-property name="postCode2" type="java.lang.String"/>
+      <form-property name="customerAddress2" type="java.lang.String"/>
+      <form-property name="customerTel2" type="java.lang.String"/>
+    </form-bean>
+    
+    <!-- ３つの住所情報を持つフォーム -->
+    <form-bean name="gerenalWithBatchTransactionForm"
+               type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="customerCode1" type="java.lang.String"/>
+      <form-property name="customerName1" type="java.lang.String"/>
+      <form-property name="postCode1" type="java.lang.String"/>
+      <form-property name="customerAddress1" type="java.lang.String"/>
+      <form-property name="customerTel1" type="java.lang.String"/>
+    
+      <form-property name="customerCode2" type="java.lang.String"/>
+      <form-property name="customerName2" type="java.lang.String"/>
+      <form-property name="postCode2" type="java.lang.String"/>
+      <form-property name="customerAddress2" type="java.lang.String"/>
+      <form-property name="customerTel2" type="java.lang.String"/>
+      
+      <form-property name="customerCode3" type="java.lang.String"/>
+      <form-property name="customerName3" type="java.lang.String"/>
+      <form-property name="postCode3" type="java.lang.String"/>
+      <form-property name="customerAddress3" type="java.lang.String"/>
+      <form-property name="customerTel3" type="java.lang.String"/>
+    </form-bean>
+    
+    
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <!-- データベースからのエラーの処理 -->
+  <global-exceptions>
+      <exception key="error.UC02.00001"
+               path="/sc0206.jsp"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="org.springframework.dao.DataAccessException"/>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    
+    <!-- トランザクション処理メニュー画面への遷移 -->
+    <action path="/transactionForward" parameter="/sc0201.jsp" />
+    
+    <!-- 一般DBアクセスのトランザクション処理の入力画面への遷移 -->
+    <action path="/generalTransactionForward" parameter="/sc0202.jsp" />
+    
+    <!-- バッチを使用したDBアクセスのトランザクション処理の入力画面への遷移 -->
+    <action path="/batchTransactionForward" parameter="/sc0203.jsp" />
+
+    <!-- バッチと一般DBアクセス両方使用したトランザクション処理の入力画面への遷移 -->
+    <action path="/generalWithBatchTransactionForward" parameter="/sc0204.jsp" />
+    
+    <!-- トランザクション処理結果表示画面への遷移 -->
+    <action path="/insertAddressResultForward" parameter="/sc0205.jsp" />
+    
+    <!-- トランザクション処理エラー表示画面への遷移 -->
+    <action path="/insertAddressErrorForward" parameter="/sc0206.jsp" />
+    
+    <!-- 一般機能を使用した住所情報登録処理 -->
+    <action path="/generalInsertAddress" name="transactionForm" scope="request" validate="false">
+      <forward name="success" path="/searchInsertedAddress.do"/>
+    </action>
+
+    <!-- バッチ機能を使用した住所情報登録処理 -->
+    <action path="/batchInsertAddress" name="transactionForm" scope="request" validate="false">
+      <forward name="success" path="/searchInsertedAddress.do"/>
+    </action>
+
+    <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理 -->
+    <action path="/insertedAddressDispatch" name="gerenalWithBatchTransactionForm" scope="request" validate="false">
+      <forward name="insertAddress1" path="/generalWithBatchInsertAddress.do"/>
+      <forward name="insertAddress2" path="/batchWithGeneralInsertAddress.do"/>
+      <forward name="default" path="/generalWithBatchInsertAddress.do"/>
+    </action>
+
+    <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理【一般機能処理後、バッチ機能処理】-->
+    <action path="/generalWithBatchInsertAddress" name="gerenalWithBatchTransactionForm" scope="request" validate="false">
+      <forward name="success" path="/generalWithBatchSearchInsertedAddress.do"/>
+    </action>
+    
+    <!-- 一般機能とバッチ機能を一緒に使用した住所情報登録処理【バッチ機能処理後、一般機能処理】-->
+    <action path="/batchWithGeneralInsertAddress" name="gerenalWithBatchTransactionForm" scope="request" validate="false">
+      <forward name="success" path="/generalWithBatchSearchInsertedAddress.do"/>
+    </action>
+    
+    <!-- 登録した住所情報取得処理【一般機能、バッチ機能の処理結果】 -->
+    <action path="/searchInsertedAddress" name="transactionForm" scope="request" validate="false">
+      <forward name="success" path="/insertAddressResultForward.do"/>
+    </action>
+
+    <!-- 登録した住所情報取得処理【一般機能とバッチ機能を一緒に使用した機能の処理結果】 -->
+    <action path="/generalWithBatchSearchInsertedAddress" name="gerenalWithBatchTransactionForm" scope="request" validate="false">
+      <forward name="success" path="/insertAddressResultForward.do"/>
+    </action>
+    
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/transaction/transactionContext.xml"/>
+  </plug-in>
+
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/transaction/blogic-transaction-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+
+</struts-config>

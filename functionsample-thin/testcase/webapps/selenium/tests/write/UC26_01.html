@@ -1,0 +1,117 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC26_01</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC26_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WJ-04 文字列表示機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>文字列表示(画面ID: SC2601)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagWrite1Message']</td>
+	<td>[writeタグサンプル１]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagWrite2Message']</td>
+	<td>[writeタグサンプル２]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagFilterMessage']</td>
+	<td>[&&lt;&gt;"]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagSpaceMessage']</td>
+	<td>[&nbsp;&nbsp;&nbsp;]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagNullMessage']</td>
+	<td>[&nbsp;]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagLfMessage']</td>
+	<td>[<br>←]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagIgnoreMessage']</td>
+	<td>[]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagFillColumnMessage']</td>
+	<td>[wri<br>teタ<br>グサン<br>プル２]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='writeTagBRMessage']</td>
+	<td>[writeタグサンプル２<br>]</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- 拡張メッセージリソースモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/messageex/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+  <!-- 　フォワード -->
+  <!-- 拡張メッセージリソース -->
+  <bean name="/messageex/messageexForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+          
+  <!-- 優先順位メッセージ -->      
+  <bean name="/messageex/priorityMessageEx" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.messageex.web.action.MessageExOriginalAction">
+    <property name="originalService" ref="originalService" />
+  </bean>
+
+  <bean id="originalService" scope="prototype"
+      class="jp.terasoluna.thin.functionsample.messageex.service.MessageExOriginalServiceImpl" >
+  </bean>
+        
+  <bean name="/messageex/originalMessageEx" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+    
+  <bean name="/messageex/priorityOrder" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.messageex.web.action.MessageExPriorityOrderAction">
+    <property name="messageExService" ref="messageExService" />
+  </bean>
+  
+  <bean id="messageExService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.messageex.service.MessageExPriorityOrderServiceImpl" >
+  </bean>     
+
+  <bean name="/messageex/messageResult" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+</beans>

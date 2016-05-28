@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+  <!-- サーバ閉塞処理 -->
+  <action path="/serverBlockage">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.serverblockage.bean.ServerBlockageParam" >
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="serverBlockageState" 	blogic-property="serverBlockageState" source="form" />
+    </blogic-result>
+  </action>
+  
+  <!-- サーバ閉塞解除処理 -->
+  <action path="/cancelBlockage">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.serverblockage.bean.ServerBlockageParam" >
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="serverBlockageState" 	blogic-property="serverBlockageState" source="form" />
+    </blogic-result>
+  </action>
+  
+</blogic-io>

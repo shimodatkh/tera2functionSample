@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="codelist">
+  <insert id="insertCodeList"
+          parameterClass="jp.terasoluna.thin.functionsample.codelist.bean.InsertDBCodeListParam">
+    INSERT INTO CODELIST(KEY, VALUE) 
+           VALUES ( #dbKey#,
+                    #dbValue#)
+  </insert>
+</sqlMap>

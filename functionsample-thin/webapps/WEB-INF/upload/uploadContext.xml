@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- アップロードモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/upload/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+
+	<!-- アップロードアクション -->
+	<bean name="/upload/registDBUpLoad" scope="prototype"
+		class="jp.terasoluna.thin.functionsample.upload.web.action.UpLoadAction" >
+		<property name="insertDBUpLoadService" ref="insertDBUpLoadService" />
+	</bean>
+
+	<bean id="insertDBUpLoadService"
+		class="jp.terasoluna.thin.functionsample.upload.service.InsertDBUpLoadServiceImpl">
+		
+		<property name="updateDAO" ref="updateDAO" />
+	</bean>
+
+ 
+  
+
+	<!-- フォワード -->
+	<bean name="/upload/uploadForward" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+	<!-- フォワード -->
+	<bean name="/upload/upLoadSuccess" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+	<!-- フォワード -->
+	<bean name="/upload/upLoadFalse" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+</beans>

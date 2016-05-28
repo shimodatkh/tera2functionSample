@@ -1,0 +1,191 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC34_03</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC34_03</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WK-02 メッセージ表示機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メッセージタグ選択(画面ID: SC3401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=messageタグ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メッセージ表示(画面ID: SC3402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagProperty']//li</td>
+	<td>taglibMessageResources_en.properties's messagesTagSample2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagMessage']//li/span[1]</td>
+	<td>taglibMessageResources.propertiesのmessagesタグサンプル1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagMessage']//li/span[2]</td>
+	<td>taglibMessageResources.propertiesのmessagesタグサンプル2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagBundle']//li</td>
+	<td>taglibMessageBundleResources_en.properties's messagesTagSample2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageProperty']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageOnly']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageBundle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='messageTagProperty']//li@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='messageTagMessage']//li@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='messageTagBundle']//li@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>data</td>
+	<td>testInputValue</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='サブミット']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagProperty']//li</td>
+	<td>taglibMessageResources_en.properties's messagesTagSample2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagMessage']//li/span[1]</td>
+	<td>taglibMessageResources.propertiesのmessagesタグサンプル1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagMessage']//li/span[2]</td>
+	<td>taglibMessageResources.propertiesのmessagesタグサンプル2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='messageTagBundle']//li</td>
+	<td>taglibMessageBundleResources_en.properties's messagesTagSample2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageProperty']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageOnly']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessageBundle']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='messageTagProperty']//li@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='messageTagMessage']//li@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//span[@id='messageTagBundle']//li@style</td>
+	<td>*color: red;</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

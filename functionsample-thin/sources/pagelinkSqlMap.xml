@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="pageLink">
+
+    <select id="selectUserCount" 
+            resultClass="java.lang.String"
+            resultSetType="SCROLL_INSENSITIVE">
+        SELECT
+            COUNT(MEMBER_CODE)
+        FROM
+            MEMBER
+    </select>
+
+    <select id="selectUserList" 
+            resultClass="jp.terasoluna.thin.functionsample.pagelink.bean.UserBean"
+            resultSetType="SCROLL_INSENSITIVE">
+        SELECT
+            MEMBER_CODE AS ID,
+            MEMBER_NAME AS NAME,
+            MEMBER_AGE AS AGE,
+            MEMBER_BIRTH AS BIRTH
+        FROM
+            MEMBER
+        ORDER BY
+            MEMBER_CODE
+    </select>
+
+    <select id="selectAddressList"
+            resultClass="jp.terasoluna.thin.functionsample.pagelink.bean.AddressBean">
+        SELECT CUSTOMER_CODE AS customerCode,
+               CUSTOMER_NAME AS customerName,
+               CUSTOMER_TEL AS customerTel,
+               CUSTOMER_ADDRESS AS customerAddress,
+               POST_CODE AS postCode
+        FROM 
+               ADDRESS 
+        ORDER BY
+               CUSTOMER_CODE
+    </select>
+  
+    <select id="selectAddressCount" 
+            resultClass="java.lang.String"
+            resultSetType="SCROLL_INSENSITIVE">
+        SELECT
+            COUNT(CUSTOMER_CODE)
+        FROM
+            ADDRESS
+    </select>
+    
+</sqlMap>

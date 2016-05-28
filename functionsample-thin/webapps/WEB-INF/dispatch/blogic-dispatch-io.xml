@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+
+  <!-- サブミットボタンを利用した処理の現在ユーザ権限取得アクション -->
+  <action path="/submitButtonUserList">
+    <blogic-result>
+      <set-property property="userList" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- ラジオボタンを利用した処理の現在ユーザ権限取得アクション -->
+  <action path="/radioButtonUserList">
+    <blogic-result>
+      <set-property property="userList" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- サブミットボタンを利用した処理のユーザ権限更新アクション -->
+  <action path="/submitButtonUpdateUserDivision">
+    <blogic-params bean-name="java.util.HashMap">
+      <set-property property="userCode" source="form" />
+      <set-property property="userDivision" source="form" />
+    </blogic-params>
+  </action>
+  
+  <!-- ラジオボタンを利用した処理のユーザ権限更新アクション -->
+  <action path="/radioButtonUpdateUserDivision">
+    <blogic-params bean-name="java.util.HashMap">
+      <set-property property="userCode" source="form" />
+      <set-property property="userDivision" source="form" />
+    </blogic-params>
+  </action>
+</blogic-io>

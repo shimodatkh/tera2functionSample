@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+  <!-- ビジネスロジックを実行し、セッションディレクトリを作成 --> 
+  <action path="/makeSessionDirAction">
+    <blogic-params>
+    </blogic-params>
+    
+    <blogic-result>
+    </blogic-result>
+  </action>
+</blogic-io>

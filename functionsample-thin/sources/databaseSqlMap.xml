@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="database">
+  <select id="selectListAddress"
+          resultClass="jp.terasoluna.thin.functionsample.database.bean.AddressTableVO">
+    SELECT CUSTOMER_CODE AS customerCode,
+           CUSTOMER_NAME AS customerName,
+           CUSTOMER_TEL AS customerTel,
+           CUSTOMER_ADDRESS AS customerAddress,
+           POST_CODE AS postCode
+    FROM 
+           ADDRESS 
+    ORDER BY
+           CUSTOMER_CODE
+  </select>
+  
+  <select id="selectAddress" 
+          parameterClass="jp.terasoluna.thin.functionsample.database.bean.UpdateAddressParam"
+          resultClass="jp.terasoluna.thin.functionsample.database.bean.AddressTableVO">
+    SELECT CUSTOMER_CODE AS customerCode,
+           CUSTOMER_NAME AS customerName,
+           CUSTOMER_TEL AS customerTel,
+           CUSTOMER_ADDRESS AS customerAddress,
+           POST_CODE AS postCode
+    FROM 
+           ADDRESS 
+    WHERE 
+           CUSTOMER_CODE = #customerCode#
+  </select>
+  
+  <select id="getCustomerCode"
+          parameterClass="java.lang.String"
+          resultClass="java.lang.String">
+    SELECT CUSTOMER_CODE AS customerCode
+    FROM 
+           ADDRESS
+    WHERE
+           CUSTOMER_CODE = #value#
+  </select>
+  
+  <insert id="insertAddress"
+          parameterClass="jp.terasoluna.thin.functionsample.database.bean.AddressTableVO">
+    INSERT INTO ADDRESS(
+             CUSTOMER_CODE,
+             CUSTOMER_NAME,
+             CUSTOMER_TEL,
+             CUSTOMER_ADDRESS,
+             POST_CODE
+           ) VALUES (
+             #customerCode#,
+             #customerName#,
+             #customerTel#,
+             #customerAddress#,
+             #postCode#
+           )
+  </insert>
+  
+  <delete id="deleteAddress"
+          parameterClass="java.lang.String">
+    DELETE FROM
+      ADDRESS
+    WHERE
+      CUSTOMER_CODE = #value#
+  </delete>
+  
+  <update id="updateAddress"
+		  parameterClass="jp.terasoluna.thin.functionsample.database.bean.AddressTableVO">
+    UPDATE
+            ADDRESS
+    SET
+            CUSTOMER_NAME = #customerName#,
+            POST_CODE = #postCode#,
+            CUSTOMER_ADDRESS = #customerAddress#,
+            CUSTOMER_TEL = #customerTel#
+    WHERE
+            CUSTOMER_CODE = #customerCode#
+  </update>
+  
+  <procedure id="initAddressTable">
+    {call INITTABLE()}
+  </procedure>
+  
+  <!-- PostgreSQL用 -->
+  <select id="initPostgreSQLAddressTable">
+    select INITTABLE();
+  </select>
+  
+  <!-- 新規追加(ver 2.0.3.1) -->
+  <select id="searchListAddress" parameterClass="java.lang.String"
+          resultClass="jp.terasoluna.thin.functionsample.database.bean.AddressTableVO">
+    SELECT CUSTOMER_CODE AS customerCode,
+           CUSTOMER_NAME AS customerName,
+           CUSTOMER_TEL AS customerTel,
+           CUSTOMER_ADDRESS AS customerAddress,
+           POST_CODE AS postCode
+    FROM 
+           ADDRESS 
+    WHERE 
+           CUSTOMER_NAME LIKE #value# ESCAPE '~'
+    ORDER BY
+           CUSTOMER_CODE
+  </select>
+</sqlMap>

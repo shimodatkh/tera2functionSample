@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- 業務閉塞チェックモジュールのBean定義 -->
+
+  <!-- ログ出力のAutoProxy設定 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/blockage/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+  <!-- 業務閉塞チェック画面フォワード -->
+  <bean name="/blockage/blockageForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+
+  <!-- 業務リスト取得アクション -->
+  <bean name="/blockage/listBlockage" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blockage.web.action.ListBlockageAction">
+    <property name="listBlockageService" ref="listBlockageService" />
+  </bean>
+  
+  
+  <!-- 業務リスト取得アクション -->
+  <bean name="/blockage/blockage" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blockage.web.action.BlockageAction">
+    <property name="blockageService" ref="blockageService" />
+  </bean>
+  <!-- 業務リストを取得するサービス -->
+  <bean id="listBlockageService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blockage.service.ListBlockageServiceImpl" />
+        
+  <!-- チェックされた業務を閉塞するサービス -->
+  <bean id="blockageService" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.blockage.service.BlockageServiceImpl">
+    <property name="listBlockageService" ref="listBlockageService" />
+  </bean>
+</beans>

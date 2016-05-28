@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="popupForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <!-- 入力値 -->
+      <form-property name="data" type="java.lang.String" />
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- ポップアップタグ選択画面 -->
+    <action path="/popupForward"
+            parameter="/sc3201.jsp"/>
+            
+    <!-- paramType設定のポップアップタグ選択画面 -->
+    <action path="/popup_paramTypeForward"
+            scope="request" name="popupForm"
+            validate="false"
+            parameter="/sc3202.jsp"/>
+            
+    <!-- paramType設定のポップアップタグのエラーチェック画面 -->
+    <action path="/popup_paramTypeErrorForward"
+            scope="request" name="popupForm"
+            validate="true"
+            input="/popup_paramTypeForward.do"
+            parameter="/popup_paramTypeForward.do"/>
+            
+    <!-- paramType設定のポップアップタグ表示画面 -->
+    <action path="/popuptag_paramTypeForward"
+            parameter="/sc3205.jsp"/>
+ 
+    <!-- paramFunc設定のポップアップタグ選択画面 -->
+    <action path="/popup_paramFuncForward"
+            scope="request" name="popupForm"
+            validate="false"
+            parameter="/sc3203.jsp"/>
+            
+    <!-- paramFunc設定のポップアップタグのエラーチェック画面 -->
+    <action path="/popup_paramFuncErrorForward"
+            scope="request" name="popupForm"
+            validate="true"
+            input="/popup_paramFuncForward.do"
+            parameter="/popup_paramFuncForward.do"/>
+            
+    <!-- paramFunc設定のポップアップタグ表示画面 -->
+    <action path="/popuptag_paramFuncForward"
+            parameter="/sc3206.jsp"/>
+
+    <!-- param設定のポップアップタグ選択画面 -->
+    <action path="/popup_paramForward"
+            scope="request" name="popupForm"
+            validate="false"
+            parameter="/sc3204.jsp"/>
+
+    <!-- param設定のポップアップタグのエラーチェック画面 -->
+    <action path="/popup_paramErrorForward"
+            scope="request" name="popupForm"
+            validate="true"
+            input="/popup_paramForward.do"
+            parameter="/popup_paramForward.do"/>
+                        
+    <!-- param設定のポップアップタグ表示画面 -->
+    <action path="/popuptag_paramForward"
+            parameter="/sc3207.jsp"/>
+  
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+<message-resources parameter="taglibMessageResources"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"/>
+<message-resources parameter="taglibMessageBundleResources" key="taglib"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"/>
+                       
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/popup/popupContext.xml"/>
+  </plug-in>
+<!-- 
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.ResetterPlugIn">
+    <set-property
+      property="resetter"
+      value="jp.terasoluna.fw.web.struts.reset.ResetterImpl"/>
+    <set-property
+      property="resources"
+      value="/WEB-INF/reset.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/reset-rules.xml"/>
+  </plug-in>
+-->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+      property="pathnames"
+      value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-ex.xml,/WEB-INF/popup/validation-popup.xml"/>
+    <set-property
+      property="stopOnFirstError"
+      value="false"/>
+  </plug-in>
+  
+</struts-config>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    
+    <form-bean name="nocacheForm"
+               type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+        <form-property name="hoge" type="java.lang.String"/>
+        <form-property name="moge" type="java.lang.String"/>
+        <form-property name="text" type="java.lang.String"/>
+    </form-bean>
+    
+    <form-bean name="_taglibForm2"
+          type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+        <form-property name="link" type="java.lang.String" initial="dynamicURI"/>
+        <form-property name="linkList" type="java.lang.String[]" initial="'Japan','USA','Chaina','France'" size="4"/>
+    </form-bean>
+    
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+    <forward name="globalLink"
+             path="/linkForward.do" redirect="true" />
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- 拡張form・リンク・submit選択画面 -->
+    <action path="/nocacheForward"
+            parameter="/sc3501.jsp"/>
+            
+    <!-- 拡張form選択画面 -->
+    <action path="/formForward"
+            name="nocacheForm" scope="request"
+            parameter="/sc3502.jsp"
+            validate="false"/>
+
+    <!-- linkタグ画面 -->
+    <action path="/linkForward"
+            name="_taglibForm2" scope="session"
+            parameter="/sc3503.jsp"
+            validate="false"/>
+
+    <!-- submitタグ画面 -->
+    <action path="/submitForward"
+            name="_taglibForm2" scope="session"
+            parameter="/sc3504.jsp"
+            validate="false"/>
+
+    <!-- formタグ使用1画面 -->
+    <action path="/form1Forward"
+            name="nocacheForm" scope="request"
+            parameter="/sc3505.jsp"
+            validate="false"/>
+
+    <!-- formタグ使用2画面 -->                                    
+    <action path="/form2Forward"
+            name="nocacheForm" scope="request"
+            parameter="/sc3506.jsp"
+            validate="false"/>
+
+    <!-- formタグ使用3画面 -->
+    <action path="/form3Forward"
+            name="nocacheForm" scope="request"
+            parameter="/sc3507.jsp"
+            validate="false"/>        
+
+    <!-- formタグ使用4画面 -->        
+    <action path="/form4Forward"
+            name="nocacheForm" scope="request"
+            parameter="/sc3508.jsp"
+            validate="false"/>
+
+    <!-- submit結果画面 -->
+    <action path="/submitResultForward"
+            name="_taglibForm2" scope="session"
+            parameter="/sc3509.jsp"
+            validate="false"/>
+                                        
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+  <message-resources parameter="taglibMessageResources"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"
+  />
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/nocache/nocacheContext.xml"/>
+  </plug-in>
+
+</struts-config>

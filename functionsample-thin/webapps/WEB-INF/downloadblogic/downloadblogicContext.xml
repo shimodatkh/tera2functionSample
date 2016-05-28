@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- WD-03 ファイルダウンロード機能のBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/download/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+
+	<!-- ディスパッチ -->
+	<bean name="/downloadblogic/downloadblogicDSP" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.DispatchAction" />
+	<!-- フォワード -->
+	<bean name="/downloadblogic/downloadblogicForward" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+	<!-- フォワード -->
+	<bean name="/downloadblogic/downloadError" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+	<!-- ファイルダウンロードメニュー -->	
+	<bean name="/downloadblogic/downloadblogicMenu" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.BLogicAction">
+		<property name="businessLogic" ref="fileDownloadBLogicMenuBLogic" />
+	</bean>
+	<bean id="fileDownloadBLogicMenuBLogic" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.downloadblogic.service.FileDownloadBLogicMenuBLogic" >
+      <property name="queryDAO" ref="queryDAO" />
+    </bean>
+	<!-- ファイルダウンロード（DownloadFile） -->    
+	<bean name="/downloadblogic/downloadFile" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.DownloadBLogicAction">
+		<property name="businessLogic" ref="downloadFileBLogic" />
+	</bean>
+	<bean id="downloadFileBLogic" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.downloadblogic.service.DownloadFileBLogic" >
+	</bean>
+	<!-- ファイルダウンロード（DownloadInputStream） -->    
+	<bean name="/downloadblogic/downloadInputStream" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.DownloadBLogicAction">
+		<property name="businessLogic" ref="downloadInputStreamBLogic" />
+	</bean>
+	<bean id="downloadInputStreamBLogic" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.downloadblogic.service.DownloadInputStreamBLogic" >
+	</bean>
+	<!-- ファイルダウンロード（DownloadByteArray） -->    
+	<bean name="/downloadblogic/downloadByteArray" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.DownloadBLogicAction">
+		<property name="businessLogic" ref="downloadByteArrayBLogic" />
+	</bean>
+	<bean id="downloadByteArrayBLogic" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.downloadblogic.service.DownloadByteArrayBLogic" >
+	</bean>
+	<!-- ファイルダウンロード（DownloadFile） -->    
+	<bean name="/downloadblogic/downloadString" scope="prototype"
+		class="jp.terasoluna.fw.web.struts.actions.DownloadBLogicAction">
+		<property name="businessLogic" ref="downloadStringBLogic" />
+	</bean>
+	<bean id="downloadStringBLogic" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.downloadblogic.service.DownloadStringBLogic" >
+	</bean>
+</beans>

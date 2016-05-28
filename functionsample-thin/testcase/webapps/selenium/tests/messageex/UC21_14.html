@@ -1,0 +1,102 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC21_14</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC21_14</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WG-01 拡張メッセージリソース機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>拡張メッセージリソース選択(画面ID: SC2101)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=拡張メッセージリソース（ＤＢ、プロパティ）</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>拡張メッセージリソース（ＤＢ、プロパティ）(画面ID: sc2112)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='propertyMessage']//span[1]</td>
+	<td>これはDBのメッセージ５です。（ja)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='propertyMessage']//span[2]</td>
+	<td>これはPropertyMessageResources.propertiesのメッセージ６です。</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='propertyMessage']//span[3]</td>
+	<td>これはapplication-messages.propertiesのメッセージ７です。</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='propertyMessage']//span[4]</td>
+	<td>これはsystem-messages.propertiesのメッセージ８です。</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

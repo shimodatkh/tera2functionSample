@@ -1,0 +1,237 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC13_01</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC13_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WB-05 コードリスト機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>コードリスト表示(画面ID: SC1301)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.1.0</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.2.0</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.3.0</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.4.0</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.5.0</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.1.1</td>
+	<td>DATABASEコードリスト１</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.2.1</td>
+	<td>DATABASEコードリスト２</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.3.1</td>
+	<td>DATABASEコードリスト３</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.4.1</td>
+	<td>DATABASEコードリスト４</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>dbCodelistTable.5.1</td>
+	<td>DATABASEコードリスト５</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>beanCodeListID</td>
+	<td>value1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>beanCodeListID</td>
+	<td>value0</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>beanCodeListID</td>
+	<td>value0</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>beanCodeListID</td>
+	<td>value2</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>beanCodeListID</td>
+	<td>value2</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>beanCodeListID</td>
+	<td>value3</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>beanCodeListID</td>
+	<td>value3</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='beanCodelistCount']</td>
+	<td>件数：4 件</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト２</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト１</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト１</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト３</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト３</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト４</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト４</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト５</td>
+</tr>
+<tr>
+	<td>verifySelected</td>
+	<td>dbCodeListID</td>
+	<td>DATABASEコードリスト５</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='dbCodelistCount']</td>
+	<td>件数：5 件</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='beanCodeListLabel0']</td>
+	<td>value0</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='beanCodeListLabel1']</td>
+	<td>value1</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='beanCodeListLabel2']</td>
+	<td>value2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='beanCodeListLabel3']</td>
+	<td>value3</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='beanCodeListValue']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

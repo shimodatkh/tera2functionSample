@@ -1,0 +1,853 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC20_06</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC20_06</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WF-01 入力チェック拡張機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays05']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールドその他のチェック(画面ID: SC2007)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の入力必須チェックは入力必須項目です.2行目の入力必須チェックは入力必須項目です.3行目の入力必須チェックは入力必須項目です.4行目の入力必須チェックは入力必須項目です.5行目の入力必須チェックは入力必須項目です.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>requiredList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の入力必須チェックは入力必須項目です.3行目の入力必須チェックは入力必須項目です.4行目の入力必須チェックは入力必須項目です.5行目の入力必須チェックは入力必須項目です.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>requiredList[1]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>requiredList[2]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>requiredList[3]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>requiredList[4]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[0]</td>
+	<td>99</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[1]</td>
+	<td>201</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[2]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[3]</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[4]</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の整数値範囲チェックには100から200までの範囲で入力してください.2行目の整数値範囲チェックには100から200までの範囲で入力してください.3行目の整数値範囲チェックには100から200までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[0]</td>
+	<td>102</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[4]</td>
+	<td>123abc</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の整数値範囲チェックには100から200までの範囲で入力してください.3行目の整数値範囲チェックには100から200までの範囲で入力してください.4行目の整数値範囲チェックには100から200までの範囲で入力してください.5行目の整数値範囲チェックには100から200までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[0]</td>
+	<td>100</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[1]</td>
+	<td>200</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[2]</td>
+	<td>150</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[3]</td>
+	<td>101</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[4]</td>
+	<td>199</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>intRangeList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[0]</td>
+	<td>5.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[1]</td>
+	<td>10.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[2]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[3]</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[4]</td>
+	<td>10.5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の浮動小数点値範囲チェックには5.5から10.5までの範囲で入力してください.2行目の浮動小数点値範囲チェックには5.5から10.5までの範囲で入力してください.3行目の浮動小数点値範囲チェックには5.5から10.5までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[0]</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[3]</td>
+	<td>5.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の浮動小数点値範囲チェックには5.5から10.5までの範囲で入力してください.3行目の浮動小数点値範囲チェックには5.5から10.5までの範囲で入力してください.4行目の浮動小数点値範囲チェックには5.5から10.5までの範囲で入力してください.5行目の浮動小数点値範囲チェックには5.5から10.5までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[1]</td>
+	<td>10.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[2]</td>
+	<td>7.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[3]</td>
+	<td>5.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[4]</td>
+	<td>10.4</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatRangeList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[0]</td>
+	<td>5.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[1]</td>
+	<td>10.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[2]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[3]</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[4]</td>
+	<td>10.5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の倍精度浮動小数点数値範囲チェックには5.5から10.5までの範囲で入力してください.2行目の倍精度浮動小数点数値範囲チェックには5.5から10.5までの範囲で入力してください.3行目の倍精度浮動小数点数値範囲チェックには5.5から10.5までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[0]</td>
+	<td>5.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[3]</td>
+	<td>5.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の倍精度浮動小数点数値範囲チェックには5.5から10.5までの範囲で入力してください.3行目の倍精度浮動小数点数値範囲チェックには5.5から10.5までの範囲で入力してください.4行目の倍精度浮動小数点数値範囲チェックには5.5から10.5までの範囲で入力してください.5行目の倍精度浮動小数点数値範囲チェックには5.5から10.5までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[1]</td>
+	<td>10.5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[2]</td>
+	<td>5.6</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[3]</td>
+	<td>10.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[4]</td>
+	<td>8.0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleRangeList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[0]</td>
+	<td>2001/12/31</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[1]</td>
+	<td>2000/1/1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[2]</td>
+	<td>2000-12-31</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[3]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[4]</td>
+	<td>1999/12/31</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.3行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.4行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.5行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[0]</td>
+	<td>2000/12/31</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[1]</td>
+	<td>2001/1/1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.3行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.4行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.5行目の日付範囲チェックは2000/1/1から2000/12/31までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[1]</td>
+	<td>2000/1/1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[2]</td>
+	<td>2000/01/01</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[3]</td>
+	<td>2000/5/11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[4]</td>
+	<td>2000/11/1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>dateRangeList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[1]</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[2]</td>
+	<td>あ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[4]</td>
+	<td>1234567890</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のバイト数チェックは10バイト文字で入力してください.2行目のバイト数チェックは10バイト文字で入力してください.3行目のバイト数チェックは10バイト文字で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[0]</td>
+	<td>1234567890</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[3]</td>
+	<td>あいうえ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[4]</td>
+	<td>12345678</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のバイト数チェックは10バイト文字で入力してください.3行目のバイト数チェックは10バイト文字で入力してください.4行目のバイト数チェックは10バイト文字で入力してください.5行目のバイト数チェックは10バイト文字で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[1]</td>
+	<td>abcde12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[3]</td>
+	<td>カキクケコ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[4]</td>
+	<td>あいう1234</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteLengthList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[1]</td>
+	<td>a</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[3]</td>
+	<td>1234567890あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[4]</td>
+	<td>123456789012345678901</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のバイト範囲チェックは10から20までの範囲で入力してください.2行目のバイト範囲チェックは10から20までの範囲で入力してください.5行目のバイト範囲チェックは10から20までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[0]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[2]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[3]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のバイト範囲チェックは10から20までの範囲で入力してください.3行目のバイト範囲チェックは10から20までの範囲で入力してください.4行目のバイト範囲チェックは10から20までの範囲で入力してください.5行目のバイト範囲チェックは10から20までの範囲で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[1]</td>
+	<td>abcdefg123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[2]</td>
+	<td>あいうえお12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[3]</td>
+	<td>12345あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[4]</td>
+	<td>12345678901234567890</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteRangeList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='入力チェック拡張選択画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays05']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールドその他のチェック(画面ID: SC2007)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

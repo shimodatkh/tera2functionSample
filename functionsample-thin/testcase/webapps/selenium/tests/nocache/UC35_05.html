@@ -1,0 +1,308 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC35_05</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC35_05</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WK-05 フォームターゲット指定機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>拡張form・リンク・submit選択(画面ID: SC3501)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=3. submitタグ</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>submitタグ(画面ID: SC3504)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='submit' and @tabindex='2']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@onclick="__setFrameTarget('_frame2');" and @value="submit" and @tabindex='1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='クリックでダイアログ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>onclick</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='ダブルクリックでダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>//input[@type='submit' and @value='フォーカスでダイアログ表示']</td>
+	<td>focus</td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>onfocus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='フォーカスでダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>onfocus</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='フォーカス喪失でダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAlert</td>
+	<td>onblur</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='フォーカス＋キーダウンでダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='フォーカス＋キー入力でダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='　　 フォーカス＋キーアップでダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='フォーカス+マウス押下でダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='マウス移動でダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='マウスカーソルアウトでダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='マウスカーソルオーバーでダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='マウスボタンアップでダイアログ表示']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='CSSによるバックグラウンドカラー設定(styleClass)' and @class]@class</td>
+	<td>Class_01</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='CSSによるバックグラウンドカラー設定(styleClass)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='CSSによるバックグラウンドカラー設定2(style)' and @style]@style</td>
+	<td>background-color: rgb(207, 219, 226);</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='CSSによるバックグラウンドカラー設定2(style)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='CSSによるバックグラウンドカラー設定3(styleId)' and @id]@id</td>
+	<td>Class_02</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='CSSによるバックグラウンドカラー設定3(styleId)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='サブミット']@value</td>
+	<td>サブミット</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='サブミット']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Submit' and @accesskey='a']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='Submit' and @accesskey='a']@alt</td>
+	<td>alt属性の内容です。</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Submit' and @alt='alt属性の内容です。']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='Submit' and  not(@accesskey)]@alt</td>
+	<td>taglibMessageResources_en.properties's submit.alt.</td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='Submit' and  @disabled]@disabled</td>
+	<td>disabled</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Submit' and @disabled='disabled']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @name='frame1SCR[0]']@value</td>
+	<td>Akimoto</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Akimoto']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @name='frame1SCR[1]']@value</td>
+	<td>Baraki</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Baraki']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @name='frame1SCR[2]']@value</td>
+	<td>Chiba</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Chiba']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @name='frame1SCR[3]']@value</td>
+	<td>Degawa</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Degawa']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Submit' and @onchange]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='Submit' and @title='title属性に設定したタイトル']@title</td>
+	<td>title属性に設定したタイトル</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Submit' and @title='title属性に設定したタイトル']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyAttribute</td>
+	<td>//input[@type="submit" and @value='Submit' and @title="taglibMessageResources_en.properties's link.title."]@title</td>
+	<td>taglibMessageResources_en.properties's link.title.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@type='submit' and @value='Submit' and @title="taglibMessageResources_en.properties's link.title."]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

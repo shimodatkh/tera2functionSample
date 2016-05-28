@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- 拡張form・リンク・submitモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/nocache/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+    
+  <!-- 拡張form・リンク・submitフォワード -->
+  <bean name="/nocache/nocacheForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- 拡張form選択画面フォワード -->          
+  <bean name="/nocache/formForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- linkタグ画面フォワード -->
+  <bean name="/nocache/linkForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- submitタグ画面フォワード -->
+  <bean name="/nocache/submitForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- formタグ使用1画面フォワード -->
+  <bean name="/nocache/form1Forward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- formタグ使用2画面フォワード -->
+  <bean name="/nocache/form2Forward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- formタグ使用3画面フォワード -->
+  <bean name="/nocache/form3Forward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- formタグ使用4画面フォワード -->          
+  <bean name="/nocache/form4Forward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <!-- submit結果画面フォワード -->
+  <bean name="/nocache/submitResultForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+</beans>

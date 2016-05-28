@@ -1,0 +1,453 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC20_03</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC20_03</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WF-01 入力チェック拡張機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays02']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールド桁数チェック(画面ID: SC2004)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[1]</td>
+	<td>abc1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[2]</td>
+	<td>あいうえ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[3]</td>
+	<td>123.45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[4]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の最小桁数チェックには5文字以上にしてください.2行目の最小桁数チェックには5文字以上にしてください.3行目の最小桁数チェックには5文字以上にしてください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[0]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[3]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[4]</td>
+	<td>ｱｲ12</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の最小桁数チェックには5文字以上にしてください.3行目の最小桁数チェックには5文字以上にしてください.4行目の最小桁数チェックには5文字以上にしてください.5行目の最小桁数チェックには5文字以上にしてください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[1]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[3]</td>
+	<td>123.45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[4]</td>
+	<td>！"#$%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>minLengthList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[0]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[1]</td>
+	<td>abc１２３</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[2]</td>
+	<td>あいうえおかきくけこ</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[3]</td>
+	<td>123.45</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[4]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の最大桁数チェックには5文字以下にしてください.2行目の最大桁数チェックには5文字以下にしてください.3行目の最大桁数チェックには5文字以下にしてください.4行目の最大桁数チェックには5文字以下にしてください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[4]</td>
+	<td>abcdef</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の最大桁数チェックには5文字以下にしてください.3行目の最大桁数チェックには5文字以下にしてください.4行目の最大桁数チェックには5文字以下にしてください.5行目の最大桁数チェックには5文字以下にしてください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[0]</td>
+	<td>abcd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[1]</td>
+	<td>ab１２３</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[3]</td>
+	<td>123.4</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[4]</td>
+	<td>！"#$%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>maxLengthList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[0]</td>
+	<td>123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[1]</td>
+	<td>あいうえおか</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[2]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[3]</td>
+	<td>１２３４５６</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[4]</td>
+	<td>ｱｲｳｴｵ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.2行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.3行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.4行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[0]</td>
+	<td>12345</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[4]</td>
+	<td>ｱｲｳ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.3行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.4行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.5行目の文字列長一致チェック（サイズ：５）は5文字で入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[2]</td>
+	<td>abc12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[3]</td>
+	<td>１２３４５</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[4]</td>
+	<td>ｱｲｳｴｵ</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>lengthList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value=' 入力チェック拡張選択画面に戻る ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays02']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールド桁数チェック(画面ID: SC2004)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

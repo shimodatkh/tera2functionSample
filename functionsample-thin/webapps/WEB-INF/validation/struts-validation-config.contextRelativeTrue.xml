@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="_validationForm" 
+      type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+      <form-property name="alphaNumericMax" type="java.lang.String"/>
+      <form-property name="alphaNumericMin" type="java.lang.String"/>
+      <form-property name="alphanumericList" type="java.lang.String[]"/>
+      <form-property name="byteList" type="java.lang.String[]"/>
+      <form-property name="capAlphaNumbericList" type="java.lang.String[]"/>
+      <form-property name="capAlphaNumericMax" type="java.lang.String"/>
+      <form-property name="capAlphaNumericMin" type="java.lang.String"/>
+      <form-property name="creditCardList" type="java.lang.String[]"/>
+      <form-property name="dataNoList" type="java.lang.String[]" initial="'1','2','3','4','5'" size="5"/>
+      <form-property name="date" type="java.lang.String"/>
+      <form-property name="dateList" type="java.lang.String[]"/>
+      <form-property name="doubleList" type="java.lang.String[]"/>
+      <form-property name="doubleRangeList" type="java.lang.String[]"/>
+      <form-property name="event" type="java.lang.String" initial="forward_validation"/>
+      <form-property name="floatList" type="java.lang.String[]"/>
+      <form-property name="floatRangeList" type="java.lang.String[]"/>
+      <form-property name="hankaku" type="java.lang.String"/>
+      <form-property name="hankakuKana" type="java.lang.String"/>
+      <form-property name="hankakuKanaList" type="java.lang.String[]"/>
+      <form-property name="hankakuList" type="java.lang.String[]"/>
+      <form-property name="intRangeList" type="java.lang.String[]"/>
+      <form-property name="integerList" type="java.lang.String[]"/>
+      <form-property name="length" type="java.lang.String"/>
+      <form-property name="lengthList" type="java.lang.String[]"/>
+      <form-property name="longList" type="java.lang.String[]"/>
+      <form-property name="mailList" type="java.lang.String[]"/>
+      <form-property name="maskList" type="java.lang.String[]"/>
+      <form-property name="urlList" type="java.lang.String[]"/>
+      <form-property name="maxLengthList" type="java.lang.String[]"/>
+      <form-property name="minLengthList" type="java.lang.String[]"/>
+      <form-property name="number" type="java.lang.String"/>
+      <form-property name="numberList" type="java.lang.String[]"/>
+      <form-property name="numericList" type="java.lang.String[]"/>
+      <form-property name="numericString" type="java.lang.String"/>
+      <form-property name="prohibit" type="java.lang.String"/>
+      <form-property name="prohibitedList" type="java.lang.String[]"/>
+      <form-property name="regExp" type="java.lang.String"/>
+      <form-property name="required" type="java.lang.String"/>
+      <form-property name="requiredList" type="java.lang.String[]"/>
+      <form-property name="shortList" type="java.lang.String[]"/>
+      <form-property name="stringMax" type="java.lang.String"/>
+      <form-property name="stringMin" type="java.lang.String"/>
+      <form-property name="zenkaku" type="java.lang.String"/>
+      <form-property name="zenkakuKana" type="java.lang.String"/>
+      <form-property name="zenkakuKanaList" type="java.lang.String[]"/>
+      <form-property name="zenkakuList" type="java.lang.String[]"/>
+      <form-property name="dateRange" type="java.lang.String"/>
+      <form-property name="byteRange" type="java.lang.String"/>
+      <form-property name="byteLength" type="java.lang.String"/>
+      <form-property name="multiField" type="java.lang.String"/>
+      <form-property name="multiField1" type="java.lang.String"/>
+      <form-property name="multiField2" type="java.lang.String"/>
+      <form-property name="dateRangeList" type="java.lang.String[]"/>
+      <form-property name="byteRangeList" type="java.lang.String[]"/>
+      <form-property name="byteLengthList" type="java.lang.String[]"/>
+    </form-bean>
+
+    <form-bean name="validationNestedForm" 
+      type="jp.terasoluna.thin.functionsample.validation.web.form.ValidationNestedForm">
+    </form-bean>
+
+    <form-bean name="_multiPageValidationTaskDispatchForm"
+     type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+       <form-property name="event" type="java.lang.String" initial="forward_mpvScenario01" />
+    </form-bean>
+
+    <form-bean name="_multiPageValidationForm"
+      type="jp.terasoluna.thin.functionsample.validation.web.form.MultiPageValidationForm" />
+
+    <form-bean name="_multiPageValidationFormWithPageImpl"
+      type="jp.terasoluna.thin.functionsample.validation.web.form.MultiPageValidationFormWithPageImpl" />
+
+    <form-bean name="_dynaMultiPageValidationForm"
+      type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+        <form-property name="code1" type="java.lang.String" />
+    </form-bean>
+
+    <form-bean name="_dynaMultiPageValidationFormWithPageImpl"
+      type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+        <form-property name="code1" type="java.lang.String" />
+        <form-property name="code2" type="java.lang.String" />
+        <form-property name="page" type="int" initial="0" />
+    </form-bean>
+
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- 入力チェック拡張画面 -->
+    <action path="/validationForward"
+            parameter="/validation/sc2001.jsp"/>
+
+    <!-- 入力チェックの画面振分け処理 -->
+    <action path="/validationTaskDispatch"
+            name="_validationForm">
+        <forward name="default" path="/validationOneFieldForward.do"/>
+        <forward name="validation" path="/validationOneFieldForward.do"/>
+        <forward name="validationArrays01" path="/validationArrays01Forward.do"/>
+        <forward name="validationArrays02" path="/validationArrays02Forward.do"/>
+        <forward name="validationArrays03" path="/validationArrays03Forward.do"/>
+        <forward name="validationArrays04" path="/validationArrays04Forward.do"/>
+        <forward name="validationArrays05" path="/validationArrays05Forward.do"/>
+        <forward name="validationArrays06" path="/validationArrays06Forward.do"/>
+        <forward name="validationArrays07" path="/validationArrays07Forward.do"/>
+    </action>
+
+    <!-- 入力チェック（処理の選択）表示 -->
+    <action path="/validationTaskForward"
+            name="_validationForm"
+            parameter="/validation/sc2001.jsp">
+        <set-property property="clearForm" value="true"/>
+    </action>
+
+    <!-- 入力チェック処理 -->
+    <action path="/validationAction"
+            name="_validationForm"
+            validate="true"
+            input="/validationOneFieldForward.do"
+            parameter="/validation/validationOneFieldForward.do"/>
+
+    <!-- 入力チェックの画面振分け処理 -->
+    <action path="/validationDispatch"
+            name="_validationForm">
+        <forward name="action" path="/validationAction.do"/>
+        <forward name="default" path="/validationAction.do"/>
+    </action>
+
+    <!-- 複数フィールド文字チェック処理 -->
+    <action path="/validationArrays01Action"
+            name="_validationForm"
+            validate="true"
+            input="/validationArrays01Forward.do"
+            parameter="/validation/validationArrays01Forward.do"/>
+
+    <!-- 複数フィールド桁数チェック処理 -->
+    <action path="/validationArrays02Action"
+            name="_validationForm"
+            validate="true"
+            input="/validationArrays02Forward.do"
+            parameter="/validation/validationArrays02Forward.do"/>
+
+    <!-- 複数フィールドフォーマットチェック処理 -->
+    <action path="/validationArrays03Action"
+            name="_validationForm"
+            validate="true"
+            input="/validationArrays03Forward.do"
+            parameter="/validation/validationArrays03Forward.do"/>
+
+    <!-- 複数フィールドプリミティブ型チェック処理 -->
+    <action path="/validationArrays04Action"
+            name="_validationForm"
+            validate="true"
+            input="/validationArrays04Forward.do"
+            parameter="/validation/validationArrays04Forward.do"/>
+
+    <!-- 複数フィールドその他チェック処理 -->
+    <action path="/validationArrays05Action"
+            name="_validationForm"
+            validate="true"
+            input="/validationArrays05Forward.do"
+            parameter="/validation/validationArrays05Forward.do"/>
+
+    <!-- 入力チェックの画面振分け処理 -->
+    <action path="/validationBeanArrayDispatch"
+            name="validationNestedForm">
+        <forward name="action" path="/validationBeanArrayAction.do"/>
+        <forward name="default" path="/validationBeanArrayAction.do"/>
+    </action>
+    
+    <!-- ネストしたビーン入力チェック処理 -->
+    <action path="/validationBeanArrayAction"
+            name="validationNestedForm"
+            validate="true"
+            input="/validationArrays06Forward.do"
+            parameter="/validation/validationArrays06Forward.do"/>
+
+    <!-- 入力チェック表示 -->
+    <action path="/validationOneFieldForward"
+            name="_validationForm"
+            parameter="/validation/sc2002.jsp"/>
+
+    <!-- 複数フィールド文字チェック画面 -->
+    <action path="/validationArrays01Forward"
+            name="_validationForm"
+            parameter="/validation/sc2003.jsp"/>
+
+    <!-- 複数フィールド桁数チェック画面 -->
+    <action path="/validationArrays02Forward"
+            name="_validationForm"
+            parameter="/validation/sc2004.jsp"/>
+
+    <!-- 複数フィールドフォーマットチェック画面 -->
+    <action path="/validationArrays03Forward"
+            name="_validationForm"
+            parameter="/validation/sc2005.jsp"/>
+
+    <!-- 複数フィールドプリミティブ型チェック画面 -->
+    <action path="/validationArrays04Forward"
+            name="_validationForm"
+            parameter="/validation/sc2006.jsp"/>
+
+    <!-- 複数フィールドその他チェック画面 -->
+    <action path="/validationArrays05Forward"
+            name="_validationForm"
+            parameter="/validation/sc2007.jsp"/>
+
+    <!-- ネストしたビーンチェック画面 -->
+    <action path="/validationArrays06Forward"
+            name="validationNestedForm"
+            scope="request" 
+            parameter="/validation/sc2008.jsp"/>
+
+    <!-- リクエストパラメータ「page」を利用するチェック画面 -->
+    <action path="/validationArrays07Forward"
+            name="_multiPageValidationForm"
+            parameter="/validation/sc2009.jsp"/>
+
+    <!-- リクエストパラメータ「page」を利用するチェック 処理の振分け -->
+    <action path="/multiPageValidationTaskDispatch"
+            name="_multiPageValidationTaskDispatchForm">
+            <forward name="default" path="/sc2010Forward.do" />
+            <forward name="mpvScenario01" path="/sc2010Forward.do" />
+            <forward name="mpvScenario02" path="/sc2013Forward.do" />
+            <forward name="mpvScenario03" path="/sc2016Forward.do" />
+            <forward name="mpvScenario04" path="/sc2018Forward.do" />
+            <forward name="mpvScenario05" path="/sc2020Forward.do" />
+            <forward name="mpvScenario06" path="/sc2022Forward.do" />
+    </action>
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する フォワード -->
+    <action path="/sc2010Forward" name="_multiPageValidationForm" parameter="/validation/sc2010.jsp" />
+    <action path="/sc2011Forward" name="_multiPageValidationForm" parameter="/validation/sc2011.jsp" />
+    <action path="/sc2012Forward" name="_multiPageValidationForm" parameter="/validation/sc2012.jsp" />
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する チェック処理 -->
+    <action path="/mpvActionAcceptPage0"
+            name="_multiPageValidationForm"
+            validate="true"
+            input="/mpvActionAcceptPage0Backward.do">
+            <set-property value="0" property="acceptPage" />
+            <forward name="page1" path="/sc2010Forward.do" />
+            <forward name="page2" path="/sc2011Forward.do" />
+            <forward name="page3" path="/sc2012Forward.do" />
+    </action>
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する 「前へ」処理 -->
+    <action path="/mpvActionAcceptPage0Backward"
+        name="_multiPageValidationForm">
+        <forward name="success" path="/mpvActionAcceptPage0.do" />
+        <forward name="initial" path="/sc2010Forward.do" />
+    </action>
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する 処理の振り分け -->
+    <action path="/mpvActionAcceptPage0Dispatch"
+        name="_multiPageValidationForm">
+        <forward name="back" path="/sc2010Forward.do" />
+        <forward name="next" path="/mpvActionAcceptPage0.do" />
+    </action>
+
+    <!-- 動的アクションフォームでpageをMPV機能として利用する -->
+    <action path="/sc2013Forward" name="_dynaMultiPageValidationFormWithPageImpl" parameter="/validation/sc2013.jsp" />
+    <action path="/sc2014Forward" name="_dynaMultiPageValidationFormWithPageImpl" parameter="/validation/sc2014.jsp" />
+    <action path="/sc2015Forward" name="_dynaMultiPageValidationFormWithPageImpl" parameter="/validation/sc2015.jsp" />
+
+    <action path="/mpvDynaActionAcceptPage0WithPageImpl"
+            name="_dynaMultiPageValidationFormWithPageImpl"
+            validate="true"
+            input="/mpvDynaActionAcceptPage0WithPageImplBackward.do">
+            <set-property value="0" property="acceptPage" />
+            <forward name="page1" path="/sc2013Forward.do" />
+            <forward name="page2" path="/sc2014Forward.do" />
+            <forward name="page3" path="/sc2015Forward.do" />
+    </action>
+
+    <action path="/mpvDynaActionAcceptPage0WithPageImplBackward"
+        name="_dynaMultiPageValidationFormWithPageImpl">
+        <forward name="success" path="/mpvDynaActionAcceptPage0WithPageImpl.do" />
+        <forward name="initial" path="/sc2013Forward.do" />
+    </action>
+
+    <action path="/mpvDynaActionAcceptPage0WithPageImplDispatch"
+        name="_dynaMultiPageValidationFormWithPageImpl">
+        <forward name="back" path="/sc2013Forward.do" />
+        <forward name="next" path="/mpvDynaActionAcceptPage0WithPageImpl.do" />
+    </action>
+
+    <!-- 静的アクションフォームでpageを業務パラメータとして利用する -->
+    <action path="/sc2016Forward" name="_multiPageValidationFormWithPageImpl" parameter="/validation/sc2016.jsp" />
+
+    <action path="/mpvActionAcceptPageNoneWithPageImpl"
+            name="_multiPageValidationFormWithPageImpl"
+            validate="true"
+            input="/sc2016.jsp"
+            parameter="/validation/sc2017.jsp">
+    </action>
+
+    <!-- 動的アクションフォームでpageを業務パラメータとして利用する -->
+    <action path="/sc2018Forward" name="_dynaMultiPageValidationForm" parameter="/validation/sc2018.jsp" />
+
+    <action path="/mpvDynaActionAcceptPageNoneWithPageImpl"
+            name="_dynaMultiPageValidationFormWithPageImpl"
+            validate="true"
+            input="/sc2018.jsp"
+            parameter="/validation/sc2019.jsp">
+    </action>
+
+    <!-- 静的アクションフォームでpageを利用しない -->
+    <action path="/sc2020Forward" name="_multiPageValidationForm" parameter="/validation/sc2020.jsp" />
+
+    <action path="/mpvActionAcceptPageNone"
+            name="_multiPageValidationForm"
+            validate="true"
+            input="/sc2020.jsp"
+            parameter="/validation/sc2021.jsp">
+    </action>
+
+    <!-- 動的アクションフォームでpageを利用しない -->
+    <action path="/sc2022Forward" name="_dynaMultiPageValidationForm" parameter="/validation/sc2022.jsp" />
+
+    <action path="/mpvDynaActionAcceptPageNone"
+            name="_dynaMultiPageValidationForm"
+            validate="true"
+            input="/sc2022.jsp"
+            parameter="/validation/sc2023.jsp">
+    </action>
+
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+  <message-resources parameter="validationMessageResources"
+                       factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"
+  />
+
+<!-- ======================================== PlugIn Definitions -->
+
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation" value="/WEB-INF/validation/validationContext.xml" />
+    </plug-in>
+
+    <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+        <set-property property="resources" value="/WEB-INF/validation/blogic-validation-io.xml" />
+        <set-property property="digesterRules" value="/WEB-INF/blogic-io-rules.xml" />
+        <set-property property="mapperClass" value="jp.terasoluna.fw.service.thin.BLogicMapper" />
+    </plug-in>
+
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-ex.xml,/WEB-INF/validation.xml,/WEB-INF/validation/validation.xml" />
+        <set-property property="stopOnFirstError" value="false" />
+    </plug-in>
+ 
+</struts-config>

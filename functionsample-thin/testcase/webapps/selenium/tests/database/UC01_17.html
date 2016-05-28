@@ -1,0 +1,429 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC01_06</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC01_17</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CB-02 データベースアクセス機能（ArrayList版）</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>住所録一覧(画面ID: SC0101)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>forward_search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>住所録検索(画面ID: SC0106)</td>
+</tr>
+
+<!-- 「山」で検索 -->
+<tr>
+	<td>type</td>
+	<td>query</td>
+	<td>山</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>住所録一覧(画面ID: SC0101)</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.0</td>
+	<td>00000009</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.1</td>
+	<td>山本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000009');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000009');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.2.0</td>
+	<td>00000010</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.2.1</td>
+	<td>山下</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.2.2</td>
+	<td>東京都三鷹市</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000010');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000010');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.3.0</td>
+	<td>00000011</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.3.1</td>
+	<td>山_本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.3.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000011');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000011');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.4.0</td>
+	<td>00000012</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.4.1</td>
+	<td>山%本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.4.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000012');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000012');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.5.0</td>
+	<td>00000013</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.5.1</td>
+	<td>山＿本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.5.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000013');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000013');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.6.0</td>
+	<td>00000014</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.6.1</td>
+	<td>山％本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.6.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000014');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000014');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>clickAndWait</td>
+	<td>forward_search</td>
+	<td></td>
+</tr>
+
+<!-- 「山_」で検索 -->
+<tr>
+	<td>type</td>
+	<td>query</td>
+	<td>山_</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>search</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.0</td>
+	<td>00000011</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.1</td>
+	<td>山_本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000011');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000011');"]</td>
+	<td>削除</td>
+</tr>
+
+
+<tr>
+	<td>clickAndWait</td>
+	<td>forward_search</td>
+	<td></td>
+</tr>
+
+<!-- 「山%」で検索 -->
+<tr>
+	<td>type</td>
+	<td>query</td>
+	<td>山%</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>search</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.0</td>
+	<td>00000012</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.1</td>
+	<td>山%本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000012');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000012');"]</td>
+	<td>削除</td>
+</tr>
+
+
+<tr>
+	<td>clickAndWait</td>
+	<td>forward_search</td>
+	<td></td>
+</tr>
+
+<!-- 「山＿」で検索 -->
+<tr>
+	<td>type</td>
+	<td>query</td>
+	<td>山＿</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>search</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.0</td>
+	<td>00000013</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.1</td>
+	<td>山＿本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000013');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000013');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>clickAndWait</td>
+	<td>forward_search</td>
+	<td></td>
+</tr>
+
+<!-- 「山％」で検索 -->
+<tr>
+	<td>type</td>
+	<td>query</td>
+	<td>山％</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>search</td>
+	<td></td>
+</tr>
+
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.0</td>
+	<td>00000014</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.1</td>
+	<td>山％本</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>addressTable.1.2</td>
+	<td>東京都中野区</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_update' and @type='submit' and @onclick="return setCustomerCode('00000014');"]</td>
+	<td>更新</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_delete' and @type='submit' and @onclick="return setCustomerCode('00000014');"]</td>
+	<td>削除</td>
+</tr>
+
+<tr>
+	<td>clickAndWait</td>
+	<td>menuForward</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する -->
+    <action path="/mpvActionAcceptPage0">
+        <blogic-params bean-name="jp.terasoluna.thin.functionsample.validation.bean.PageParam">
+            <set-property property="page" blogic-property="page" source="form" />
+        </blogic-params>
+    </action>
+
+        <!-- 動的アクションフォームでpageをMPV機能として利用する -->
+    <action path="/mpvDynaActionAcceptPage0WithPageImpl">
+        <blogic-params bean-name="jp.terasoluna.thin.functionsample.validation.bean.PageParam">
+            <set-property property="page" blogic-property="page" source="form" />
+        </blogic-params>
+    </action>
+
+    <!-- 静的アクションフォームでpageをMPV機能として利用する 「前へ」-->
+    <action path="/mpvActionAcceptPage0Backward">
+        <blogic-params bean-name="jp.terasoluna.thin.functionsample.validation.bean.PageParam">
+            <set-property property="page" blogic-property="page" source="form" />
+        </blogic-params>
+        <blogic-result>
+            <set-property property="page" blogic-property="page" dest="form" />
+        </blogic-result>
+    </action>
+
+    <!-- 動的アクションフォームでpageをMPV機能として利用する 「前へ」-->
+    <action path="/mpvDynaActionAcceptPage0WithPageImplBackward">
+        <blogic-params bean-name="jp.terasoluna.thin.functionsample.validation.bean.PageParam">
+            <set-property property="page" blogic-property="page" source="form" />
+        </blogic-params>
+        <blogic-result>
+            <set-property property="page" blogic-property="page" dest="form" />
+        </blogic-result>
+    </action>
+</blogic-io>

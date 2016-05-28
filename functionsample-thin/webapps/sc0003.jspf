@@ -1,0 +1,52 @@
+<%--
+  - $Id: sc0003.jspf,v 1.12 2006/02/08 02:39:12 jeon Exp $
+  -
+  - Copyright 2006 NTT DATA Corporation.
+  -
+  --%>
+<%@ page contentType="text/html; charset=Windows-31J" language="java" %>
+<%@ taglib uri="/struts-html" prefix="html"%>
+<%@ taglib uri="/struts-bean" prefix="bean"%>
+<%@ taglib uri="/struts-logic" prefix="logic"%>
+<%@ taglib uri="/struts-nested" prefix="nested"%>
+<%@ taglib uri="/terasoluna" prefix="t"%>
+<%@ taglib uri="/terasoluna-struts" prefix="ts"%>
+
+<bean:define id="cssCommonFileName" scope="page" value="common.css"/>
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <meta http-equiv="Content-Style-Type" CONTENT="text/css">
+    <title><bean:write name="titleUsecaseName" scope="page"/>(<bean:write name="titleScreenName" scope="page"/>)&nbsp;-&nbsp;TERASOLUNA Server Framework for Java(Web版)機能網羅サンプル</title>
+    <bean:page id="requestObj" property="request"/>  
+    <bean:define id="contextPath" name="requestObj" property="contextPath" />  
+    <link href="<bean:write name='contextPath' />/<bean:write name='cssCommonFileName' scope='page'/>" rel="stylesheet" type="text/css" media="screen,print">
+  </head>
+  
+  <body>
+    <div class="com-root-panel">
+<!-- begin header-->
+      <div class="com-header-info-panel">
+        <div class="com-header-userid-panel">
+        <logic:notEmpty name="USER_VALUE_OBJECT" scope="session">
+        <div id="userID">ユーザID:<bean:write name="USER_VALUE_OBJECT" property="userID" scope="session"/></div>
+        </logic:notEmpty>
+        </div>
+        <div class="com-hedaer-date-panel">
+          <jsp:useBean id="now" class="java.util.Date" />
+          <div id="now"><bean:write name="now" format="yyyy/MM/dd"/></div>
+        </div>
+      </div>
+      <div class="com-header-title-panel">
+        <div class="com-header-title-text-panel">
+          <h1><span class="com-header-screen-name-text"><div id="screenNameID"><bean:write name="screenName" scope="page"/>(画面ID: <bean:write name="screenID" scope="page"/>)</div></span></h1>
+        </div>
+        <div class="com-header-title-button-panel">
+          <form action="<bean:write name='contextPath' />/logoff.do" class="com-logout-form">
+            <p>
+              <input type="submit" value="ログオフ" class="com-normal-button" >
+            </p>
+          </form>
+        </div>
+      </div>
+<!-- end header-->

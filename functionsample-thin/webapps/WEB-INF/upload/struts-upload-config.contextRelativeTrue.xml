@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ======================================== Form Bean Definitions -->
+
+	<form-beans>
+		<form-bean name="_upLoadForm"
+			type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+			<form-property name="fileup"
+				type="org.apache.struts.upload.FormFile" />
+			<form-property name="listFile"
+				type="org.apache.struts.upload.FormFile[]" size="3" />
+			<form-property name="listFileName"
+				type="java.lang.String[]" size="3" />
+			<form-property name="listFilePath"
+				type="java.lang.String[]" size="3"/>
+			<form-property name="listFileSize"
+				type="java.lang.String[]" size="3"/>
+			<form-property name="fileId" type="java.lang.String" />
+			<form-property name="fileName" type="java.lang.String" />
+			<form-property name="filePath" type="java.lang.String" />
+			<form-property name="fileSize" type="java.lang.String" />
+		</form-bean>
+	</form-beans>
+
+
+	<!-- ======================================== Global Exception Definitions -->
+	<global-exceptions>
+		<!-- 予期せぬデータベース例外処理 -->
+		<exception key="error.UC13.00001" path="/../sc0005.jsp"
+            className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+            handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+			type="org.springframework.dao.DataAccessException"/>
+		<!-- ファイルアップロード例外処理 -->
+		<exception key="" path="/../sc0005.jsp"
+            className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+            handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+			type="org.apache.commons.fileupload.FileUploadException"/>
+	</global-exceptions>
+
+	<!-- ======================================== Global Forward Definitions -->
+	<global-forwards></global-forwards>
+
+
+	<!-- ======================================== Global Forward Definitions -->
+	<action-mappings
+		type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+
+		<!-- アップロードファイル初期化 -->
+		<action path="/uploadForward" name="_upLoadForm" scope="request"
+			validate="false" parameter="/upload/sc3701.jsp" />
+
+		<!-- アップロードファイル情報DBに登録する -->
+		<action path="/registDBUpLoad" name="_upLoadForm" scope="request"
+			validate="false">
+			<!--<set-property property="cancelPopulate" value="true" /> -->
+			<forward name="success" path="/upLoadSuccess.do" />
+			<forward name="false" path="/upLoadFalse.do" />
+		</action>
+
+		<!-- ファイルアップロード成功した画面表示 -->
+		<action path="/upLoadSuccess" parameter="/upload/sc3702.jsp" />
+
+		<!-- ファイルアップロード失敗した画面表示 -->
+		<action path="/upLoadFalse" parameter="/upload/sc3703.jsp" />
+
+	</action-mappings>
+
+
+	<!-- ======================================== Controller Definitions -->
+	<!--<controller
+		processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx" />-->
+	<controller maxFileSize="800K" bufferSize="400K"
+		tempDir="C:/"
+		processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx" 
+		/>
+
+
+
+	<!-- ======================================== Message Resouces Definitions -->
+
+	<!-- ======================================== PlugIn Definitions -->
+
+	<plug-in
+		className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/upload/uploadContext.xml" />
+	</plug-in>
+	<plug-in
+		className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+		<set-property property="resources"
+			value="/WEB-INF/upload/blogic-upload-io.xml" />
+		<set-property property="digesterRules"
+			value="/WEB-INF/blogic-io-rules.xml" />
+		<set-property property="mapperClass"
+			value="jp.terasoluna.fw.service.thin.BLogicMapper" />
+	</plug-in>
+</struts-config>

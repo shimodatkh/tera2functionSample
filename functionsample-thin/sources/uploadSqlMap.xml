@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+            PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+            "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="upload">
+	<insert id="insertUpLoad"
+		parameterClass="jp.terasoluna.thin.functionsample.upload.bean.TupdownloadVO">
+		INSERT INTO TUPDOWNLOAD(
+		FILEID,
+		FILENAME,
+		FILEPATH,
+		FILESIZE
+		)
+		VALUES
+		 (
+		#fileId#,
+		#fileName#,
+		#filePath#,
+		#fileSize#
+		)
+	</insert>
+	<select id="selectListUpload"
+		resultClass="jp.terasoluna.thin.functionsample.upload.bean.TupdownloadVO">
+		SELECT
+		    FILEID AS fileId,
+		    FILENAME AS fileName,
+		    FILEPATH AS filePath,
+		    FILESIZE as fileSize
+		FROM
+		    TUPDOWNLOAD
+		ORDER BY
+		    FILEID
+	</select>
+	<select id="selectListDownload"
+		resultClass="jp.terasoluna.thin.functionsample.download.bean.FileDownLoadMenuBean">
+		SELECT DISTINCT
+		    FILENAME AS fileName,
+		    FILEPATH AS filePath,
+		    FILESIZE AS fileSize
+		FROM
+		    TUPDOWNLOAD
+		ORDER BY
+		    FILEPATH,
+		    fileName
+	</select>
+	<select id="selectFileCount" resultClass="java.lang.Integer"
+		resultSetType="SCROLL_INSENSITIVE">
+		SELECT
+		    COUNT( Distinct FILENAME)
+		FROM
+		    TUPDOWNLOAD
+	</select>
+	<select id="selectListDownloadBLogic"
+		resultClass="jp.terasoluna.thin.functionsample.downloadblogic.bean.DownloadFileBLogicInput">
+		SELECT DISTINCT
+		    FILENAME AS fileName,
+		    FILEPATH AS filePath,
+		    FILESIZE AS fileSize
+		FROM
+		    TUPDOWNLOAD
+		ORDER BY
+		    FILEPATH,
+		    fileName
+	</select>
+	<select id="selectDeleteFile"
+		parameterClass="jp.terasoluna.thin.functionsample.download.bean.FileDownLoadMenuBean"
+		resultClass="jp.terasoluna.thin.functionsample.download.bean.FileDownLoadMenuBean">
+		SELECT
+		    FILENAME AS fileName,
+		    FILEPATH AS filePath,
+		    FILESIZE AS fileSize
+		FROM
+		    TUPDOWNLOAD
+		WHERE
+		    FILENAME = #fileName# AND
+		    FILEPATH = #filePath#
+	</select>
+	<delete id="deleteFile"
+		parameterClass="jp.terasoluna.thin.functionsample.download.bean.FileDownLoadMenuBean">
+		DELETE
+		FROM
+		    TUPDOWNLOAD
+		WHERE
+		    FILENAME = #fileName# AND
+		    FILEPATH = #filePath#
+	</delete>
+
+</sqlMap>

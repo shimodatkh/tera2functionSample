@@ -1,0 +1,220 @@
+.com-root-panel {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.com-body-panel {
+  padding: 10px;
+  background-color: #FFFFEE;
+}
+
+.com-header-info-panel {
+  width: 786px;
+  padding: 6px
+}
+
+.com-header-userid-panel {
+ float: left;
+ text-align: left;
+}
+
+.com-hedaer-date-panel {
+ float: clean;
+ text-align: right;
+}
+
+.com-header-title-panel {
+  width: 786px;
+  height: 30px;
+  background-color: #CCEEFF;
+  border: 2px ridge;
+  text-align: left;
+  margin-bottom: 2px;
+  padding: 4px;
+}
+
+.com-header-title-text-panel {
+  text-align: left;
+  float: left;
+  margin: 6px;
+}
+.com-header-title-button-panel {
+  text-align: right;
+}
+
+.com-header-screen-name-text {
+  font-weight: bold;
+}
+
+.com-logout-form p {
+  margin: 0px;
+}
+
+form {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1 {
+  font-size: medium;
+  font-weight: normal;
+  margin: 0px;
+}
+
+.com-footer-panel {
+  width: 794px;
+  height: 20px;
+  background-color:#7799DD;
+  border: 2px ridge;
+  margin-top: 2px;
+}
+
+.com-footer-logo-text {
+  color: white;
+  font-weight: bold;
+}
+
+.com-normal-button {
+  height: 30px;
+  width: 100px;
+}
+
+.com-long-button {
+  height: 30px;
+  width: 150px;
+}
+
+.com-visible-table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  border: 3px ridge;
+}
+
+.com-visible-table caption {
+  text-align: left;
+  font-weight: bold;
+}
+
+.com-visible-table th{
+  color: #000000;
+  padding: 2px 2px 2px 2px;
+  background-color: #EEDDFF;
+  border: 1px solid #000000;
+}
+
+.com-visible-table td{
+  padding: 2px 2px 2px 3px;
+  background-color: #FFFFFF;
+  border: 1px solid #000000;
+}
+
+
+.com-float-clear {
+  clear: both;
+}
+
+.com-charge-td {
+  text-align: right;
+  font-weight: bold;
+}
+
+.com-error-message-panel {
+  color: red;
+  font-weight: bold;
+  text-align: left;
+}	
+
+.com-error-message-panel p {
+ margin: 5px;
+}
+
+#com-lodging-period-th {
+  width: 170px;
+}
+
+#com-lodging-period-td {
+  text-align: left;
+}
+
+#com-charge-from-td {
+  text-align: left;
+}
+
+#com-charge-to-td {
+  text-align: left;
+}
+
+#com-room-type-td {
+  text-align: left;
+}
+
+#com-smoking-type-td {
+  text-align: left;
+}
+
+#com-room-count-td {
+  text-align: left;
+}
+
+#com-meal-option-td {
+  text-align: left;
+}
+
+#com-hotel-th {
+  width: 50px;
+}
+
+#com-hotel-code-th {
+  width: 100px;
+}
+
+#com-hotel-code-td {
+  text-align: left;
+}
+
+#com-hotel-name-td {
+  text-align: left;
+}
+
+#com-hotel-room-count-td {
+  text-align: left;
+}
+
+#com-hotel-address-td {
+  text-align: left;
+}
+
+#com-hotel-tel-number-td {
+  text-align: left;
+}
+
+#com-customer-th {
+  width: 50px;
+}
+#com-customer-code-th {
+  width: 100px;
+}
+
+#com-customer-code-td {
+  text-align: left;
+}
+
+#com-customer-name-td {
+  text-align: left;
+}
+
+#com-customer-address-td {
+  text-align: left;
+}
+
+/* UC33,UC20,UC36‚ÅŽg—p‚·‚é */
+td.ItemLabel {
+  text-align: right;
+}
+
+td.ErrorItem {
+  color: Red;
+  text-align: right;
+}

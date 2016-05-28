@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+  <!-- 住所録取得 -->
+  <action path="/listAddress">
+    <blogic-params>
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listAddress" dest="request" />
+    </blogic-result>
+  </action>
+
+  <!-- 住所録取得（ArrayList版） -->
+  <action path="/arrayListAddress">
+    <blogic-params>
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listAddress" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- 住所登録 -->
+  <action path="/resultInsertAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.database.bean.AddressTableVO" >
+      <set-property property="customerCode" blogic-property="customerCode" source="form" />
+      <set-property property="customerName" blogic-property="customerName" source="form" />
+      <set-property property="postCode" blogic-property="postCode" source="form" />
+      <set-property property="customerAddress" blogic-property="customerAddress" source="form" />
+      <set-property property="customerTel" blogic-property="customerTel" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listAddress" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- 住所更新 -->
+  <action path="/updateAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.database.bean.UpdateAddressParam" >
+      <set-property property="customerCode" blogic-property="customerCode" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="addressData" source="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- 住所削除 -->
+  <action path="/deleteAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.database.bean.DeleteAddressParam" >
+      <set-property property="customerCode" blogic-property="customerCode" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listAddress" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- 住所更新処理 -->
+  <action path="/resultUpdateAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.database.bean.AddressTableVO" >
+      <set-property property="customerCode" blogic-property="customerCode" source="form" />
+      <set-property property="customerName" blogic-property="customerName" source="form" />
+      <set-property property="postCode" blogic-property="postCode" source="form" />
+      <set-property property="customerAddress" blogic-property="customerAddress" source="form" />
+      <set-property property="customerTel" blogic-property="customerTel" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listAddress" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- バッチ処理 -->
+  <action path="/resultBatchAddress">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.database.bean.BatchAddressParam" >
+      <set-property property="customerCode1" 	blogic-property="customerCode1" source="form" />
+      <set-property property="customerName1" 	blogic-property="customerName1" source="form" />
+      <set-property property="postCode1" 		blogic-property="postCode1" source="form" />
+      <set-property property="customerAddress1" blogic-property="customerAddress1" source="form" />
+      <set-property property="customerTel1" 	blogic-property="customerTel1" source="form" />
+      
+      <set-property property="customerCode2" 	blogic-property="customerCode2" source="form" />
+      <set-property property="customerName2" 	blogic-property="customerName2" source="form" />
+      <set-property property="postCode2" 		blogic-property="postCode2" source="form" />
+      <set-property property="customerAddress2" blogic-property="customerAddress2" source="form" />
+      <set-property property="customerTel2" 	blogic-property="customerTel2" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listAddress" dest="request" />
+    </blogic-result>
+  </action>
+    
+    
+  <action path="/procedureAddress">
+    <blogic-params>
+    </blogic-params>
+
+    <blogic-result>
+      <set-property property="listAddress" dest="request" />
+    </blogic-result>
+  </action>
+  
+    <!-- 追加(ver 2.0.3.1) -->
+    <!-- 住所検索アクション -->
+    <action path="/searchAddress">
+        <blogic-params bean-name="java.util.HashMap">
+            <set-property property="query" source="form" />
+        </blogic-params>
+    
+        <blogic-result>
+            <set-property property="listAddress" dest="request" />
+        </blogic-result>
+    </action>
+</blogic-io>

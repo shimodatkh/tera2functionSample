@@ -1,0 +1,848 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC20_05</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC20_05</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WF-01 入力チェック拡張機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays04']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールドプリミティブ型チェック(画面ID: SC2006)</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[0]</td>
+	<td>-999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[1]</td>
+	<td>999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[2]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[4]</td>
+	<td>127</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のbyte値チェックにはbyte値を入力してください.2行目のbyte値チェックにはbyte値を入力してください.3行目のbyte値チェックにはbyte値を入力してください.4行目のbyte値チェックにはbyte値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のbyte値チェックにはbyte値を入力してください.3行目のbyte値チェックにはbyte値を入力してください.4行目のbyte値チェックにはbyte値を入力してください.5行目のbyte値チェックにはbyte値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[0]</td>
+	<td>-123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[1]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[2]</td>
+	<td>-128</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[3]</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[4]</td>
+	<td>127</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>byteList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[0]</td>
+	<td>-999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[1]</td>
+	<td>999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[2]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[4]</td>
+	<td>32767</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のshort値チェックにはshort値を入力してください.2行目のshort値チェックにはshort値を入力してください.3行目のshort値チェックにはshort値を入力してください.4行目のshort値チェックにはshort値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のshort値チェックにはshort値を入力してください.3行目のshort値チェックにはshort値を入力してください.4行目のshort値チェックにはshort値を入力してください.5行目のshort値チェックにはshort値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[1]</td>
+	<td>32767</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[2]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[3]</td>
+	<td>-32768</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[4]</td>
+	<td>9999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shortList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[0]</td>
+	<td>-9999999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[1]</td>
+	<td>9999999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[2]</td>
+	<td>abc</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[4]</td>
+	<td>2147483647</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のinteger値チェックにはint値を入力してください.2行目のinteger値チェックにはint値を入力してください.3行目のinteger値チェックにはint値を入力してください.4行目のinteger値チェックにはint値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のinteger値チェックにはint値を入力してください.3行目のinteger値チェックにはint値を入力してください.4行目のinteger値チェックにはint値を入力してください.5行目のinteger値チェックにはint値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[1]</td>
+	<td>2147483647</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[2]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[3]</td>
+	<td>-2147483648</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[4]</td>
+	<td>999999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>integerList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[0]</td>
+	<td>-9999999999999999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[1]</td>
+	<td>9999999999999999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[2]</td>
+	<td>-9999999999999999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[3]</td>
+	<td>9999999999999999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[4]</td>
+	<td>9223372036854775807</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のlong値チェックにはlong値を入力してください.2行目のlong値チェックにはlong値を入力してください.3行目のlong値チェックにはlong値を入力してください.4行目のlong値チェックにはlong値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のlong値チェックにはlong値を入力してください.3行目のlong値チェックにはlong値を入力してください.4行目のlong値チェックにはlong値を入力してください.5行目のlong値チェックにはlong値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[1]</td>
+	<td>9223372036854775807</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[2]</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[3]</td>
+	<td>-9223372036854775808</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[4]</td>
+	<td>999999999</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>longList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[0]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[1]</td>
+	<td>99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[2]</td>
+	<td>-99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[3]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[4]</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のdouble値チェックにはdouble値を入力してください.4行目のdouble値チェックにはdouble値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のdouble値チェックにはdouble値を入力してください.3行目のdouble値チェックにはdouble値を入力してください.4行目のdouble値チェックにはdouble値を入力してください.5行目のdouble値チェックにはdouble値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[1]</td>
+	<td>99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[2]</td>
+	<td>-99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[3]</td>
+	<td>987654321.123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[4]</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>doubleList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[0]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[1]</td>
+	<td>99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[2]</td>
+	<td>-99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[3]</td>
+	<td>abc123</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[4]</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>1行目のfloat値チェックにはfloat値を入力してください.4行目のfloat値チェックにはfloat値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[0]</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[1]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[2]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[3]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[4]</td>
+	<td>あいうえお</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td>2行目のfloat値チェックにはfloat値を入力してください.3行目のfloat値チェックにはfloat値を入力してください.4行目のfloat値チェックにはfloat値を入力してください.5行目のfloat値チェックにはfloat値を入力してください.</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[1]</td>
+	<td>99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[2]</td>
+	<td>-99999999999.999999</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[3]</td>
+	<td>987654321.123456</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[4]</td>
+	<td>0.0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value=' 実 行 ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id="validationErrors"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[0]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>floatList[4]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value=' 入力チェック拡張選択画面に戻る ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>入力チェック拡張選択(画面ID: SC2001)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='event' and @value='forward_validationArrays04']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='次 へ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>複数フィールドプリミティブ型チェック(画面ID: SC2006)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

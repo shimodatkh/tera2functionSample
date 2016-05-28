@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- アプリケーション全体のBean定義 -->
+  <!-- commons-JXPathのバグ(JXPATH-152)用パッチをアクティベート -->
+  <bean id="jxpathPatchActivator" class="jp.terasoluna.fw.beans.jxpath.JXPATH152PatchActivator"/>
+
+  <!-- データソース設定 -->
+  <bean id="TerasolunaFunctionDataSource"
+        class="org.springframework.jndi.JndiObjectFactoryBean">
+    <property name="jndiName">
+    <!-- tomcat以外はjava:comp/env/を消す -->
+      <!--<value>TerasolunaFunctionDataSource</value>-->
+      <value>java:comp/env/TerasolunaFunctionDataSource</value>
+    </property>
+  </bean>
+
+  <!-- トランザクション設定 -->
+  <bean id="transactionManager"
+    class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource" />
+  </bean>
+
+  <!-- トランザクションインタセプタの設定 -->
+  <tx:advice id="transactionInterceptor" >
+    <tx:attributes>
+      <tx:method name="execute*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+      <tx:method name="insert*"  propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+      <tx:method name="update*"  propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+      <tx:method name="delete*"  propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+      <tx:method name="select*"  propagation="REQUIRED" rollback-for="java.lang.Exception" read-only="true"/>
+    </tx:attributes>
+  </tx:advice>
+
+  <!-- ログ出力を行うインタセプタ -->
+  <bean id="debugInterceptor"
+      class="jp.terasoluna.thin.functionsample.common.FunctionDebugInterceptor">
+  </bean>
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="daoBeans" expression="bean(*DAO)"/>
+    <aop:advisor
+         pointcut-ref="daoBeans"
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor
+         pointcut-ref="daoBeans"
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+
+
+  <!-- iBATIS定義 -->
+  <bean id="sqlMapClient"
+        class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+    <property name="configLocation" value="WEB-INF/sqlMapConfig.xml"/>
+    <property name="dataSource" ref="TerasolunaFunctionDataSource" />
+  </bean>
+
+  <!-- DAO定義 -->
+  <bean id="queryDAO"
+        class="jp.terasoluna.fw.dao.ibatis.QueryDAOiBatisImpl">
+    <property name="sqlMapClient" ref="sqlMapClient" />
+  </bean>
+  <bean id="updateDAO"
+        class="jp.terasoluna.fw.dao.ibatis.UpdateDAOiBatisImpl">
+    <property name="sqlMapClient" ref="sqlMapClient" />
+  </bean>
+  <bean id="spDAO"
+        class="jp.terasoluna.fw.dao.ibatis.StoredProcedureDAOiBatisImpl">
+    <property name="sqlMapClient" ref="sqlMapClient" />
+  </bean>
+  <bean id="queryRowHandleDAO"
+        class="jp.terasoluna.fw.dao.ibatis.QueryRowHandleDAOiBatisImpl">
+    <property name="sqlMapClient" ref="sqlMapClient" />
+  </bean>
+
+
+  <!-- ログオン済みチェックコントローラ -->
+  <bean id="authenticationController" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.authentication.web.FunctionAuthenticationController">
+    <!-- ログオン済みチェックを行わないパス -->
+    <property name="listNoCheckRequiredPath">
+      <list>
+        <value>/</value>
+        <value>/logonForward.do</value>
+        <value>/authErrorForward.do</value>
+        <!-- ITKのみにあった設定 -->
+        <value>/cancelServerBlockage.do</value>
+        <value>/logon.do</value>
+        <value>/common.css</value>
+        <value>/sc0006.jsp</value>
+        <value>/index.jsp</value>
+        <value>/welcome.do</value>
+      </list>
+    </property>
+  </bean>
+
+  <!-- アクセス権限チェックコントローラ -->
+  <bean id="authorizationController" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.authorization.web.FunctionAuthorizationController">
+    <!-- アクセス権限チェックを行うパス -->
+    <property name="listCheckRequiredPath">
+      <list>
+        <value>/authorization/authorizationForward.do</value>
+      </list>
+    </property>
+  </bean>
+
+  <!-- UC09ユーザ情報保持機能 -->
+  <!-- ユーザ情報コードリスト設定 -->
+  <bean id="uvoCodeList"
+		class="jp.terasoluna.fw.web.codelist.MappedCodeListLoader"
+		init-method="load">
+    <property name="codeListMap">
+	  <map>
+		<entry key="0">
+		  <value>管理者</value>
+		</entry>
+		<entry key="1">
+		  <value>ユーザ</value>
+		</entry>
+	  </map>
+	</property>
+  </bean>
+
+  <!-- UC13コードリスト機能 -->
+  <!-- Bean設定ファイルを用いたコードリスト初期化 -->
+  <bean id="beanCodeList"
+		class="jp.terasoluna.fw.web.codelist.MappedCodeListLoader"
+		init-method="load">
+    <property name="codeListMap">
+	  <map>
+		<entry key="0">
+		  <value>value0</value>
+		</entry>
+		<entry key="1">
+		  <value>value1</value>
+		</entry>
+		<entry key="2">
+		  <value>value2</value>
+		</entry>
+		<entry key="3">
+		  <value>value3</value>
+		</entry>
+	  </map>
+	</property>
+  </bean>
+  
+  <bean id="beanMlCodeList"
+        class="jp.terasoluna.fw.web.codelist.MappedCodeListLoader"
+        init-method="load">
+    <property name="codeListMap">
+      <map>
+        <entry key="ja">
+          <map>
+            <entry key="0">
+              <value>値0</value>
+            </entry>
+            <entry key="1">
+              <value>値1</value>
+            </entry>
+            <entry key="2">
+              <value>値2</value>
+            </entry>
+            <entry key="3">
+              <value>値3</value>
+            </entry>
+          </map>
+        </entry>
+        <entry key="en_US">
+          <map>
+            <entry key="0">
+              <value>en_US_00</value>
+            </entry>
+            <entry key="1">
+              <value>en_US_1</value>
+            </entry>
+            <entry key="2">
+              <value>en_US_2</value>
+            </entry>
+            <entry key="3">
+              <value>en_US_3</value>
+            </entry>
+          </map>
+        </entry>
+        <entry key="en">
+          <map>
+            <entry key="0">
+              <value>en_0</value>
+            </entry>
+            <entry key="1">
+              <value>en_1</value>
+            </entry>
+            <entry key="2">
+              <value>en_2</value>
+            </entry>
+            <entry key="3">
+              <value>en_3</value>
+            </entry>
+          </map>
+        </entry>
+      </map>
+    </property>
+  </bean>
+
+  <!-- データベースを用いたコードリスト初期化 -->
+  <bean id="dbCodeList"
+        class="jp.terasoluna.fw.web.codelist.DBCodeListLoader"
+        init-method="load">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource"/>
+    <property name="sql" value="SELECT KEY, VALUE FROM CODELIST ORDER BY KEY"/>
+  </bean>
+
+  <!-- データベースを用いたコードリスト初期化 -->
+  <bean id="dbMlCodeList1"
+        class="jp.terasoluna.fw.web.codelist.DBCodeListLoader"
+        init-method="load">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource"/>
+    <property name="sql" value="SELECT KEY, VALUE FROM MLCODELIST ORDER BY  LANGUAGE, COUNTRY, VARIANT, KEY"/>
+  </bean>
+  <bean id="dbMlCodeList2"
+        class="jp.terasoluna.fw.web.codelist.DBCodeListLoader"
+        init-method="load">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource"/>
+    <property name="sql" value="SELECT KEY, VALUE, LANGUAGE FROM MLCODELIST ORDER BY LANGUAGE, COUNTRY, VARIANT, KEY"/>
+  </bean>
+    <bean id="dbMlCodeList3"
+        class="jp.terasoluna.fw.web.codelist.DBCodeListLoader"
+        init-method="load">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource"/>
+    <property name="sql" value="SELECT KEY, VALUE, LANGUAGE, COUNTRY FROM MLCODELIST ORDER BY LANGUAGE, COUNTRY, VARIANT, KEY"/>
+  </bean>
+  <bean id="dbMlCodeList4"
+        class="jp.terasoluna.fw.web.codelist.DBCodeListLoader"
+        init-method="load">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource"/>
+    <property name="sql" value="SELECT KEY, VALUE, LANGUAGE, COUNTRY, VARIANT FROM MLCODELIST ORDER BY LANGUAGE, COUNTRY, VARIANT, KEY"/>
+  </bean>
+
+  <!-- サーバ閉塞チェックコントローラ  -->
+  <bean id="serverBlockageController"
+  		class="jp.terasoluna.thin.functionsample.serverblockage.web.ServerBlockageController">
+    <!-- サーバ閉塞チェックを行わないパス -->
+    <property name="alwaysOpenPaths">
+      <list>
+        <value>/sc0003.jspf</value>
+        <value>/sc0004.jspf</value>
+        <value>/cancelServerBlockage.do</value>
+        <value>/common.css</value>
+        <value>/serverblockage/cancelBlockage.do</value>
+        <value>/serverblockage/serverBlockage.do</value>
+        <value>/serverblockage/serverBlockageDispatch.do</value>
+      </list>
+    </property>
+  </bean>
+
+  <!-- 業務閉塞チェックコントローラ  -->
+  <bean id="blockageController"
+  		class="jp.terasoluna.thin.functionsample.blockage.web.BlockageController">
+    <!-- 業務閉塞チェックを行わないパス -->
+    <property name="noCheckPath">
+      <list>
+        <value>/sc0001.jsp</value>
+      </list>
+    </property>
+  </bean>
+
+
+  <!-- UC21 リソースバンドルの設定（プロパティファイル利用）	-->
+  <bean id="propertyMessageSource"
+      class="org.springframework.context.support.ResourceBundleMessageSource">
+	<property name="basenames" value="PropertyMessageResources,application-messages,system-messages,ApplicationResources"/>
+  </bean>
+
+  <!-- UC21 リソースバンドルの設定（DBメッセージ利用）（Languageカラム有）	-->
+  <!-- 別途、DBMessageResourceDAOの設定が必要 -->
+  <bean id="dbMessageSource"
+     class="jp.terasoluna.fw.message.DataSourceMessageSource">
+    <property name="dbMessageResourceDAO" ref="DBMessageResourceDAO"/>
+  </bean>
+
+  <!-- UC21 リソースバンドルの設定（DBメッセージ利用）（Languageカラム有、defaultLocale:ja_JP）	-->
+  <!-- 別途、DBMessageResourceDAOの設定が必要 -->
+  <bean id="dbJaJpMessageSource"
+     class="jp.terasoluna.fw.message.DataSourceMessageSource">
+    <property name="dbMessageResourceDAO" ref="DBMessageResourceDAO"/>
+    <property name="defaultLocale"  value="ja_JP"/>
+  </bean>
+
+  <!-- UC21 リソースバンドルの設定（DBメッセージ利用）（Languageカラム有、defaultLocale:en_US）	-->
+  <!-- 別途、DBMessageResourceDAOの設定が必要 -->
+  <bean id="dbEnUsMessageSource"
+     class="jp.terasoluna.fw.message.DataSourceMessageSource">
+    <property name="dbMessageResourceDAO" ref="DBMessageResourceDAO"/>
+    <property name="defaultLocale"  value="en_US"/>
+  </bean>
+
+  <!-- UC21 リソースバンドルの設定（DBメッセージ利用）（Languageカラム無）	-->
+  <!-- 別途、DBMessageResourceNoLangDAOの設定が必要 -->
+  <bean id="dbNoLangMessageSource"
+     class="jp.terasoluna.fw.message.DataSourceMessageSource">
+    <property name="dbMessageResourceDAO" ref="DBMessageResourceNoLangDAO"/>
+  </bean>
+
+  <!-- UC21 リソースバンドルの設定（プロパティファイル→DBメッセージ利用）	-->
+  <bean id="propertyDbMessageSource"
+      class="org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="parentMessageSource" ref="dbMessageSource"/>
+	<property name="basenames" value="PropertyMessageResources,application-messages,system-messages,ApplicationResources"/>
+  </bean>
+
+  <!-- UC21 リソースバンドルの設定（DBメッセージ→プロパティファイル利用）	-->
+  <!-- 別途、DBMessageResourceDAOの設定が必要 -->
+  <bean id="dbPropertyMessageSource"
+     class="jp.terasoluna.fw.message.DataSourceMessageSource">
+    <property name="parentMessageSource" ref="propertyMessageSource"/>
+    <property name="dbMessageResourceDAO" ref="DBMessageResourceDAO"/>
+  </bean>
+
+  <!-- UC21 リソースバンドル（DB利用）用DAOの設定（Languageカラム有） -->
+  <bean id="DBMessageResourceDAO"
+      class="jp.terasoluna.fw.message.DBMessageResourceDAOImpl">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource"/>
+    <property name="tableName"      value="DBMESSAGES"/>
+    <property name="codeColumn"     value="CODE"/>
+    <property name="messageColumn"  value="MESSAGE"/>
+    <property name="languageColumn" value="LANGUAGES"/>
+    <property name="countryColumn"  value="CONTRY"/>
+    <property name="variantColumn"  value="VARIANT"/>
+  </bean>
+
+  <!-- UC21 リソースバンドル（DB利用）用DAOの設定（Languageカラム無） -->
+  <bean id="DBMessageResourceNoLangDAO"
+      class="jp.terasoluna.fw.message.DBMessageResourceDAOImpl">
+    <property name="dataSource" ref="TerasolunaFunctionDataSource"/>
+    <property name="tableName"      value="DBMESSAGES"/>
+    <property name="codeColumn"     value="CODE"/>
+    <property name="messageColumn"  value="MESSAGE"/>
+  </bean>
+
+</beans>

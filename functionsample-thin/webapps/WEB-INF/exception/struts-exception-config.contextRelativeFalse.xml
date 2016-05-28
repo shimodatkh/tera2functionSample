@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="exceptionForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="forward_systemException" type="java.lang.String"/>
+      <form-property name="forward_exception" type="java.lang.String"/>
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+    <!-- システム例外処理(TraceSystemException) -->
+    <exception key="error.UC14.00011"
+               path="/resultSystemExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.TraceSystemException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="trace"/>
+    </exception>
+    <!-- システム例外処理(DebugSystemException) -->
+    <exception key="error.UC14.00012"
+               path="/resultSystemExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.DebugSystemException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="debug"/>
+    </exception>
+    <!-- システム例外処理(InfoSystemException) -->
+    <exception key="error.UC14.00013"
+               path="/resultSystemExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.InfoSystemException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="info"/>
+    </exception>
+    <!-- システム例外処理(WarnSystemException) -->
+    <exception key="error.UC14.00014"
+               path="/resultSystemExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.WarnSystemException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="warn"/>
+    </exception>
+    <!-- システム例外処理(ErrorSystemException) -->
+    <exception key="error.UC14.00015"
+               path="/resultSystemExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.ErrorSystemException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="error"/>
+    </exception>
+    <!-- システム例外処理(FatalSystemException) -->
+    <exception key="error.UC14.00016"
+               path="/resultSystemExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.FatalSystemException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="fatal"/>
+    </exception>
+    <!-- システム例外処理(その他) -->
+    <exception key="error.UC14.00017"
+               path="/resultSystemExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.SystemExceptionHandler"
+               type="jp.terasoluna.fw.exception.SystemException">
+      <set-property property="module" value="/" />
+    </exception>
+
+
+    <!-- 例外処理(TraceException) -->
+    <exception key="error.UC14.00021"
+               path="/resultExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.TraceException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="trace"/>
+    </exception>
+    <!-- 例外処理(DebugException) -->
+    <exception key="error.UC14.00022"
+               path="/resultExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.DebugException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="debug"/>
+    </exception>
+    <!-- 例外処理(InfoException) -->
+    <exception key="error.UC14.00023"
+               path="/resultExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.InfoException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="info"/>
+    </exception>
+    <!-- 例外処理(WarnException) -->
+    <exception key="error.UC14.00024"
+               path="/resultExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.WarnException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="warn"/>
+    </exception>
+    <!-- 例外処理(ErrorException) -->
+    <exception key="error.UC14.00025"
+               path="/resultExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.ErrorException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="error"/>
+    </exception>
+    <!-- 例外処理(FatalException) -->
+    <exception key="error.UC14.00026"
+               path="/resultExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="jp.terasoluna.thin.functionsample.exception.web.exception.FatalException">
+      <set-property property="module" value="/" />
+      <set-property property="logLevel" value="fatal"/>
+    </exception>
+    <!-- 例外処理(その他) -->
+    <exception key="error.UC14.00027"
+               path="/resultExceptionForward.do"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="java.lang.Exception">
+      <set-property property="module" value="/" />
+    </exception>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- 例外ハンドリング処理画面表示 -->
+    <action path="/exceptionForward"
+            parameter="/sc1401.jsp" />
+            
+    <action path="/exceptionDSP" scope="request" validate="false" name="exceptionForm">
+      <forward name="exception" path="/exception.do"/>
+      <forward name="systemException" path="/systemException.do"/>
+    </action>
+
+    <!-- 例外処理を行う -->
+    <action path="/exception" scope="request" validate="false" name="exceptionForm">
+      <forward name="success" path="/exceptionForward.do"/>
+    </action>
+    <action path="/systemException" scope="request" validate="false" name="exceptionForm">
+      <forward name="success" path="/exceptionForward.do"/>
+    </action>
+  </action-mappings>
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/exception/exceptionContext.xml"/>
+  </plug-in>
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/exception/blogic-exception-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+</struts-config>

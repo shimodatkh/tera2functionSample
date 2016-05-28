@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <form-bean name="jndiForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="selectedValue" type="java.lang.String"/>
+    </form-bean>
+    
+    <form-bean name="updateJndiForm"
+        type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="valueName" type="java.lang.String"/>
+      <form-property name="valueData" type="java.lang.String"/>
+    </form-bean>
+  </form-beans>
+
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  <!-- JndiException例外処理 -->
+    <exception key="error.UC03.00001"
+               path="/../sc0005.jsp"
+               className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+               handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+               type="jp.terasoluna.fw.web.jndi.JndiException"/>
+  </global-exceptions>
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- JNDIリスト取得するアクション -->
+    <action path="/listJndi">
+      <forward name="success" path="/listJndiForward.do" />
+    </action>
+    
+    <!-- JNDIリスト画面Forward -->
+    <action path="/listJndiForward" parameter="/jndi/sc0301.jsp" />
+    
+    <!-- JNDIリソース変更画面Forward -->
+    <action path="/editJndiForward" parameter="/jndi/sc0302.jsp" />
+    
+    <!-- JNDI一覧画面のディスパッチアクション -->
+    <action path="/listJndiDispatch"
+            name="jndiForm" validate="false" scope="request">
+      <forward name="rebind" path="/jndiRebind.do" />
+      <forward name="unbind" path="/jndiUnbind.do" />
+    </action>
+    
+    <!-- JNDI一覧画面で『変更』ボタンのアクション -->
+    <action path="/jndiRebind" name="jndiForm" scope="request" validate="false">
+      <forward name="success" path="/editJndiForward.do"/>
+    </action>
+    
+    <!-- JNDI一覧画面で『削除』ボタンのアクション -->
+    <action path="/resultJndiRebind" name="updateJndiForm" scope="request" validate="false">
+      <forward name="success" path="/listJndiForward.do"/>
+    </action>
+    
+    <!-- JNDIリソース変更画面で『変更』ボタンのアクション -->
+    <action path="/jndiUnbind" name="jndiForm" scope="request" validate="false">
+      <forward name="success" path="/listJndiForward.do"/>
+    </action>
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/jndi/jndiContext.xml"/>
+  </plug-in>
+  
+  <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+    <set-property
+      property="resources"
+      value="/WEB-INF/jndi/blogic-jndi-io.xml"/>
+    <set-property
+      property="digesterRules"
+      value="/WEB-INF/blogic-io-rules.xml"/>
+    <set-property
+      property="mapperClass"
+      value="jp.terasoluna.fw.service.thin.BLogicMapper"/>
+  </plug-in>
+
+</struts-config>

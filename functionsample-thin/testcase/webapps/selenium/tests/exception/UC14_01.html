@@ -1,0 +1,725 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC14_01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC14_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WC-01 例外ハンドリング機能</td>
+	<td></td>
+</tr>
+
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_systemException' and @value='TraceSystemException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的にシステム例外(Traceログ)が発生しました。（エラーキー）[SystemExceptionAction threw out TraceSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.TraceSystemException: 強制的にシステム例外(Traceログ)が発生しました。（アクション例外）[SystemExceptionAction threw out TraceSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>強制的にシステム例外(Traceログ)が発生しました。（アクション例外）[SystemExceptionAction threw out TraceSystemException.]  </td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.TraceSystemException: 強制的にシステム例外(Traceログ)が発生しました。（アクション例外）[SystemExceptionAction threw out TraceSystemException.]*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_systemException' and @value='DebugSystemException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的にシステム例外(Debugログ)が発生しました。（エラーキー）[SystemExceptionAction threw out DebugSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DebugSystemException: 強制的にシステム例外(Debugログ)が発生しました。（アクション例外）[SystemExceptionAction threw out DebugSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>強制的にシステム例外(Debugログ)が発生しました。（アクション例外）[SystemExceptionAction threw out DebugSystemException.]  </td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DebugSystemException: 強制的にシステム例外(Debugログ)が発生しました。（アクション例外）[SystemExceptionAction threw out DebugSystemException.]*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_systemException' and @value='InfoSystemException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的にシステム例外(Infoログ)が発生しました。（エラーキー）[SystemExceptionAction threw out InfoSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.InfoSystemException: 強制的にシステム例外(Infoログ)が発生しました。（アクション例外）[SystemExceptionAction threw out InfoSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>強制的にシステム例外(Infoログ)が発生しました。（アクション例外）[SystemExceptionAction threw out InfoSystemException.]  </td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.InfoSystemException: 強制的にシステム例外(Infoログ)が発生しました。（アクション例外）[SystemExceptionAction threw out InfoSystemException.]*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_systemException' and @value='WarnSystemException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的にシステム例外(Warnログ)が発生しました。（エラーキー）[SystemExceptionAction threw out WarnSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.WarnSystemException: 強制的にシステム例外(Warnログ)が発生しました。（アクション例外）[SystemExceptionAction threw out WarnSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>強制的にシステム例外(Warnログ)が発生しました。（アクション例外）[SystemExceptionAction threw out WarnSystemException.]  </td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.WarnSystemException: 強制的にシステム例外(Warnログ)が発生しました。（アクション例外）[SystemExceptionAction threw out WarnSystemException.]*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_systemException' and @value='ErrorSystemException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的にシステム例外(Errorログ)が発生しました。（エラーキー）[SystemExceptionAction threw out ErrorSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.ErrorSystemException: 強制的にシステム例外(Errorログ)が発生しました。（アクション例外）[SystemExceptionAction threw out ErrorSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>強制的にシステム例外(Errorログ)が発生しました。（アクション例外）[SystemExceptionAction threw out ErrorSystemException.]  </td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.ErrorSystemException: 強制的にシステム例外(Errorログ)が発生しました。（アクション例外）[SystemExceptionAction threw out ErrorSystemException.]*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_systemException' and @value='FatalSystemException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的にシステム例外(Fatalログ)が発生しました。（エラーキー）[SystemExceptionAction threw out FatalSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.FatalSystemException: 強制的にシステム例外(Fatalログ)が発生しました。（アクション例外）[SystemExceptionAction threw out FatalSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>強制的にシステム例外(Fatalログ)が発生しました。（アクション例外）[SystemExceptionAction threw out FatalSystemException.]  </td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.FatalSystemException: 強制的にシステム例外(Fatalログ)が発生しました。（アクション例外）[SystemExceptionAction threw out FatalSystemException.]*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_systemException' and @value='DefaultSystemException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1402)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的にシステム例外が発生しました。（エラーキー）[SystemExceptionAction threw out DefaultSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DefaultSystemException: 強制的にシステム例外(Default)が発生しました。（アクション例外）[SystemExceptionAction threw out DefaultSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>強制的にシステム例外(Default)が発生しました。（アクション例外）[SystemExceptionAction threw out DefaultSystemException.]</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DefaultSystemException: 強制的にシステム例外(Default)が発生しました。（アクション例外）[SystemExceptionAction threw out DefaultSystemException.]*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_exception' and @value='TraceException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的に例外(Traceログ)が発生しました。（エラーキー）</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.TraceException: ExceptionAction threw out TraceException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>ExceptionAction threw out TraceException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.TraceException: ExceptionAction threw out TraceException.*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_exception' and @value='DebugException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的に例外(Debugログ)が発生しました。（エラーキー）</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DebugException: ExceptionAction threw out DebugException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>ExceptionAction threw out DebugException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DebugException: ExceptionAction threw out DebugException.*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_exception' and @value='InfoException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的に例外(Infoログ)が発生しました。（エラーキー）</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.InfoException: ExceptionAction threw out InfoException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>ExceptionAction threw out InfoException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.InfoException: ExceptionAction threw out InfoException.*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_exception' and @value='WarnException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的に例外(Warnログ)が発生しました。（エラーキー）</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.WarnException: ExceptionAction threw out WarnException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>ExceptionAction threw out WarnException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.WarnException: ExceptionAction threw out WarnException.*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_exception' and @value='ErrorException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的に例外(Errorログ)が発生しました。（エラーキー）</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.ErrorException: ExceptionAction threw out ErrorException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>ExceptionAction threw out ErrorException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.ErrorException: ExceptionAction threw out ErrorException.*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_exception' and @value='FatalException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的に例外(Fatalログ)が発生しました。（エラーキー）</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.FatalException: ExceptionAction threw out FatalException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>ExceptionAction threw out FatalException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.FatalException: ExceptionAction threw out FatalException.*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング処理(画面ID: SC1401)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_exception' and @value='DefaultException']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>例外ハンドリング確認(画面ID: SC1403)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='errorMessage']</td>
+	<td>強制的に例外が発生しました。（エラーキー）</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='error']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DefaultException: ExceptionAction threw out DefaultException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='message']</td>
+	<td>ExceptionAction threw out DefaultException.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='stackTrace']</td>
+	<td>jp.terasoluna.thin.functionsample.exception.web.exception.DefaultException: ExceptionAction threw out DefaultException.*</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>exceptionForward</td>
+	<td></td>
+</tr>
+
+
+
+
+
+
+
+<tr>
+	<td>clickAndWait</td>
+	<td>menuForward</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

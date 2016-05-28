@@ -1,0 +1,263 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC03_03</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC03_03</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=CC-01 JNDIアクセス</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>JNDIリソース一覧(画面ID: SC0301)</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.1.0</td>
+	<td>value1</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.2.0</td>
+	<td>value2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.3.0</td>
+	<td>value3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.4.0</td>
+	<td>dummy</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.1.1</td>
+	<td>param1</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.2.1</td>
+	<td>param2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.3.1</td>
+	<td>param3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.4.1</td>
+	<td>アンバインドされています。</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('value1');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('value2');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('value3');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('dummy');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('value1');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('value2');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('value3');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('dummy');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('value1');"]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>JNDIリソース変更(画面ID: SC0302)</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='valueName']</td>
+	<td>value1</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name="valueData"]</td>
+	<td>param1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>valueData</td>
+	<td>変更されました。</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>resultJndiRebind</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>JNDIリソース一覧(画面ID: SC0301)</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.1.0</td>
+	<td>value1</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.2.0</td>
+	<td>value2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.3.0</td>
+	<td>value3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.4.0</td>
+	<td>dummy</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.1.1</td>
+	<td>変更されました。</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.2.1</td>
+	<td>param2</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.3.1</td>
+	<td>param3</td>
+</tr>
+<tr>
+	<td>verifyTable</td>
+	<td>jndiListTable.4.1</td>
+	<td>アンバインドされています。</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('value1');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('value2');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('value3');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_rebind' and @type='submit' and @onclick="return setSelectedValue('dummy');"]</td>
+	<td>変更</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('value1');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('value2');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('value3');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>//input[@name='forward_unbind' and @type='submit' and @onclick="return setSelectedValue('dummy');"]</td>
+	<td>削除</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>menuForward</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+<!-- モジュール固有のBean定義 -->
+<!-- コードリストモジュールのBean定義 -->
+
+  <!-- AOPの設定 -->
+  <aop:config>
+    <aop:pointcut id="actionBeans"  expression="bean(/codelist/*)"/>
+    <aop:pointcut id="serviceBeans" expression="bean(*Service)"/>
+    <aop:pointcut id="blogicBeans"  expression="bean(*BLogic)"/>
+    <aop:pointcut id="daoBeans"     expression="bean(*DAO)"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="transactionInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="transactionInterceptor"/>
+
+    <aop:advisor 
+         pointcut-ref="actionBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="serviceBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="blogicBeans" 
+         advice-ref="debugInterceptor"/>
+    <aop:advisor 
+         pointcut-ref="daoBeans" 
+         advice-ref="debugInterceptor"/>
+  </aop:config>
+
+  
+  <!-- コードリスト画面フォワード -->
+  <bean name="/codelist/codeListForward" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.ForwardAction" />
+  
+  <bean name="/codelist/codeListDispatch" scope="prototype"
+        class="jp.terasoluna.fw.web.struts.actions.DispatchAction">
+  </bean>
+        
+  <!-- コードリスト取得アクション -->
+  <bean name="/codelist/codeList" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.codelist.web.action.CodeListAction">
+    <property name="codeListService" ref="codeListService" />
+  </bean>
+  
+  <bean id="codeListService" 
+        class="jp.terasoluna.thin.functionsample.codelist.service.CodeListServiceImpl">
+    <property name="codeListLoader" ref="dbCodeList" />
+    <property name="mlCodeListLoader4" ref="dbMlCodeList4" />
+  </bean>
+  
+  <!-- コードリスト登録するアクション -->
+  <bean name="/codelist/registDBCodeList" scope="prototype"
+        class="jp.terasoluna.thin.functionsample.codelist.web.action.RegistDBCodeListAction">
+    <property name="insertDBCodeListService" ref="insertDBCodeListService" />
+  </bean>
+  
+  <bean id="insertDBCodeListService" 
+        class="jp.terasoluna.thin.functionsample.codelist.service.InsertDBCodeListServiceImpl">
+    <property name="codeListService" ref="codeListService" />
+    <property name="updateDAO" ref="updateDAO" />
+  </bean>
+  
+  <bean name="/codelist/reloadAction" scope="prototype"
+       class = "jp.terasoluna.fw.web.struts.actions.ReloadCodeListAction">
+     <property name="codeListLoader" ref="dbCodeList"/>
+  </bean>
+</beans>

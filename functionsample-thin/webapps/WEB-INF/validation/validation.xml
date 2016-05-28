@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+    <formset>
+
+        <!-- /validationAction -->
+        <form name="/validationAction">
+            <field property="numericString" depends="numericString">
+                <arg key="数値文字列チェック" resource="false" position="0" />
+            </field>
+            <field property="alphaNumericMax" depends="alphaNumericString">
+                <arg key="半角英数字チェック（最大長指定）" resource="false" position="0" />
+            </field>
+            <field property="alphaNumericMax" depends="maxlength">
+                <arg key="半角英数字チェック（最大長指定）" resource="false" position="0" />
+                <arg key="${var:maxlength}" resource="false" position="1" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="alphaNumericMin" depends="alphaNumericString">
+                <arg key="半角英数字チェック（最小長指定）" resource="false" position="0" />
+            </field>
+            <field property="alphaNumericMin" depends="minlength">
+                <arg key="半角英数字チェック（最小長指定）" resource="false" position="0" />
+                <arg key="${var:minlength}" resource="false" position="1" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="capAlphaNumericMax" depends="capAlphaNumericString">
+                <arg key="半角英（大文字）数字チェック（最大長指定）" resource="false" position="0" />
+            </field>
+            <field property="capAlphaNumericMax" depends="maxlength">
+                <arg key="半角英（大文字）数字チェック（最大長指定）" resource="false" position="0" />
+                <arg key="${var:maxlength}" resource="false" position="1" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="capAlphaNumericMin" depends="capAlphaNumericString">
+                <arg key="半角英（大文字）数字チェック（最小長指定）" resource="false" position="0" />
+            </field>
+            <field property="capAlphaNumericMin" depends="minlength">
+                <arg key="半角英（大文字）数字チェック（最小長指定）" resource="false" position="0" />
+                <arg key="${var:minlength}" resource="false" position="1" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="date" depends="date">
+                <arg key="日付チェック" resource="false" position="0" />
+                <arg key="${var:datePatternStrict}" resource="false" position="1" />
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>yyyy/MM/dd</var-value>
+                </var>
+            </field>
+            <field property="hankakuKana" depends="hankakuKanaString">
+                <arg key="半角カナチェック" resource="false" position="0" />
+            </field>
+            <field property="hankaku" depends="hankakuString">
+                <arg key="半角文字チェック" resource="false" position="0" />
+            </field>
+            <field property="number" depends="number">
+                <arg key="数値チェック" resource="false" position="0" />
+                <arg key="${var:integerLength}" resource="false" position="1" />
+                <arg key="${var:scale}" resource="false" position="2" />
+                <var>
+                    <var-name>integerLength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>scale</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>isAccordedInteger</var-name>
+                    <var-value>true</var-value>
+                </var>
+                <var>
+                    <var-name>isAccordedScale</var-name>
+                    <var-value>true</var-value>
+                </var>
+            </field>
+            <field property="prohibit" depends="prohibited">
+                <arg key="入力禁止文字チェック" resource="false" position="0" />
+                <arg key="${var:chars}" resource="false" position="1" />
+                <var>
+                    <var-name>chars</var-name>
+                    <var-value>!"#$%'()</var-value>
+                </var>
+            </field>
+            <field property="regExp" depends="mask">
+                <arg key="正規表現チェック" resource="false" position="0" />
+                <arg key="${var:mask}" resource="false" position="1" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-z].*[^a-z]$</var-value>
+                </var>
+            </field>
+            <field property="required" depends="required">
+                <arg key="必須入力チェック" resource="false" position="0" />
+            </field>
+            <field property="stringMax" depends="maxlength">
+                <arg key="入力文字列長チェック（最大長指定）" resource="false" position="0" />
+                <arg key="${var:maxlength}" resource="false" position="1" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="stringMin" depends="minlength">
+                <arg key="入力文字列長チェック（最小長指定）" resource="false" position="0" />
+                <arg key="${var:minlength}" resource="false" position="1" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="zenkaku" depends="zenkakuString">
+                <arg key="全角文字チェック" resource="false" position="0" />
+            </field>
+            <field property="length" depends="stringLength">
+                <arg key="同一文字列長チェック" resource="false" position="0" />
+                <arg key="${var:stringLength}" resource="false" position="1" />
+                <var>
+                    <var-name>stringLength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="zenkakuKana" depends="zenkakuKanaString">
+                <arg key="全角カナチェック" resource="false" position="0" />
+            </field>
+            <field property="dateRange" depends="dateRange">
+                <arg key="日付範囲チェック" resource="false" position="0" />
+                <arg key="${var:startDate}" resource="false" position="1" />
+                <arg key="${var:endDate}" resource="false" position="2" />
+                <var>
+                    <var-name>startDate</var-name>
+                    <var-value>2000/1/1</var-value>
+                </var>
+                <var>
+                    <var-name>endDate</var-name>
+                    <var-value>2000/12/31</var-value>
+                </var>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>yyyy/MM/dd</var-value>
+                </var>
+            </field>
+            <field property="byteRange" depends="byteRange">
+                <arg key="バイト範囲チェック" resource="false" position="0" />
+                <arg key="${var:minByte}" resource="false" position="1" />
+                <arg key="${var:maxByte}" resource="false" position="2" />
+                <var>
+                    <var-name>minByte</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>maxByte</var-name>
+                    <var-value>20</var-value>
+                </var>
+                <var>
+                    <var-name>encoding</var-name>
+                    <var-value>Windows-31J</var-value>
+                </var>
+            </field>
+            <field property="byteLength" depends="byteLength">
+                <arg key="バイト数チェック" resource="false" position="0" />
+                <arg key="10バイト" resource="false" position="1" />
+                <var>
+                    <var-name>byteLength</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>encoding</var-name>
+                    <var-value>Windows-31J</var-value>
+                </var>
+            </field>
+            <field property="multiField" depends="multiField">
+                <msg key="errors.UC20.00001" name="multiField" />
+                <arg key="複数フィールド相関チェック" resource="false" position="0" />
+                <arg key="B" resource="false" position="1" />
+                <arg key="C" resource="false" position="2" />
+                <var>
+                    <var-name>fields</var-name>
+                    <var-value>multiField1,multiField2</var-value>
+                </var>
+                <var>
+                    <var-name>multiFieldValidator</var-name>
+                    <var-value>jp.terasoluna.thin.functionsample.validation.bean.SampleMultiFieldsValidator</var-value>
+                </var>
+            </field>
+        </form>
+
+        <!-- /validationArrays01Action -->
+        <form name="/validationArrays01Action">
+            <field property="hankakuKanaList" depends="hankakuKanaStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角カナチェック" resource="false" position="1" />
+            </field>
+            <field property="capAlphaNumbericList" depends="capAlphaNumericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="大文字英数字チェック" resource="false" position="1" />
+            </field>
+            <field property="alphanumericList" depends="alphaNumericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="英数字チェック（最大長5桁）" resource="false" position="1" />
+            </field>
+            <field property="alphanumericList" depends="maxLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="英数字チェック（最大長5桁）" resource="false" position="1" />
+                <arg key="${var:maxlength}" resource="false" position="2" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+
+            <field property="zenkakuKanaList" depends="zenkakuKanaStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="全角カナチェック" resource="false" position="1" />
+            </field>
+            <field property="zenkakuList" depends="zenkakuStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="全角文字チェック" resource="false" position="1" />
+            </field>
+            <field property="hankakuList" depends="hankakuStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角文字列チェック" resource="false" position="1" />
+            </field>
+            <field property="numericList" depends="numericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="数値文字列チェック" resource="false" position="1" />
+            </field>
+            <field property="prohibitedList" depends="prohibitedArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="禁止文字列チェック" resource="false" position="1" />
+                <arg key="${var:chars}" resource="false" position="2" />
+                <var>
+                    <var-name>chars</var-name>
+                    <var-value>!"#$%'()</var-value>
+                </var>
+            </field>
+        </form>
+
+        <!-- /validationArrays02Action -->
+        <form name="/validationArrays02Action">
+            <field property="minLengthList" depends="minLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="最小桁数チェック" resource="false" position="1" />
+                <arg key="${var:minlength}" resource="false" position="2" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="maxLengthList" depends="maxLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="最大桁数チェック" resource="false" position="1" />
+                <arg key="${var:maxlength}" resource="false" position="2" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="lengthList" depends="stringLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="文字列長一致チェック（サイズ：５）" resource="false" position="1" />
+                <arg key="${var:stringLength}" resource="false" position="2" />
+                <var>
+                    <var-name>stringLength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+        </form>
+
+        <!-- /validationArrays03Action -->
+        <form name="/validationArrays03Action">
+            <field property="numberList" depends="numberArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="数値チェック（整数部3桁、小数部2桁以内）" resource="false" position="1" />
+                <arg key="${var:integerLength}" resource="false" position="2" />
+                <arg key="${var:scale}" resource="false" position="3" />
+                <var>
+                    <var-name>integerLength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>scale</var-name>
+                    <var-value>2</var-value>
+                </var>
+                <var>
+                    <var-name>isAccordedInteger</var-name>
+                    <var-value>false</var-value>
+                </var>
+                <var>
+                    <var-name>isAccordedScale</var-name>
+                    <var-value>false</var-value>
+                </var>
+            </field>
+            <field property="dateList" depends="dateArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="日付型チェック（フォーマット形式：yyyy/MM/dd）" resource="false" position="1" />
+                <arg key="${var:datePatternStrict}" resource="false" position="2" />
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>yyyy/MM/dd</var-value>
+                </var>
+            </field>
+            <field property="creditCardList" depends="creditCardArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="クレジットカードフォーマットチェック" resource="false" position="1" />
+            </field>
+            <field property="mailList" depends="emailArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="eメールアドレスフォーマットチェック" resource="false" position="1" />
+            </field>
+            <field property="maskList" depends="maskArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="正規表現" resource="false" position="1" />
+                <arg key="${var:mask}" resource="false" position="2" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-z].*[^a-z]$</var-value>
+                </var>
+            </field>
+            <field property="urlList" depends="urlArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="URLフォーマットチェック" resource="false" position="1" />
+                <var>
+                    <var-name>schemes</var-name>
+                    <var-value>http</var-value>
+                </var>
+            </field>
+        </form>
+
+        <!-- /validationArrays04Action -->
+        <form name="/validationArrays04Action">
+            <field property="byteList" depends="byteArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="byte値チェック" resource="false" position="1" />
+            </field>
+            <field property="shortList" depends="shortArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="short値チェック" resource="false" position="1" />
+            </field>
+            <field property="integerList" depends="integerArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="integer値チェック" resource="false" position="1" />
+            </field>
+            <field property="longList" depends="longArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="long値チェック" resource="false" position="1" />
+            </field>
+            <field property="doubleList" depends="doubleArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="double値チェック" resource="false" position="1" />
+            </field>
+            <field property="floatList" depends="floatArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="float値チェック" resource="false" position="1" />
+            </field>
+        </form>
+
+        <!-- /validationArrays05Action -->
+        <form name="/validationArrays05Action">
+            <field property="requiredList" depends="requiredArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="入力必須チェック" resource="false" position="1" />
+            </field>
+            <field property="intRangeList" depends="intRangeArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="整数値範囲チェック" resource="false" position="1" />
+                <arg key="${var:min}" resource="false" position="2" />
+                <arg key="${var:max}" resource="false" position="3" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>100</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>200</var-value>
+                </var>
+            </field>
+            <field property="floatRangeList" depends="floatRangeArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="浮動小数点値範囲チェック" resource="false" position="1" />
+                <arg key="${var:min}" resource="false" position="2" />
+                <arg key="${var:max}" resource="false" position="3" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>5.5</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>10.5</var-value>
+                </var>
+            </field>
+            <field property="doubleRangeList" depends="doubleRangeArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="倍精度浮動小数点数値範囲チェック" resource="false" position="1" />
+                <arg key="${var:min}" resource="false" position="2" />
+                <arg key="${var:max}" resource="false" position="3" />
+                <var>
+                    <var-name>min</var-name>
+                    <var-value>5.5</var-value>
+                </var>
+                <var>
+                    <var-name>max</var-name>
+                    <var-value>10.5</var-value>
+                </var>
+            </field>
+
+            <field property="dateRangeList" depends="dateRangeArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="日付範囲チェック" resource="false" position="1" />
+                <arg key="${var:startDate}" resource="false" position="2" />
+                <arg key="${var:endDate}" resource="false" position="3" />
+                <var>
+                    <var-name>startDate</var-name>
+                    <var-value>2000/1/1</var-value>
+                </var>
+                <var>
+                    <var-name>endDate</var-name>
+                    <var-value>2000/12/31</var-value>
+                </var>
+                <var>
+                    <var-name>datePattern</var-name>
+                    <var-value>yyyy/MM/dd</var-value>
+                </var>
+            </field>
+            <field property="byteRangeList" depends="byteRangeArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="バイト範囲チェック" resource="false" position="1" />
+                <arg key="${var:minByte}" resource="false" position="2" />
+                <arg key="${var:maxByte}" resource="false" position="3" />
+                <var>
+                    <var-name>minByte</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>maxByte</var-name>
+                    <var-value>20</var-value>
+                </var>
+                <var>
+                    <var-name>encoding</var-name>
+                    <var-value>Windows-31J</var-value>
+                </var>
+            </field>
+            <field property="byteLengthList" depends="byteLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="バイト数チェック" resource="false" position="1" />
+                <arg key="10バイト" resource="false" position="2" />
+                <var>
+                    <var-name>byteLength</var-name>
+                    <var-value>10</var-value>
+                </var>
+                <var>
+                    <var-name>encoding</var-name>
+                    <var-value>Windows-31J</var-value>
+                </var>
+            </field>
+        </form>
+
+        <!-- /validationBeanArrayAction -->
+        <form name="/validationBeanArrayAction">
+            <field property="beanList.numericString" depends="numericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="数値文字列チェック" resource="false" position="1" />
+            </field>
+            <field property="beanList.alphaNumericMax" depends="alphaNumericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英数字チェック（最大長指定）" resource="false" position="1" />
+            </field>
+            <field property="beanList.alphaNumericMax" depends="maxLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英数字チェック（最大長指定）" resource="false" position="1" />
+                <arg key="${var:maxlength}" resource="false" position="2" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="beanList.alphaNumericMin" depends="alphaNumericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英数字チェック（最小長指定）" resource="false" position="1" />
+            </field>
+            <field property="beanList.alphaNumericMin" depends="minLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英数字チェック（最小長指定）" resource="false" position="1" />
+                <arg key="${var:minlength}" resource="false" position="2" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="beanList.capAlphaNumericMax" depends="capAlphaNumericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英（大文字）数字チェック（最大長指定）" resource="false" position="1" />
+            </field>
+            <field property="beanList.capAlphaNumericMax" depends="maxLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英（大文字）数字チェック（最大長指定）" resource="false" position="1" />
+                <arg key="${var:maxlength}" resource="false" position="2" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="beanList.capAlphaNumericMin" depends="capAlphaNumericStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英（大文字）数字チェック（最小長指定）" resource="false" position="1" />
+            </field>
+            <field property="beanList.capAlphaNumericMin" depends="minLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角英（大文字）数字チェック（最小長指定）" resource="false" position="1" />
+                <arg key="${var:minlength}" resource="false" position="2" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="beanList.date" depends="dateArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="日付チェック" resource="false" position="1" />
+                <arg key="${var:datePatternStrict}" resource="false" position="2" />
+                <var>
+                    <var-name>datePatternStrict</var-name>
+                    <var-value>yyyy/MM/dd</var-value>
+                </var>
+            </field>
+            <field property="beanList.hankakuKana" depends="hankakuKanaStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角カナチェック" resource="false" position="1" />
+            </field>
+            <field property="beanList.hankaku" depends="hankakuStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="半角文字チェック" resource="false" position="1" />
+            </field>
+            <field property="beanList.number" depends="numberArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="数値チェック" resource="false" position="1" />
+                <arg key="${var:integerLength}" resource="false" position="2" />
+                <arg key="${var:scale}" resource="false" position="3" />
+                <var>
+                    <var-name>integerLength</var-name>
+                    <var-value>3</var-value>
+                </var>
+                <var>
+                    <var-name>scale</var-name>
+                    <var-value>2</var-value>
+                </var>
+                <var>
+                    <var-name>isAccordedInteger</var-name>
+                    <var-value>false</var-value>
+                </var>
+                <var>
+                    <var-name>isAccordedScale</var-name>
+                    <var-value>false</var-value>
+                </var>
+            </field>
+            <field property="beanList.prohibit" depends="prohibitedArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="入力禁止文字チェック" resource="false" position="1" />
+                <arg key="${var:chars}" resource="false" position="2" />
+                <var>
+                    <var-name>chars</var-name>
+                    <var-value>!"#$%'()</var-value>
+                </var>
+            </field>
+            <field property="beanList.regExp" depends="maskArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="正規表現チェック" resource="false" position="1" />
+                <arg key="${var:mask}" resource="false" position="2" />
+                <var>
+                    <var-name>mask</var-name>
+                    <var-value>^[a-z].*[^a-z]$</var-value>
+                </var>
+            </field>
+            <field property="beanList.required" depends="requiredArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="必須入力チェック" resource="false" position="1" />
+            </field>
+            <field property="beanList.stringMax" depends="maxLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="入力文字列長チェック（最大長指定）" resource="false" position="1" />
+                <arg key="${var:maxlength}" resource="false" position="2" />
+                <var>
+                    <var-name>maxlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="beanList.stringMin" depends="minLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="入力文字列長チェック（最小長指定）" resource="false" position="1" />
+                <arg key="${var:minlength}" resource="false" position="2" />
+                <var>
+                    <var-name>minlength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="beanList.zenkaku" depends="zenkakuStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="全角文字チェック" resource="false" position="1" />
+            </field>
+            <field property="beanList.length" depends="stringLengthArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="同一文字列長チェック" resource="false" position="1" />
+                <arg key="${var:stringLength}" resource="false" position="2" />
+                <var>
+                    <var-name>stringLength</var-name>
+                    <var-value>5</var-value>
+                </var>
+            </field>
+            <field property="beanList.zenkakuKana" depends="zenkakuKanaStringArray">
+                <arg key="##INDEX" resource="false" position="0" />
+                <arg key="全角カナチェック" resource="false" position="1" />
+            </field>
+        </form>
+
+        <!-- 静的アクションフォームでpageをMPV機能として利用する -->
+        <form name="/mpvActionAcceptPage0">
+            <field property="code1" depends="required" page="0">
+                <arg key="項目1" resource="false" position="0" />
+            </field>
+            <field property="code2" depends="required" page="1">
+                <arg key="項目2" resource="false" position="0" />
+            </field>
+        </form>
+
+        <!-- 動的アクションフォームでpageをMPV機能として利用する -->
+        <form name="/mpvDynaActionAcceptPage0WithPageImpl">
+            <field property="code1" depends="required" page="0">
+                <arg key="項目1" resource="false" position="0" />
+            </field>
+            <field property="code2" depends="required" page="1">
+                <arg key="項目2" resource="false" position="0" />
+            </field>
+        </form>
+
+        <!-- 静的アクションフォームでpageを業務パラメータとして利用する -->
+        <form name="/mpvActionAcceptPageNoneWithPageImpl">
+            <field property="code1" depends="required">
+                <arg key="項目1" resource="false" position="0" />
+            </field>
+        </form>
+
+        <!-- 動的アクションフォームでpageを業務パラメータとして利用する -->
+        <form name="/mpvDynaActionAcceptPageNoneWithPageImpl">
+            <field property="code1" depends="required">
+                <arg key="項目1" resource="false" position="0" />
+            </field>
+        </form>
+
+        <!-- 静的アクションフォームでpageを利用しない -->
+        <form name="/mpvActionAcceptPageNone">
+            <field property="code1" depends="required">
+                <arg key="項目1" resource="false" position="0" />
+            </field>
+        </form>
+
+        <!-- 動的アクションフォームでpageを利用しない -->
+        <form name="/mpvDynaActionAcceptPageNone">
+            <field property="code1" depends="required">
+                <arg key="項目1" resource="false" position="0" />
+            </field>
+        </form>
+
+    </formset>
+
+</form-validation>

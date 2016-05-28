@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <!-- ======================================== Form Bean Definitions -->
+
+    <form-beans>
+        <form-bean name="dynaValidatorForm" type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+            <form-property name="code1" type="java.lang.String" />
+            <form-property name="code2" type="java.lang.String" />
+            <form-property name="code3" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="validatorForm" type="jp.terasoluna.thin.functionsample.formex.web.form.ValidatorFormExForm">
+        </form-bean>
+
+        <form-bean name="_securityForm" type="jp.terasoluna.thin.functionsample.formex.web.form.SecurityForm" />
+        <form-bean name="_securityForm2" type="jp.terasoluna.thin.functionsample.formex.web.form.SecurityForm" />
+        <form-bean name="_securityDynaForm" type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+            <form-property name="Class" type="jp.terasoluna.thin.functionsample.formex.bean.SampleFormBean" />
+            <form-property name="class" type="jp.terasoluna.thin.functionsample.formex.bean.SampleFormBean" />
+            <form-property name="zzzclass" type="java.lang.String" />
+            <form-property name="xxxclass" type="jp.terasoluna.thin.functionsample.formex.bean.Xxxclass" />
+            <form-property name="xxx" type="jp.terasoluna.thin.functionsample.formex.bean.Xxx" />
+            <form-property name="classxxx" type="java.lang.String" />
+            <form-property name="userId" type="java.lang.String[]" />
+        </form-bean>
+    </form-beans>
+
+
+    <!-- ======================================== Global Exception Definitions -->
+    <global-exceptions>
+    </global-exceptions>
+
+    <!-- ======================================== Global Forward Definitions -->
+    <global-forwards>
+    </global-forwards>
+
+
+    <!-- ======================================== Global Forward Definitions -->
+    <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+        <!-- アクションフォーム拡張メニュー画面 -->
+        <action path="/formexForward" parameter="/formex/sc1001.jsp" />
+
+        <!-- 静的アクションフォーム画面 -->
+        <action path="/validatorFormExForward" parameter="/formex/sc1002.jsp" />
+
+        <!-- 動的アクションフォーム画面 -->
+        <action path="/dynaFormExForward" parameter="/formex/sc1003.jsp" />
+
+        <!-- 動的アクションフォーム(cancelPouplate=true)画面 -->
+        <action path="/dynaFormExCancelForward" parameter="/formex/sc1004.jsp" />
+
+        <!-- 動的アクションフォーム(アクションでフォームの値が変更される場合)画面 -->
+        <action path="/dynaFormExModifiedForward" parameter="/formex/sc1005.jsp" />
+
+        <!-- 結果クリア処理画面 -->
+        <action path="/formExResultForward" parameter="/formex/sc1006.jsp" />
+
+        <!-- 静的アクションフォーム -->
+        <action path="/validatorFormEx" name="validatorForm" scope="request" validate="false">
+            <set-property property="cancelPopulate" value="false" />
+            <forward name="success" path="/formExResultForward.do" />
+        </action>
+
+        <!-- 動的アクションフォーム -->
+        <action path="/dynaValidatorFormEx" name="dynaValidatorForm" scope="request" validate="false">
+            <set-property property="cancelPopulate" value="false" />
+            <forward name="success" path="/formExResultForward.do" />
+        </action>
+
+        <!-- 動的アクションフォーム(cancelPouplate=true) -->
+        <action path="/cancelPopulateFormEx" name="dynaValidatorForm" scope="request" validate="false">
+            <set-property property="cancelPopulate" value="true" />
+            <forward name="success" path="/formExResultForward.do" />
+        </action>
+
+        <!-- 動的アクションフォーム(アクションでフォームの値が変更される場合)画面 -->
+        <action path="/modifiedFormEx" name="dynaValidatorForm" scope="request" validate="false">
+            <set-property property="cancelPopulate" value="false" />
+            <forward name="success" path="/formExResultForward.do" />
+        </action>
+
+        <!-- Strutsの脆弱性(CVE-2014-0114)対策のチェック画面 -->
+        <action path="/securityForward" name="_securityForm" scope="request" parameter="/formex/sc1007.jsp" />
+
+        <!-- Strutsの脆弱性(CVE-2014-0114)対策のチェック 処理結果画面 -->
+        <action path="/securityResultForward" parameter="/formex/sc1008.jsp" />
+
+        <!-- ActionForm版 + prefixなし + 1回populate -->
+        <action path="/securityAction" name="_securityForm" scope="request">
+            <forward name="success" path="/securityResultForward.do" />
+        </action>
+
+        <!-- DynaActionForm版 + prefixなし + 1回populate -->
+        <action path="/securityDynaAction" name="_securityDynaForm" scope="request">
+            <forward name="success" path="/securityResultForward.do" />
+        </action>
+
+        <!-- ActionForm版  + prefixあり + 1回populate -->
+        <action path="/securityActionWithPrefix" name="_securityForm" scope="request" prefix="prefix-">
+            <forward name="success" path="/securityResultForward.do" />
+        </action>
+
+        <!-- ActionForm版 + prefixなし + 複数回populate -->
+        <action path="/securityActionWithActionChain" name="_securityForm2" scope="request">
+            <!-- チェイン先はSecurityActionとする。populate抑止機能が無いため、複数回populateされる。 -->
+            <forward name="success" path="/securityAction.do" />
+        </action>
+
+    </action-mappings>
+
+
+    <!-- ======================================== Controller Definitions -->
+    <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx" />
+
+
+    <!-- ======================================== Message Resouces Definitions -->
+
+    <!-- ======================================== PlugIn Definitions -->
+
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation" value="/WEB-INF/formex/formexContext.xml" />
+    </plug-in>
+
+    <plug-in className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+        <set-property property="resources" value="/WEB-INF/formex/blogic-formex-io.xml" />
+        <set-property property="digesterRules" value="/WEB-INF/blogic-io-rules.xml" />
+        <set-property property="mapperClass" value="jp.terasoluna.fw.service.thin.BLogicMapper" />
+    </plug-in>
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validator-rules-ex.xml,/WEB-INF/validation.xml" />
+        <set-property property="stopOnFirstError" value="false" />
+    </plug-in>
+</struts-config>

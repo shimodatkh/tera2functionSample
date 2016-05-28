@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+<!-- ======================================== Form Bean Definitions -->
+
+  <form-beans>
+    <!-- アクションフォーム切り替え用フォーム -->
+    <form-bean name="_formtrans1Form"
+      type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="param1" type="java.lang.String" initial="param1" />
+      <form-property name="param2" type="java.lang.String" initial="param2" />
+      <form-property name="param3" type="java.lang.String" initial="param3" />
+    </form-bean>
+    
+    <!-- アクションフォーム切り替え用フォーム -->
+    <form-bean name="_formtrans2Form"
+      type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx" >
+      <form-property name="param4" type="java.lang.String" initial="param4" />
+      <form-property name="param5" type="java.lang.String" initial="param5" />
+      <form-property name="param6" type="java.lang.String" initial="param6" />
+    </form-bean>
+      
+  </form-beans>
+
+<!-- ======================================== Global Exception Definitions -->
+  <global-exceptions>
+  </global-exceptions>
+
+<!-- ======================================== Global Forward Definitions -->
+  <global-forwards>
+  </global-forwards>
+
+
+<!-- ======================================== Global Forward Definitions -->
+  <action-mappings type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+    <!-- アクションフォーム切り替えメニュー画面表示 -->
+    <action path="/formtransForward"
+            name="_formtrans1Form"
+            scope="session"
+            validate="false"
+            parameter="/sc1101.jsp" />
+
+    <!-- アクションフォーム切り替なし：clearForm="false" -->
+    <action path="/formtrans"
+            name="_formtrans1Form"
+            scope="session"
+            validate="false"
+            parameter="/sc1102.jsp">
+    </action>
+
+    <!-- アクションフォーム切り替なし：clearForm="true" -->
+    <action path="/formtransClearForm"
+            name="_formtrans1Form"
+            scope="session"
+            validate="false"
+            parameter="/sc1103.jsp">
+    </action>
+
+    <!-- アクションフォーム切り替：フォーム変更 -->
+    <action path="/formtransForm"
+            name="_formtrans1Form"
+            scope="session"
+            validate="false"
+            parameter="/sc1104.jsp">
+    </action>
+        
+    
+    <!-- アクションフォーム切り替えなし：clearForm="false"結果画面表示 -->
+    <action path="/formtransResultForward"
+            name="_formtrans1Form"
+            scope="session"
+            validate="false"
+            parameter="/sc1105.jsp">
+      <set-property property="clearForm" value="false" />
+    </action>
+
+    <!-- アクションフォーム切り替えなし：clearForm="true"結果画面表示 -->
+    <action path="/formtransClearFormResultForward"
+            name="_formtrans1Form"
+            scope="session"
+            validate="false"
+            parameter="/sc1105.jsp">
+      <set-property property="clearForm" value="true" />
+    </action>
+
+    <!-- アクションフォーム切り替え：フォーム結果画面表示 -->
+    <action path="/formtransFormResultForward"
+            name="_formtrans2Form"
+            scope="session"
+            validate="false"
+            parameter="/sc1105.jsp">
+      <set-property property="clearForm" value="false" />
+    </action>
+  </action-mappings>
+
+
+<!-- ======================================== Controller Definitions -->
+  <controller processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx"/>
+
+
+<!-- ======================================== Message Resouces Definitions -->
+
+<!-- ======================================== PlugIn Definitions -->
+
+  <message-resources
+    factory="jp.terasoluna.fw.web.struts.action.PropertyMessageResourcesExFactory"
+    parameter="application-message" />
+    
+    
+  <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+    <set-property property="contextConfigLocation"
+                  value="/WEB-INF/formtrans/formtransContext.xml"/>
+  </plug-in>
+  
+</struts-config>

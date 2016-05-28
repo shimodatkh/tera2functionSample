@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ======================================== Form Bean Definitions -->
+
+	<form-beans>
+		<form-bean name="_downloadblogicForm"
+			type="jp.terasoluna.fw.web.struts.form.DynaValidatorActionFormEx">
+			<form-property name="fileup"
+				type="org.apache.struts.upload.FormFile" />
+			<form-property name="fileName" type="java.lang.String" />
+			<form-property name="filePath" type="java.lang.String" />
+			<form-property name="fileSize" type="java.lang.String" />
+			<form-property name="totalCount" type="java.lang.Integer" />
+			<form-property name="text" type="java.lang.String" />
+		</form-bean>
+	</form-beans>
+
+
+	<!-- ======================================== Global Exception Definitions -->
+	<global-exceptions>
+		<!-- 予期せぬデータベース例外処理 -->
+		<exception key="error.UC13.00001" path="/../sc0005.jsp"
+            className="jp.terasoluna.fw.web.struts.action.ExceptionConfigEx"
+            handler="jp.terasoluna.fw.web.struts.action.DefaultExceptionHandler"
+			type="org.springframework.dao.DataAccessException"/>
+	</global-exceptions>
+
+	<!-- ======================================== Global Forward Definitions -->
+	<global-forwards />
+
+
+	<!-- ======================================== Global Forward Definitions -->
+	<action-mappings
+		type="jp.terasoluna.fw.web.struts.action.ActionMappingEx">
+
+		<action path="/downloadblogicMenu" name="_downloadblogicForm"
+			scope="session" validate="false">
+			<forward name="success" path="/downloadblogicForward.do" />
+		</action>
+
+		<action path="/downloadblogicForward" name="_downloadblogicForm"
+			scope="session" validate="false"
+			parameter="/downloadblogic/sc3901.jsp" />
+
+		<!-- ファイルダウンロード情報の処理分岐 -->
+		<action path="/downloadblogicDSP" name="_downloadblogicForm"
+			scope="session" validate="false">
+			<forward name="file" path="/downloadFile.do" />
+			<forward name="inputStream" path="/downloadInputStream.do" />
+			<forward name="byteArray" path="/downloadByteArray.do" />
+			<forward name="string" path="/downloadString.do" />
+			<forward name="default" path="/downloadblogicMenu.do" />
+		</action>
+
+		<!-- DownloadFileでファイルダウンロード情報を取得するアクション -->
+		<action path="/downloadFile" name="_downloadblogicForm"
+			scope="session" validate="false">
+			<exception key="error.UC13.00001"
+				type="java.io.FileNotFoundException" path="/sc3902.jsp">
+			</exception>
+			<forward name="failure" path="/downloadError.do" />
+		</action>
+
+		<!-- DownloadInputStreamでファイルダウンロード情報を取得するアクション -->
+		<action path="/downloadInputStream" name="_downloadblogicForm"
+			scope="session" validate="false">
+			<exception key="error.UC13.00001"
+				type="java.io.FileNotFoundException" path="/sc3902.jsp">
+			</exception>
+			<forward name="failure" path="/downloadError.do" />
+		</action>
+
+		<!-- DownloadByteArrayでファイルダウンロード情報を取得するアクション -->
+		<action path="/downloadByteArray" name="_downloadblogicForm"
+			scope="session" validate="false">
+			<exception key="error.UC13.00001"
+				type="java.io.FileNotFoundException" path="/sc3902.jsp">
+			</exception>
+			<forward name="failure" path="/downloadError.do" />
+		</action>
+
+		<!-- DownloadStringでファイルダウンロード情報を取得するアクション -->
+		<action path="/downloadString" name="_downloadblogicForm"
+			scope="session" validate="false">
+			<exception key="error.UC13.00001"
+				type="java.io.FileNotFoundException" path="/sc3902.jsp">
+			</exception>
+			<forward name="failure" path="/downloadError.do" />
+		</action>
+
+		<!-- ファイルダウンロードエラー画面表示 -->
+		<action path="/downloadError"
+			parameter="/downloadblogic/sc3902.jsp" />
+
+	</action-mappings>
+
+
+	<!-- ======================================== Controller Definitions -->
+	<controller
+		processorClass="jp.terasoluna.fw.web.struts.action.RequestProcessorEx" />
+
+
+	<!-- ======================================== Message Resouces Definitions -->
+
+	<!-- ======================================== PlugIn Definitions -->
+
+	<plug-in
+		className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation"
+			value="/WEB-INF/downloadblogic/downloadblogicContext.xml" />
+	</plug-in>
+	<plug-in
+		className="jp.terasoluna.fw.web.struts.plugins.BLogicIOPlugIn">
+		<set-property property="resources"
+			value="/WEB-INF/downloadblogic/blogic-downloadblogic-io.xml" />
+		<set-property property="digesterRules"
+			value="/WEB-INF/blogic-io-rules.xml" />
+		<set-property property="mapperClass"
+			value="jp.terasoluna.fw.service.thin.BLogicMapper" />
+	</plug-in>
+</struts-config>

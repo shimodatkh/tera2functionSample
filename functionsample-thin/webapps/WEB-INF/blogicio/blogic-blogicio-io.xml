@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+
+  <!-- ビジネスロジック入出力画面「form」のサービス処理 -->
+  <action path="/formBlogicio">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.blogicio.bean.BlogicioParam">
+      <set-property property="form1" source="form" />
+      <set-property property="form2" source="form" />
+    </blogic-params>
+    <blogic-result>
+      <set-property property="form1" dest="form" />
+      <set-property property="form2" dest="form" />
+      <set-property property="paramLog" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- ビジネスロジック入出力画面「request」のサービス処理 -->
+  <action path="/requestBlogicio">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.blogicio.bean.BlogicioParam">
+      <set-property property="requestData" blogic-property="request" source="request" />
+    </blogic-params>
+    <blogic-result>
+      <set-property property="requestData" blogic-property="request" dest="request" />
+      <set-property property="paramLog" dest="request" />
+    </blogic-result>
+  </action>
+
+
+  <!-- ビジネスロジック入出力画面「session」のサービス処理 -->
+  <action path="/sessionBlogicio">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.blogicio.bean.BlogicioParam">
+      <set-property property="sessionData" blogic-property="session" source="session" />
+    </blogic-params>
+    <blogic-result>
+      <set-property property="sessionData" blogic-property="session" dest="session" />
+      <set-property property="paramLog" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- ビジネスロジック入出力画面「application」のサービス処理 -->
+  <action path="/applicationBlogicio">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.blogicio.bean.BlogicioParam">
+      <set-property property="applicationData" blogic-property="application" source="application" />
+    </blogic-params>
+    <blogic-result>
+      <set-property property="applicationData" blogic-property="application" dest="request" />
+      <set-property property="paramLog" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <!-- ビジネスロジック入出力画面「入出力null」結果画面遷移 -->
+  <action path="/nullBlogicio"/>
+  
+</blogic-io>

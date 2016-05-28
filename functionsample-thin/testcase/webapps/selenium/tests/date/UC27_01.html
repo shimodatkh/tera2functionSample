@@ -1,0 +1,122 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC27_01</title></head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC27_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WJ-05 日付変換機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>日付変換(画面ID: SC2701)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateName']</td>
+	<td>｢西暦 2009.01.21  12:12 午前｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateId']</td>
+	<td>｢西暦 2009.01.21  12:34 午後｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateValue']</td>
+	<td>｢西暦 2009.02.21  12:12 午前｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateProperty']</td>
+	<td>｢西暦 2009.03.21  12:34 午後｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateFilter']</td>
+	<td>｢西暦 &lt;2009&gt;.&02.21  "12:12 午前｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateIgnore']</td>
+	<td>｢｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateFormatName']</td>
+	<td>｢西暦 2009.01.21 00:34 午後｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateFormatId']</td>
+	<td>｢西暦 2009.01.21 00:34 午後｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateFormatValue']</td>
+	<td>｢西暦 2009.01.21 00:34 午後｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateFormatProperty']</td>
+	<td>｢西暦 2009.01.21 00:34 午後｣</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='dateFormatFilter']</td>
+	<td>｢西暦 &lt;2009&gt;.&01.21 "00:34 午後｣</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='button' and @value='メニュー画面に戻る']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@type='submit' and @value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

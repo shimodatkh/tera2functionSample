@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>UC05_01</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">UC05_01</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/functionsample-thin/logonForward.do</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>userID</td>
+	<td>00000001</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>password</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオン']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>メニュー(画面ID: SC0001)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='userID']</td>
+	<td>ユーザID:00000001</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=WA-02 アクセス権限チェック機能</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='screenNameID']</td>
+	<td>アクセス権限チェック(画面ID: SC0501)</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-1']</td>
+	<td>※↓Ａが表示されている場合、表示される&lt;t:ifAuthorizedBlock&gt;親要素の文言です。</td>>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-2']</td>
+	<td>※↓Ａが表示されている場合、表示される&lt;t:ifAuthorizedBlock&gt;子要素の文言です。</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-3']</td>
+	<td><br>Ａ：&lt;t:ifAuthorized&gt;要素１表示文言</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-4']</td>
+	<td>Ａ：&lt;t:ifAuthorized&gt;要素２表示文言</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-5']</td>
+	<td>※↓Ｂが表示されている場合、表示される&lt;t:ifAuthorizedBlock&gt;親要素の文言です。</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-6']</td>
+	<td>※↓Ｂが表示されている場合、表示される&lt;t:ifAuthorizedBlock&gt;子要素の文言です。</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-7']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-8']</td>
+	<td>Ｂ：&lt;t:ifAuthorized&gt;要素２表示文言</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-9']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-10']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@id='sc0501-11']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='ログオフ']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id="screenNameID"]</td>
+	<td>ログオン(画面ID: SC0007)</td>
+</tr>
+</tbody></table>
+</body>
+</html>

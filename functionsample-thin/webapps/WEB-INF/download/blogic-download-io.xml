@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+	<action path="/downloadMenu">
+		<blogic-params bean-name="java.lang.Object"></blogic-params>
+		<blogic-result>
+			<set-property property="fileBeans" dest="request" />
+			<set-property property="totalCount" dest="form" />
+		</blogic-result>
+	</action>
+	<action path="/deleteFile">
+		<blogic-params bean-name="jp.terasoluna.thin.functionsample.download.bean.FileDownLoadMenuBean">
+			<set-property property="fileName" source="form"/>
+			<set-property property="filePath" source="form"/>
+		</blogic-params>
+		<blogic-result>
+		</blogic-result>
+	</action>
+
+</blogic-io>

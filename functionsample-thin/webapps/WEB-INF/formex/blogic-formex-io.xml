@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE blogic-io PUBLIC "-//NTTDATA//DTD TERASOLUNA for Spring blogic-io 1.0//JA"
+                           "../dtd/blogic-io.dtd">
+
+<blogic-io>
+  <action path="/validatorFormEx">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.formex.bean.FormExParam" >
+      <set-property property="code1" blogic-property="code1" source="form" />
+      <set-property property="code2" blogic-property="code2" source="form" />
+      <set-property property="code3" blogic-property="code3" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listCode" dest="request" />
+    </blogic-result>
+  </action>  
+  
+  <action path="/dynaValidatorFormEx">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.formex.bean.FormExParam" >
+      <set-property property="code1" blogic-property="code1" source="form" />
+      <set-property property="code2" blogic-property="code2" source="form" />
+      <set-property property="code3" blogic-property="code3" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listCode" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <action path="/cancelPopulateFormEx">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.formex.bean.FormExParam" >
+      <set-property property="code1" blogic-property="code1" source="form" />
+      <set-property property="code2" blogic-property="code2" source="form" />
+      <set-property property="code3" blogic-property="code3" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listCode" dest="request" />
+    </blogic-result>
+  </action>
+  
+  <action path="/modifiedFormEx">
+    <blogic-params bean-name="jp.terasoluna.thin.functionsample.formex.bean.FormExParam" >
+      <set-property property="code1" blogic-property="code1" source="form" />
+      <set-property property="code2" blogic-property="code2" source="form" />
+      <set-property property="code3" blogic-property="code3" source="form" />
+    </blogic-params>
+    
+    <blogic-result>
+      <set-property property="listCode" dest="request" />
+    </blogic-result>
+  </action>
+</blogic-io>
